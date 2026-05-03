@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://getkrowd-del.github.io/adirondack-ales-eats/sitemap.xml
+Sitemap: https://brewpub.getkrowd.com/sitemap.xml
