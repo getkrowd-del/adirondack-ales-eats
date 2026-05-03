@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://brewpub.getkrowd.com/specials/</loc>
+    <lastmod>2026-05-03T19:14:42.777Z</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>https://brewpub.getkrowd.com/order/</loc>
     <lastmod>2026-05-03T19:10:30.916Z</lastmod>
     <changefreq>weekly</changefreq>
