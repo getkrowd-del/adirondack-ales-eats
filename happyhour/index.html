@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
 
 
 <!-- SEO Meta Tags -->
@@ -196,28 +197,41 @@
 </head>
 <body>
 
-<!-- CHAT -->
-<div id="chat-teaser"><div class="teaser-bubble"><button class="teaser-close" id="teaser-close-btn">✕</button><p class="teaser-text">👋 Welcome! You can join or access our <strong>High Peaks Perks</strong> VIP Club here, or ask me any questions you have!</p></div></div>
+<!-- ============================================================================ -->
+<!-- CHAT WIDGET SECTION: Floating assistant access and teaser message            -->
+<!-- Features: Delayed teaser, close button, embedded chat panel                  -->
+<!-- Mobile Padding: Fixed positioning keeps widget away from viewport edges      -->
+<!-- ============================================================================ -->
+<div data-section="chat-widget" id="chat-teaser"><div class="teaser-bubble"><button class="teaser-close" id="teaser-close-btn">✕</button><p class="teaser-text">👋 Welcome! You can join or access our <strong>High Peaks Perks</strong> VIP Club here, or ask me any questions you have!</p></div></div>
 <button id="custom-chat-btn"><img src="https://krowdimg.b-cdn.net/mug.png" alt="Chat"></button>
 <div id="chat-panel"><iframe id="chat-iframe" src="" allow="microphone"></iframe></div>
 
-<nav>
-  <a href="https://paymegpt.com/p/Z4fsdCvkk" class="nav-logo"><img src="https://brewpub.getkrowd.com/images/adkalelogo.png" alt="Logo"></a>
+<!-- ============================================================================ -->
+<!-- NAVBAR SECTION: Sticky site navigation with logo, page links, and CTA        -->
+<!-- Features: Desktop links, active happy hour link, order online button         -->
+<!-- Mobile Padding: Horizontal padding keeps navigation safely inset             -->
+<!-- ============================================================================ -->
+<nav data-section="navbar">
+  <a href="https://bubs.getkrowd.com/" class="nav-logo"><img src="https://brewpub.getkrowd.com/images/adkalelogo.png" alt="Logo"></a>
   <div class="nav-center"><ul class="nav-links">
-    <li><a href="https://paymegpt.com/p/Z4fsdCvkk">Home</a></li>
-    <li><a href="https://paymegpt.com/p/Jzaf578T">Tap List</a></li>
-    <li><a href="https://paymegpt.com/p/TCJCUJXzxf">Food</a></li>
-    <li><a href="https://paymegpt.com/p/2wzPSitC">Events</a></li>
-    <li><a href="https://paymegpt.com/p/m8sNym">Specials</a></li>
-    <li><a href="#" class="active">Happy Hour</a></li>
-    <li><a href="https://paymegpt.com/p/Z4fsdCvkk#visit">Visit</a></li>
-    <li><a href="https://paymegpt.com/p/TCJCUJXzxf" class="order-link">Order Online</a></li>
+    <li><a href="https://bubs.getkrowd.com/">Home</a></li>
+    <li><a href="https://bubs.getkrowd.com/drinks/">Tap List</a></li>
+    <li><a href="https://bubs.getkrowd.com/foodmenu">Food</a></li>
+    <li><a href="https://bubs.getkrowd.com/events/">Events</a></li>
+    <li><a href="https://bubs.getkrowd.com/parties/">Parties</a></li>
+    <li><a href="https://bubs.getkrowd.com/happyhour/" class="active">Happy Hour</a></li>
+    <li><a href="https://bubs.getkrowd.com/about/">About</a></li>
+    <li><a href="https://bubs.getkrowd.com/foodmenu" class="order-link">Order Online</a></li>
   </ul></div>
-  <div class="nav-right"><a href="https://paymegpt.com/p/Z4fsdCvkk" class="nav-back">← Home</a></div>
+  <div class="nav-right"><a href="https://bubs.getkrowd.com/" class="nav-back">← Home</a></div>
 </nav>
 
-<!-- HERO -->
-<div class="hh-hero">
+<!-- ============================================================================ -->
+<!-- HERO SECTION: Main landing area with headline, subtext, and time badge       -->
+<!-- Features: Dark gradient background, beer icon watermark, responsive heading  -->
+<!-- Mobile Padding: Section padding prevents headline from touching edges        -->
+<!-- ============================================================================ -->
+<div data-section="hero" class="hh-hero">
   <div class="hh-hero-inner">
     <div class="hh-eyebrow">Daily Deals</div>
     <h1>Happy Hour<br><em>Every Day.</em></h1>
@@ -226,8 +240,12 @@
   </div>
 </div>
 
-<!-- DAY FILTER -->
-<div class="day-filter" id="dayFilter">
+<!-- ============================================================================ -->
+<!-- DAY FILTER SECTION: Interactive buttons for filtering happy hour specials    -->
+<!-- Features: All days filter, weekday buttons, active state styling             -->
+<!-- Mobile Padding: Wrapped button row maintains touch-friendly spacing          -->
+<!-- ============================================================================ -->
+<div data-section="day-filter" class="day-filter" id="dayFilter">
   <button class="day-btn active" data-day="0">All Days</button>
   <button class="day-btn" data-day="2">Monday</button>
   <button class="day-btn" data-day="3">Tuesday</button>
@@ -237,14 +255,23 @@
   <button class="day-btn" data-day="7">Saturday</button>
 </div>
 
-<!-- CARDS -->
-<div class="hh-content">
+<!-- ============================================================================ -->
+<!-- HAPPY HOUR CARDS SECTION: Dynamic happy hour specials loaded from API        -->
+<!-- Features: Responsive card grid, today's highlight, loading and error states  -->
+<!-- Mobile Padding: Content wrapper includes safe spacing on all viewports       -->
+<!-- ============================================================================ -->
+<div data-section="happy-hour-cards" class="hh-content">
   <div class="hh-grid" id="hhGrid">
     <div class="loading"><div class="spinner"></div><p>Loading happy hour...</p></div>
   </div>
 </div>
 
-<footer><p>© 2026 <a href="https://paymegpt.com/p/Z4fsdCvkk">Adirondack Ales & Eats</a> · <a href="tel:+13155993366">(315) 599-3366</a> · Drink responsibly. Must be 21+.</p></footer>
+<!-- ============================================================================ -->
+<!-- FOOTER SECTION: Copyright, home link, phone number, and responsible notice   -->
+<!-- Features: Restaurant contact link and legal drinking reminder                -->
+<!-- Mobile Padding: Footer padding keeps text readable on small screens          -->
+<!-- ============================================================================ -->
+<footer data-section="footer"><p>© 2026 <a href="https://bubs.getkrowd.com/">Adirondack Ales & Eats</a> · <a href="tel:+13155993366">(315) 599-3366</a> · Drink responsibly. Must be 21+.</p></footer>
 
 
   <script src="script.js"></script>
