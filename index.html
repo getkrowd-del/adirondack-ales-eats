@@ -203,184 +203,102 @@
 
 <div id="chat-teaser">
   <div class="teaser-bubble">
-    <button class="teaser-close" id="teaser-close-btn">✕</button>
-    <p class="teaser-text">👋 Welcome! You can join our <strong>High Peaks Perks</strong> VIP Club here, or ask me any questions!</p>
+    <button class="teaser-close" id="teaser-close-btn" style="position:absolute; top:5px; right:10px; color:var(--text); background:none; border:none; cursor:pointer;">✕</button>
+    <p class="teaser-text" style="font-size:0.88rem; color:var(--cream);">👋 Welcome! Join <strong>High Peaks Perks</strong> Club here!</p>
   </div>
 </div>
 
-<button id="custom-chat-btn">
-  <img src="https://krowdimg.b-cdn.net/mug.png" alt="Chat">
-</button>
+<button id="custom-chat-btn"><img src="https://krowdimg.b-cdn.net/mug.png" alt="Chat" style="width:100%;"></button>
 
-<div id="chat-panel">
-  <iframe id="chat-iframe" src="" allow="microphone"></iframe>
-</div>
+<div id="chat-panel"><iframe id="chat-iframe" width="100%" height="100%" frameborder="0" allow="microphone"></iframe></div>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="https://brewpub.getkrowd.com/tap-list">🍺 Tap List</a>
-  <a href="https://brewpub.getkrowd.com/order">🍕 Food</a>
-  <a href="#experience">🏭 Experience</a>
-  <a href="https://brewpub.getkrowd.com/events">🎸 Events</a>
-  <a href="https://brewpub.getkrowd.com/specials">🏷️ Specials</a>
-  <a href="https://brewpub.getkrowd.com/happy-hour">🍻 Happy Hour</a>
-  <a href="#visit">📍 Visit</a>
-  <a href="tel:+13155993366">📞 315-599-3366</a>
-  <a href="https://brewpub.getkrowd.com/order" class="order-mobile">Order Online</a>
+  <a href="https://brewpub.getkrowd.com/taplist/">🍺 Tap List</a>
+  <a href="https://brewpub.getkrowd.com/order/">🍕 Food Menu</a>
+  <a href="https://brewpub.getkrowd.com/events/">🎸 Events</a>
+  <a href="https://brewpub.getkrowd.com/specials/">🏷️ Specials</a>
+  <a href="https://brewpub.getkrowd.com/happyhour/">🍻 Happy Hour</a>
+  <a href="https://brewpub.getkrowd.com/order/" class="order-mobile">Order Online</a>
 </div>
 
 <nav>
   <a href="https://brewpub.getkrowd.com/" class="nav-logo"><img src="https://brewpub.getkrowd.com/images/adkalelogo.png" alt="Logo"></a>
   <div class="nav-center">
     <ul class="nav-links">
-      <li><a href="https://brewpub.getkrowd.com/tap-list">Tap List</a></li>
-      <li><a href="https://brewpub.getkrowd.com/order">Food</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="https://brewpub.getkrowd.com/events">Events</a></li>
-      <li><a href="https://brewpub.getkrowd.com/specials">Specials</a></li>
-      <li><a href="https://brewpub.getkrowd.com/happy-hour">Happy Hour</a></li>
-      <li><a href="#visit">Visit</a></li>
-      <li><a href="https://brewpub.getkrowd.com/order" class="order-link">Order Online</a></li>
+      <li><a href="https://brewpub.getkrowd.com/taplist/">Tap List</a></li>
+      <li><a href="https://brewpub.getkrowd.com/order/">Food</a></li>
+      <li><a href="https://brewpub.getkrowd.com/events/">Events</a></li>
+      <li><a href="https://brewpub.getkrowd.com/specials/">Specials</a></li>
+      <li><a href="https://brewpub.getkrowd.com/happyhour/">Happy Hour</a></li>
+      <li><a href="https://brewpub.getkrowd.com/order/" class="order-link">Order Online</a></li>
     </ul>
   </div>
   <div class="nav-right"><a href="tel:+13155993366" class="nav-cta">📞 315-599-3366</a></div>
   <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
 </nav>
 
-<div class="hero" id="home">
+<div class="hero">
   <div class="hero-slides" id="heroSlides">
-    <div class="hero-slide"><img src="https://brewpub.getkrowd.com/images/close-up-happy-men-with-beer-mugs.jpg" alt="Guests"><div class="hero-slide-overlay"></div></div>
-    <div class="hero-slide"><img src="https://brewpub.getkrowd.com/images/mid-section-bar-tender-filling-beer-from-bar-pump.jpg" alt="Bartender"><div class="hero-slide-overlay"></div></div>
-    <div class="hero-slide"><img src="https://brewpub.getkrowd.com/images/fresh-buffalo-chicken-wings-with-savory-dip-appetizer-generative-ai.jpg" alt="Wings"><div class="hero-slide-overlay"></div></div>
+    <div class="hero-slide"><img src="https://brewpub.getkrowd.com/images/close-up-happy-men-with-beer-mugs.jpg"><div class="hero-slide-overlay"></div></div>
   </div>
   <div class="hero-content">
-    <div class="hero-eyebrow">Craft Brewery & Kitchen</div>
-    <h1>Brewed in the<br><em>Adirondacks.</em><br>Born for Good Times.</h1>
-    <p>Small-batch ales, locally sourced food, and mountain-town vibes — right in the heart of the North Country.</p>
+    <div class="hero-eyebrow" style="color:var(--amber-light); border: 1px solid var(--amber); padding: 4px 10px; margin-bottom:1rem; text-transform:uppercase; letter-spacing:2px;">Craft Brewery & Kitchen</div>
+    <h1>Brewed in the<br><em>Adirondacks.</em></h1>
+    <p>Small-batch ales and locally sourced food in the heart of the North Country.</p>
     <div class="hero-buttons">
-      <a href="https://brewpub.getkrowd.com/tap-list" class="btn-primary">See What's on Tap</a>
-      <a href="https://brewpub.getkrowd.com/order" class="btn-outline">Explore the Menu</a>
+      <a href="https://brewpub.getkrowd.com/taplist/" class="btn-primary">See What's on Tap</a>
+      <a href="https://brewpub.getkrowd.com/order/" class="btn-outline">Explore the Menu</a>
     </div>
-  </div>
-  <button class="hero-prev" id="heroPrev">←</button>
-  <button class="hero-next" id="heroNext">→</button>
-  <div class="hero-dots" id="heroDots"></div>
-</div>
-
-<div class="carousel-section" id="gallery">
-  <div class="carousel-header">
-    <div class="section-label" style="justify-content:center;">The Vibe</div>
-    <h2>Life at the Taproom</h2>
-  </div>
-  <div class="carousel-wrap">
-    <div class="carousel-track" id="carouselTrack">
-      <div class="carousel-slide"><img src="https://krowdimg.b-cdn.net/closeup-friends-toasting-with-beer.jpg" alt="Guests"><div class="slide-caption">Good Times, Good People</div></div>
-      <div class="carousel-slide"><img src="https://krowdimg.b-cdn.net/close-up-bartender-pouring-beer.jpg" alt="Bartender"><div class="slide-caption">Fresh Pours Daily</div></div>
-      <div class="carousel-slide"><img src="https://krowdimg.b-cdn.net/farmtotable.jpg" alt="Food"><div class="slide-caption">Farm-to-Table Kitchen</div></div>
-      <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80" alt="Brewing"><div class="slide-caption">Craft & Passion</div></div>
-      <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=900&q=80" alt="Music"><div class="slide-caption">Live Music Weekends</div></div>
-      <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1541614101331-1a5a3a194e92?w=900&q=80" alt="Events"><div class="slide-caption">Private Events</div></div>
-      <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=900&q=80" alt="Brewery"><div class="slide-caption">Behind the Tanks</div></div>
-    </div>
-  </div>
-  <div class="carousel-controls">
-    <button class="carousel-btn" id="carouselPrev">←</button>
-    <div class="carousel-dots" id="carouselDots"></div>
-    <button class="carousel-btn" id="carouselNext">→</button>
   </div>
 </div>
 
-<section class="story" id="about">
-  <div class="story-inner">
-    <div class="story-images">
-      <div class="story-img-main"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="Brewmaster" loading="lazy"></div>
-      <div class="story-img-accent"><img src="https://images.unsplash.com/photo-1575367439058-6096bb43d5d3?w=600&q=80" alt="Ale" loading="lazy"></div>
-      <div class="amber-badge"><img src="https://brewpub.getkrowd.com/images/adkalelogo.png" alt="ADK Logo"></div>
-    </div>
+<section class="food">
+  <div style="max-width:1200px; margin:0 auto; display:grid; grid-template-columns: 1fr 1fr; gap:50px; align-items:center;">
     <div>
-      <div class="section-label">Our Story</div>
-      <h2>More Than a Brewpub.<br>It's a Way of Life.</h2>
-      <p class="lead">We started with a dream, a copper kettle, and a deep love for the Adirondacks. Every beer we brew and every dish we serve is a tribute to this wild, beautiful corner of New York.</p>
-      <p class="lead" style="margin-top:1.2rem;">From our flagship ales to our seasonal farm-to-table small plates, everything at Adirondack Ales & Eats is crafted with intention — and poured with pride.</p>
-      <div class="story-stats">
-        <div class="stat"><div class="stat-number">20+</div><div class="stat-label">Rotating Taps</div></div>
-        <div class="stat"><div class="stat-number">100%</div><div class="stat-label">Locally Sourced</div></div>
-        <div class="stat"><div class="stat-number">4</div><div class="stat-label">Seasonal Menus</div></div>
-        <div class="stat"><div class="stat-number">Live</div><div class="stat-label">Music Every Weekend</div></div>
+      <div class="section-label">The Kitchen</div>
+      <h2>Food That<br>Earns Its Seat.</h2>
+      <p class="lead">Chef-driven, seasonal plates always paired perfectly to the pint.</p>
+      <div class="food-btns">
+        <a href="https://brewpub.getkrowd.com/order/" class="btn-primary">Order Online Now</a>
+        <a href="https://menu.eatdrinklocals.com/index.cfm/1071" target="_blank" class="btn-outline">Personalize Our Menu</a>
       </div>
     </div>
-  </div>
-</section>
-
-<section class="food" id="food">
-  <div class="food-inner">
-    <div class="food-intro">
-      <div>
-        <div class="section-label">The Kitchen</div>
-        <h2>Food That<br>Earns Its Seat.</h2>
-        <p class="lead" style="margin-top:1rem;">Chef-driven, seasonally rotating, and always paired to the pint.</p>
-        <div class="food-btns">
-          <a href="https://brewpub.getkrowd.com/order" class="btn-primary">Order Online</a>
-          <a href="https://menu.eatdrinklocals.com/index.cfm/1071" target="_blank" class="btn-outline">Personalize Our Menu</a>
-        </div>
-      </div>
-      <div class="food-image"><img src="https://brewpub.getkrowd.com/images/fresh-buffalo-chicken-wings-with-savory-dip-appetizer-generative-ai.jpg" alt="Food" loading="lazy"></div>
-    </div>
-    <div class="menu-categories">
-      <button class="menu-cat active">Starters</button>
-      <button class="menu-cat">Pizzas</button>
-      <button class="menu-cat">Burgers</button>
-      <button class="menu-cat">Burritos</button>
-      <button class="menu-cat">Desserts</button>
-    </div>
-    <div class="menu-grid">
-      <div class="menu-item"><div><div class="menu-item-name">Cheesy Bread</div><div class="menu-item-desc">House-made breadsticks, mozzarella, parmesan, parsley.</div></div><div class="menu-item-price">$6</div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Cauliflower Wings</div><div class="menu-item-desc">Beer-battered cauliflower, house buffalo, house ranch.</div></div><div class="menu-item-price">$9</div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Mac N Cheese</div><div class="menu-item-desc">Noodles, cheddar cheese, mozzarella, basil, bread crumbs.</div></div><div class="menu-item-price">$9</div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Buffalo Chicken Dip</div><div class="menu-item-desc">Cream cheese, chicken, cheddar, tortilla chips.</div></div><div class="menu-item-price">$14</div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Smash Burger</div><div class="menu-item-desc">Velveeta cheese, lettuce, tomato, onion, smash sauce.</div></div><div class="menu-item-price">$14</div></div>
-      <div class="menu-item"><div><div class="menu-item-name">🌋 Volcano Burger</div><div class="menu-item-desc">Chili Volcano sauce, jalapeños, lettuce, tomato, cheddar cheese.</div></div><div class="menu-item-price">$16.99</div></div>
-    </div>
-  </div>
-</section>
-
-<section class="experience" id="experience">
-  <div class="experience-grid">
-    <div class="exp-panel"><div class="exp-panel-bg"><img src="https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=900&q=80" alt="Tours" loading="lazy"></div><div class="exp-panel-overlay"></div><div class="exp-content"><div class="exp-icon">🏭</div><div class="exp-title">Brewery Tours</div><div class="exp-desc">Go behind the taps. Guided tours every Saturday at 2pm.</div></div></div>
-    <div class="exp-panel"><div class="exp-panel-bg"><img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=900&q=80" alt="Music" loading="lazy"></div><div class="exp-panel-overlay"></div><div class="exp-content"><div class="exp-icon">🎸</div><div class="exp-title">Live Music</div><div class="exp-desc">Fridays and Saturdays — local and regional acts, never a cover charge.</div></div></div>
-    <div class="exp-panel"><div class="exp-panel-bg"><img src="https://images.unsplash.com/photo-1541614101331-1a5a3a194e92?w=900&q=80" alt="Events" loading="lazy"></div><div class="exp-panel-overlay"></div><div class="exp-content"><div class="exp-icon">🥂</div><div class="exp-title">Private Events</div><div class="exp-desc">Lodge-style private seating up to 50 guests. Custom menus and exclusive releases.</div></div></div>
-  </div>
-</section>
-
-<section class="visit" id="visit">
-  <div class="visit-inner">
-    <div>
-      <div class="section-label">Plan Your Visit</div>
-      <h2>Come Find Us<br>in the Mountains.</h2>
-      <div class="info-block">
-        <div class="info-row"><div class="info-icon">📍</div><div><div class="info-label">Location</div><div class="info-value">123 Brewery Lane<br>Lake Placid, NY 12946</div></div></div>
-        <div class="info-row"><div class="info-icon">📞</div><div><div class="info-label">Phone</div><div class="info-value"><a href="tel:+13155993366" style="color:var(--cream);text-decoration:none;">(315) 599-3366</a></div></div></div>
-        <div class="info-row"><div class="info-icon">🕐</div><div><div class="info-label">Hours</div><div class="hours-grid"><div class="hours-row"><strong>Mon–Thu</strong><span>3pm – 10pm</span></div><div class="hours-row"><strong>Friday</strong><span>12pm – 12am</span></div><div class="hours-row"><strong>Saturday</strong><span>11am – 12am</span></div><div class="hours-row"><strong>Sunday</strong><span>11am – 9pm</span></div></div></div></div>
-      </div>
-      <div class="cta-bar"><p>Ready to raise a glass?<br>Reservations recommended on weekends.</p><a href="tel:+13155993366">Call to Reserve</a></div>
-    </div>
-    <div class="visit-map">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11383.5!2d-73.9800!3d44.2795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccaec4b7c0a1234%3A0x0!2sLake+Placid%2C+NY+12946!5e0!3m2!1sen!2sus!4v1234567890" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
+    <div><img src="https://brewpub.getkrowd.com/images/fresh-buffalo-chicken-wings-with-savory-dip-appetizer-generative-ai.jpg" style="width:100%; border-radius:10px;"></div>
   </div>
 </section>
 
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <img src="https://brewpub.getkrowd.com/images/adkalelogo.png" alt="Logo" style="width:70px;height:70px;border-radius:50%;border:2px solid var(--amber);object-fit:cover;margin-bottom:16px;">
-      <p>Handcrafted beers, locally sourced food, and the spirit of the Adirondacks in every pint.</p>
-      <div class="footer-socials"><a class="social-btn" href="#" aria-label="Facebook">f</a><a class="social-btn" href="#" aria-label="Instagram">📸</a><a class="social-btn" href="#" aria-label="Untappd">🍺</a></div>
+      <img src="https://brewpub.getkrowd.com/images/adkalelogo.png" style="width:70px; border-radius:50%; margin-bottom:1rem;">
+      <p>Handcrafted beers and the spirit of the Adirondacks in every pint.</p>
     </div>
-    <div class="footer-col"><h4>Explore</h4><ul><li><a href="https://brewpub.getkrowd.com/tap-list">Tap List</a></li><li><a href="https://brewpub.getkrowd.com/order">Food Menu</a></li><li><a href="https://brewpub.getkrowd.com/events">Events</a></li><li><a href="https://brewpub.getkrowd.com/specials">Specials</a></li><li><a href="https://brewpub.getkrowd.com/happy-hour">Happy Hour</a></li></ul></div>
-    <div class="footer-col"><h4>Visit</h4><ul><li><a href="#">Lake Placid, NY</a></li><li><a href="tel:+13155993366">(315) 599-3366</a></li><li><a href="#">Mon–Thu: 3–10pm</a></li><li><a href="#">Fri–Sat: 12pm–12am</a></li><li><a href="#">Sun: 11am–9pm</a></li></ul></div>
-    <div class="footer-col"><h4>Connect</h4><ul><li><a href="#">Newsletter Signup</a></li><li><a href="#">Gift Cards</a></li><li><a href="#">Careers</a></li><li><a href="https://menu.eatdrinklocals.com/index.cfm/1071" target="_blank">Full Menu</a></li><li><a href="https://brewpub.getkrowd.com/order">Order Online</a></li></ul></div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="https://brewpub.getkrowd.com/taplist/">Tap List</a></li>
+        <li><a href="https://brewpub.getkrowd.com/order/">Food Menu</a></li>
+        <li><a href="https://brewpub.getkrowd.com/events/">Events</a></li>
+        <li><a href="https://brewpub.getkrowd.com/specials/">Specials</a></li>
+        <li><a href="https://brewpub.getkrowd.com/happyhour/">Happy Hour</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Visit</h4>
+      <ul>
+        <li><a href="#">Lake Placid, NY</a></li>
+        <li><a href="tel:+13155993366">(315) 599-3366</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="https://brewpub.getkrowd.com/order/">Order Online</a></li>
+        <li><a href="https://menu.eatdrinklocals.com/index.cfm/1071" target="_blank">Full Digital Menu</a></li>
+      </ul>
+    </div>
   </div>
-  <div class="footer-bottom"><p>© 2026 Adirondack Ales & Eats. All rights reserved. Drink responsibly. Must be 21+.</p><p>Proudly brewed in the Adirondacks 🏔️</p></div>
+  <div style="text-align:center; padding-top:40px; color:rgba(180,160,120,0.4); font-size:0.8rem;">© 2026 Adirondack Ales & Eats. Drink responsibly. Must be 21+.</div>
 </footer>
 
 
