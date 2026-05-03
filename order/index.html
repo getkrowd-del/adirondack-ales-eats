@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
+
+
+<!-- SEO Meta Tags -->
+<title>Order Online | Adirondack Ales &amp; Eats</title>
+<meta property="og:title" content="Order Online | Adirondack Ales &amp; Eats" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Order Online | Adirondack Ales &amp; Eats" />
+<!-- End SEO Meta Tags -->
+
+<script data-field-replace>
+(function(){
+  var params=new URLSearchParams(window.location.search);
+  var fields={};
+  var paramMap={
+    'first_name':'firstName','last_name':'lastName','full_name':'fullName',
+    'email':'email','phone':'phone','company':'company',
+    'city':'city','state':'state','country':'country'
+  };
+  var skipTags={'SCRIPT':1,'STYLE':1,'NOSCRIPT':1,'TEXTAREA':1,'CODE':1,'PRE':1};
+  var hasUrlFields=false;
+  for(var p in paramMap){
+    var v=params.get(p);
+    if(v){fields[paramMap[p]]=v;hasUrlFields=true;}
+  }
+  var contactId=params.get('contact_id');
+  function esc(s){
+    if(!s)return s;
+    var d=document.createElement('div');
+    d.appendChild(document.createTextNode(s));
+    return d.innerHTML;
+  }
+  function doReplace(data){
+    var r={};
+    r['{{full_name}}']=esc(((data.firstName||'')+' '+(data.lastName||'')).trim()||((data.fullName||data.name)||''));
+    r['{{first_name}}']=esc(data.firstName||(data.name?data.name.split(' ')[0]:'')||'');
+    r['{{last_name}}']=esc(data.lastName||(data.name&&data.name.indexOf(' ')>-1?data.name.substring(data.name.indexOf(' ')+1):'')||'');
+    r['{{email}}']=esc(data.email||'');
+    r['{{phone}}']=esc(data.phone||'');
+    r['{{company}}']=esc(data.company||'');
+    r['{{city}}']=esc(data.city||'');
+    r['{{state}}']=esc(data.state||'');
+    r['{{country}}']=esc(data.country||'');
+    r['{{date}}']=new Date().toLocaleDateString();
+    r['{{time}}']=new Date().toLocaleTimeString();
+    r['{{location}}']=[data.city,data.state,data.country].filter(Boolean).join(', ');
+    r['{{tracking_id}}']=esc(data.trackingId||'');
+    r['{{lastClickedProduct}}']=esc(data.lastClickedProduct||'');
+    r['{{lastProductClickDate}}']=esc(data.lastProductClickDate||'');
+    r['{{lastClickedProductPrice}}']=esc(data.lastClickedProductPrice||'');
+    r['{{lastClickedProductURL}}']=esc(data.lastClickedProductURL||'');
+    r['{{productsClickedCount}}']=esc(data.productsClickedCount||'0');
+    r['{{ip_address}}']=esc(data.ipAddress||'');
+    r['{{ip}}']=esc(data.ipAddress||'');
+    if(data.customFields){
+      for(var k in data.customFields){
+        r['{{'+k+'}}']=esc(String(data.customFields[k]||''));
+      }
+    }
+    params.forEach(function(v,k){
+      if(!paramMap[k]&&k!=='contact_id'&&k!=='page_id'&&k.indexOf('utm_')!==0){
+        r['{{'+k+'}}']=esc(v);
+      }
+    });
+    var hasValues=false;
+    for(var key in r){if(r[key]){hasValues=true;break;}}
+    if(!hasValues)return;
+    var walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{
+      acceptNode:function(n){
+        var p=n.parentNode;
+        if(p&&skipTags[p.nodeName])return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var node;
+    while(node=walker.nextNode()){
+      var txt=node.nodeValue;
+      if(txt&&txt.indexOf('{{')>-1){
+        var changed=txt;
+        for(var ph in r){
+          if(r[ph]&&changed.indexOf(ph)>-1){
+            changed=changed.split(ph).join(r[ph]);
+          }
+        }
+        if(changed!==txt)node.nodeValue=changed;
+      }
+    }
+    var attrs=['value','placeholder','content','alt','title'];
+    attrs.forEach(function(attr){
+      var els=document.querySelectorAll('['+attr+'*="{{"]');
+      for(var i=0;i<els.length;i++){
+        var tag=els[i].tagName;
+        if(skipTags[tag])continue;
+        var val=els[i].getAttribute(attr);
+        if(val){
+          var nv=val;
+          for(var ph in r){
+            if(r[ph]&&nv.indexOf(ph)>-1){
+              nv=nv.split(ph).join(r[ph]);
+            }
+          }
+          if(nv!==val)els[i].setAttribute(attr,nv);
+        }
+      }
+    });
+  }
+  function run(){
+    if(contactId){
+      var xhr=new XMLHttpRequest();
+      xhr.open('GET','https://paymegpt.com/api/landing/context/'+encodeURIComponent(contactId)+'?page_id=3589');
+      xhr.onload=function(){
+        if(xhr.status===200){
+          try{
+            var resp=JSON.parse(xhr.responseText);
+            if(resp.success&&resp.contact){
+              var merged=resp.contact;
+              for(var k in fields){merged[k]=fields[k];}
+              doReplace(merged);
+              return;
+            }
+          }catch(e){}
+        }
+        if(hasUrlFields)doReplace(fields);
+      };
+      xhr.onerror=function(){if(hasUrlFields)doReplace(fields);};
+      xhr.send();
+    }else if(hasUrlFields){
+      doReplace(fields);
+    }
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',run);}
+  else{run();}
+})();
+</script>
+<script data-payment>
+(function(){
+  var slug='TCJCUJXzxf';
+  var apiBase='https://paymegpt.com';
+  function findEmail(){
+    var ids=['email','emailAddress','buyer-email','buyerEmail','user-email','userEmail','checkout-email','customer-email','contact-email'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.includes('@'))return el.value.trim();}
+    var inputs=document.querySelectorAll('input[type="email"],input[name*="email"],input[placeholder*="email"],input[placeholder*="Email"]');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.includes('@'))return inputs[j].value.trim();}
+    return '';
+  }
+  function findName(){
+    var ids=['name','fullName','full-name','buyer-name','buyerName','customer-name','userName','user-name'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value)return el.value.trim();}
+    var inputs=document.querySelectorAll('input[name*="name"]:not([name*="email"]):not([type="email"]),input[placeholder*="name"]:not([placeholder*="email"]):not([type="email"]),input[placeholder*="Name"]:not([type="email"])');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value)return inputs[j].value.trim();}
+    return '';
+  }
+  var __realProcessPayment=function(a,b,c,d,e){
+    var amountCents,email,productName,productDescription,customerName,quantity;
+    if(a&&typeof a==='object'){
+      amountCents=a.amountCents;email=a.email;productName=a.productName;
+      productDescription=a.productDescription||'';customerName=a.name||'';quantity=a.quantity||1;
+    }else{
+      amountCents=typeof a==='number'?a:0;productName=typeof b==='string'?b:'';
+      productDescription=typeof c==='string'?c:'';email='';customerName='';quantity=1;
+    }
+    if(!email)email=findEmail();
+    if(!customerName)customerName=findName();
+    if(!productName){alert('Product name is required.');return Promise.reject('no_product_name');}
+    if(!amountCents||amountCents<100){alert('Amount must be at least $1.00');return Promise.reject('invalid_amount');}
+    if(!email){alert('Please enter your email address.');return Promise.reject('no_email');}
+    var successBase=window.location.href.split('?')[0];
+    return fetch(apiBase+'/api/landing-pages/public/'+slug+'/payment/checkout',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({email:email,name:customerName,amountCents:amountCents,productName:productName,productDescription:productDescription,quantity:quantity,successUrl:successBase+'?payment=success&product='+encodeURIComponent(productName)+'&session_id={CHECKOUT_SESSION_ID}',cancelUrl:successBase+'?payment=cancelled'})
+    }).then(function(r){return r.json();}).then(function(d){
+      if(d.checkoutUrl){window.location.href=d.checkoutUrl;}
+      else{alert(d.error||'Failed to process payment');throw new Error(d.error);}
+    });
+  };
+  Object.defineProperty(window,'__processPayment',{value:__realProcessPayment,writable:false,configurable:false});
+  document.addEventListener('DOMContentLoaded',function(){
+    var urlParams=new URLSearchParams(window.location.search);
+    if(urlParams.get('payment')==='success'){
+      var pName=urlParams.get('product')||'your item';
+      var overlay=document.createElement('div');overlay.id='payment-success-overlay';
+      overlay.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;';
+      overlay.innerHTML='<div style="background:white;border-radius:16px;padding:40px;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.15);"><div style="width:64px;height:64px;border-radius:50%;background:#dcfce7;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#111827;">Payment Successful!</h2><p style="margin:0 0 24px;color:#6b7280;font-size:16px;">Thank you for purchasing '+pName.replace(/</g,'&lt;').replace(/>/g,'&gt;')+'.</p><button onclick="document.getElementById(\'payment-success-overlay\').remove();window.history.replaceState({},\'\',window.location.pathname);" style="padding:12px 32px;font-size:16px;font-weight:600;background:#16a34a;color:white;border:none;border-radius:8px;cursor:pointer;">Continue</button></div>';
+      document.body.appendChild(overlay);
+    }
+  });
+})();
+</script>  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- CHAT -->
+<div id="chat-teaser"><div class="teaser-bubble"><button class="teaser-close" id="teaser-close-btn">✕</button><p class="teaser-text">👋 Welcome! You can join or access our <strong>High Peaks Perks</strong> VIP Club here, or ask me any questions you have!</p></div></div>
+<button id="custom-chat-btn"><img src="https://krowdimg.b-cdn.net/mug.png" alt="Chat"></button>
+<div id="chat-panel"><iframe id="chat-iframe" src="" allow="microphone"></iframe></div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- CHECKOUT MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <div id="checkoutForm">
+      <h2>Complete Your Order</h2>
+      <p>Fill in your details and we'll have your order ready!</p>
+      <div class="order-summary"><h4>Your Order</h4><div id="summaryItems"></div><div class="summary-total"><span>Total</span><span id="summaryTotal"></span></div></div>
+      <div class="form-row">
+        <div class="form-group"><label>First Name</label><input type="text" id="firstName" placeholder="Jane" required></div>
+        <div class="form-group"><label>Last Name</label><input type="text" id="lastName" placeholder="Smith" required></div>
+      </div>
+      <div class="form-group"><label>Phone Number</label><input type="tel" id="phone" placeholder="(315) 555-0123" required></div>
+      <div class="form-group"><label>Email</label><input type="email" id="email" placeholder="jane@example.com"></div>
+      <div class="form-group"><label>Order Type</label><select id="orderType"><option value="pickup">Pickup</option><option value="dine-in">Dine In</option></select></div>
+      <div class="form-group"><label>Special Instructions</label><textarea id="instructions" placeholder="Allergies, modifications, etc..."></textarea></div>
+      <div class="modal-btns"><button class="modal-cancel" id="modalCancel">Cancel</button><button class="modal-submit" id="modalSubmit">🍺 Place Order</button></div>
+    </div>
+    <div class="success-screen" id="successScreen">
+      <div class="success-icon">🎉</div>
+      <h2>Order Received!</h2>
+      <div class="order-num" id="orderNum"></div>
+      <p>Thanks! We've received your order and will have it ready shortly.<br><br>Call us at <a href="tel:+13155993366" style="color:var(--amber-light)">(315) 599-3366</a> with questions.</p>
+      <button class="checkout-btn" style="margin-top:24px;" onclick="closeModal()">Back to Menu</button>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav data-section="navbar">
+  <a href="https://paymegpt.com/p/Z4fsdCvkk" class="nav-logo"><img src="https://brewpub.getkrowd.com/images/adkalelogo.png" alt="Logo"></a>
+  <div class="nav-center">
+    <ul class="nav-links">
+      <li><a href="https://paymegpt.com/p/Z4fsdCvkk">Home</a></li>
+      <li><a href="https://paymegpt.com/p/Jzaf578T">Tap List</a></li>
+      <li><a href="https://paymegpt.com/p/TCJCUJXzxf" class="active">Food</a></li>
+      <li><a href="https://paymegpt.com/p/2wzPSitC">Events</a></li>
+      <li><a href="https://paymegpt.com/p/m8sNym">Specials</a></li>
+      <li><a href="https://paymegpt.com/p/KHLZ5RE">Happy Hour</a></li>
+      <li><a href="https://paymegpt.com/p/Z4fsdCvkk#visit">Visit</a></li>
+      <li><a href="https://paymegpt.com/p/TCJCUJXzxf" class="order-link">Order Online</a></li>
+    </ul>
+  </div>
+  <div class="nav-right"><a href="https://paymegpt.com/p/Z4fsdCvkk" class="nav-back">← Home</a></div>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero" data-section="hero">
+  <h1>Order <em>Online</em></h1>
+  <p>Fresh from our kitchen — pickup or dine in. Call us at (315) 599-3366 with questions.</p>
+</div>
+
+<!-- CATEGORY TABS -->
+<div class="menu-nav" id="menuNav" data-section="category-tabs">
+  <button class="cat-tab active" data-cat="starters">Starters</button>
+  <button class="cat-tab" data-cat="salads">Salads</button>
+  <button class="cat-tab" data-cat="pizzas">Pizzas</button>
+  <button class="cat-tab" data-cat="burgers">Burgers</button>
+  <button class="cat-tab" data-cat="burritos">Spicy Burritos</button>
+  <button class="cat-tab" data-cat="parfaits">Parfaits</button>
+  <button class="cat-tab" data-cat="desserts">Desserts</button>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="order-layout" data-section="order-layout">
+  <div class="menu-content" id="menuContent">
+    <div class="cat-section" id="cat-starters">
+      <div class="cat-title">Starters</div>
+      <div class="items-grid">
+        <div class="menu-card" onclick="addToCart(17,'Cheesy Bread',6.00)"><img class="card-img" src="https://krowdimg.b-cdn.net/1071_20251111105136.jpg" alt="Cheesy Bread"><div class="card-body"><div class="card-name">Cheesy Bread</div><div class="card-desc">House-made breadsticks, mozzarella, parmesan, parsley.</div><div class="card-footer"><span class="card-price">$6.00</span><button class="add-btn" onclick="event.stopPropagation();addToCart(17,'Cheesy Bread',6.00)">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart(18,'Cauliflower Wings',9.00)"><img class="card-img" src="https://krowdimg.b-cdn.net/1071_20251111104834.jpg" alt="Cauliflower Wings"><div class="card-body"><div class="card-name">Cauliflower Wings</div><div class="card-desc">Beer-battered cauliflower, house buffalo, house ranch.</div><div class="card-footer"><span class="card-price">$9.00</span><button class="add-btn" onclick="event.stopPropagation();addToCart(18,'Cauliflower Wings',9.00)">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart(19,'Mac N Cheese',9.00)"><img class="card-img" src="https://krowdimg.b-cdn.net/1071_20251111104947.jpg" alt="Mac N Cheese"><div class="card-body"><div class="card-name">Mac N Cheese</div><div class="card-desc">Noodles, cheddar cheese, mozzarella, basil, bread crumbs.</div><div class="card-footer"><span class="card-price">$9.00</span><button class="add-btn" onclick="event.stopPropagation();addToCart(19,'Mac N Cheese',9.00)">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart(20,'Buffalo Chicken Dip',14.00)"><img class="card-img" src="https://krowdimg.b-cdn.net/1071_20251111105320.jpg" alt="Buffalo Chicken Dip"><div class="card-body"><div class="card-name">Buffalo Chicken Dip</div><div class="card-desc">Cream cheese, chicken, cheddar, tortilla chips.</div><div class="card-footer"><span class="card-price">$14.00</span><button class="add-btn" onclick="event.stopPropagation();addToCart(20,'Buffalo Chicken Dip',14.00)">+</button></div></div></div>
+      </div>
+    </div>
+    <div class="cat-section" id="cat-salads">
+      <div class="cat-title">Salads</div>
+      <div class="items-grid">
+        <div class="menu-card" onclick="addToCart(21,'Caesar Salad',5.00)"><img class="card-img" src="https://krowdimg.b-cdn.net/1071_20251111105622.jpg" alt="Caesar"><div class="card-body"><div class="card-name">Caesar</div><div class="card-desc">Romaine, house Caesar dressing, house croutons, fresh parmesan.</div><div class="card-footer"><span class="card-price">$5.00</span><button class="add-btn" onclick="event.stopPropagation();addToCart(21,'Caesar Salad',5.00)">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart(22,'Fruit and Nut',7.00)"><img class="card-img" src="https://krowdimg.b-cdn.net/1071_20251111105900.jpg" alt="Fruit and Nut"><div class="card-body"><div class="card-name">Fruit and Nut</div><div class="card-desc">Mixed greens, kale, balsamic vinaigrette, seasonal fruit, dried cherries, candied nuts, feta.</div><div class="card-footer"><span class="card-price">$7.00</span><button class="add-btn" onclick="event.stopPropagation();addToCart(22,'Fruit and Nut',7.00)">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart(23,'House Salad',5.00)"><img class="card-img" src="https://krowdimg.b-cdn.net/1071_20251111110058.jpg" alt="House Salad"><div class="card-body"><div class="card-name">House Salad</div><div class="card-desc">Mixed greens, balsamic vinaigrette, tomatoes, cucumbers, red onions.</div><div class="card-footer"><span class="card-price">$5.00</span><button class="add-btn" onclick="event.stopPropagation();addToCart(23,'House Salad',5.00)">+</button></div></div></div>
+      </div>
+    </div>
+    <div class="cat-section" id="cat-pizzas">
+      <div class="cat-title">Pizzas</div>
+      <div class="items-grid">
+        <div class="menu-card" onclick="addToCart(27,'Yard Bird Pizza',10.00)"><img class="card-img" src="https://krowdimg.b-cdn.net/1071_20251111110801.jpeg" alt="Yard Bird"><div class="card-body"><div class="card-name">Yard Bird</div><div class="card-desc">Beer BBQ sauce, mozzarella, red onion, potato chips, green onion, chicken.</div><div class="card-footer"><span class="card-price">$10.00</span><button class="add-btn" onclick="event.stopPropagation();addToCart(27,'Yard Bird Pizza',10.00)">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart(29,'The Beef Pizza',12.00)"><img class="card-img" src="https://krowdimg.b-cdn.net/1071_20251111110832.jpeg" alt="The Beef"><div class="card-body"><div class="card-name">The Beef</div><div class="card-desc">House-made creamy horseradish sauce, beef, mozzarella, red onion, spring mix.</div><div class="card-footer"><span class="card-price">$12.00</span><button class="add-btn" onclick="event.stopPropagation();addToCart(29,'The Beef Pizza',12.00)">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart(30,'Lost Dipper Pizza',10.50)"><img class="card-img" src="https://krowdimg.b-cdn.net/1071_20251111110910.jpeg" alt="Lost Dipper"><div class="card-body"><div class="card-name">Lost Dipper</div><div class="card-desc">Garlic oil, mozzarella, fontina, caramelized onion, sliced beef, creamy horseradish.</div><div class="card-footer"><span class="card-price">$10.50</span><button class="add-btn" onclick="event.stopPropagation();addToCart(30,'Lost Dipper Pizza',10.50)">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart(32,'The Sami Pizza',12.00)"><img class="card-img" src="https://krowdimg.b-cdn.net/1071_20251111111006.jpeg" alt="The Sami"><div class="card-body"><div class="card-name">The Sami</div><div class="card-desc">Pesto mayo, artichoke hearts, caramelized onion, roasted red peppers, mozzarella, kale.</div><div class="card-footer"><span class="card-price">$12.00</span><button class="add-btn" onclick="event.stopPropagation();addToCart(32,'The Sami Pizza',12.00)">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart(33,'Detective Stabler Pizza',9.50)"><img class="card-img" src="https://krowdimg.b-cdn.net/1071_20251111111156.jpeg" alt="Detective Stabler"><div class="card-body"><div class="card-name">Detective Stabler</div><div class="card-desc">Garlic oil, mozzarella, smashed potatoes, bacon, house ranch, parsley.</div><div class="card-footer"><span class="card-price">$9.50</span><button class="add-btn" onclick="event.stopPropagation();addToCart(33,'Detective Stabler Pizza',9.50)">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart(35,'Veggie Romantic Pizza',10.00)"><img class="card-img" src="https://krowdimg.b-cdn.net/1071_20251111115115.jpeg" alt="Veggie Romantic"><div class="card-body"><div class="card-name">Veggie Romantic</div><div class="card-desc">Pomodoro, garlic, mozzarella, kale, mushroom medley, seasonal veggies, cherry tomatoes.</div><div class="card-footer"><span class="card-price">$10.00</span><button class="add-btn" onclick="event.stopPropagation();addToCart(35,'Veggie Romantic Pizza',10.00)">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart(37,'Idahomie Pizza',11.00)"><img class="card-img" src="https://krowdimg.b-cdn.net/1071_20251111115150.jpeg" alt="Idahomie"><div class="card-body"><div class="card-name">Idahomie</div><div class="card-desc">Garlic oil, mozzarella, feta, roasted red peppers, smashed potatoes, Basque chorizo, chili oil.</div><div class="card-footer"><span class="card-price">$11.00</span><button class="add-btn" onclick="event.stopPropagation();addToCart(37,'Idahomie Pizza',11.00)">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart(39,'Cheese Pizza',7.00)"><img class="card-img" src="https://krowdimg.b-cdn.net/1071_20251111115239.jpeg" alt="Cheese"><div class="card-body"><div class="card-name">Cheese</div><div class="card-desc">Pomodoro, mozzarella, parmesan, garlic, fontina.</div><div class="card-footer"><span class="card-price">$7.00</span><button class="add-btn" onclick="event.stopPropagation();addToCart(39,'Cheese Pizza',7.00)">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart(47,'Margherita Pizza',8.00)"><img class="card-img" src="https://krowdimg.b-cdn.net/1071_20251111115357.jpeg" alt="Margherita"><div class="card-body"><div class="card-name">Margherita</div><div class="card-desc">Pomodoro, fresh mozzarella, basil, basil oil, salt.</div><div class="card-footer"><span class="card-price">$8.00</span><button class="add-btn" onclick="event.stopPropagation();addToCart(47,'Margherita Pizza',8.00)">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart(49,'Mushroom Kingdom Pizza',11.50)"><img class="card-img" src="https://krowdimg.b-cdn.net/1071_20251111115443.jpeg" alt="Mushroom Kingdom"><div class="card-body"><div class="card-name">Mushroom Kingdom</div><div class="card-desc">Mushroom sauce, mozzarella, fontina, garlic confit, mushroom medley, ghost town porter chili.</div><div class="card-footer"><span class="card-price">$11.50</span><button class="add-btn" onclick="event.stopPropagation();addToCart(49,'Mushroom Kingdom Pizza',11.50)">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart(51,'Hawaiian Mushroom Pizza',9.00)"><img class="card-img" src="https://krowdimg.b-cdn.net/1071_20251111115524.jpeg" alt="Hawaiian Mushroom"><div class="card-body"><div class="card-name">Hawaiian Mushroom</div><div class="card-desc">Pomodoro, mozzarella, pineapple, balsamic drizzle, parsley.</div><div class="card-footer"><span class="card-price">$9.00</span><button class="add-btn" onclick="event.stopPropagation();addToCart(51,'Hawaiian Mushroom Pizza',9.00)">+</button></div></div></div>
+      </div>
+    </div>
+    <div class="cat-section" id="cat-burgers">
+      <div class="cat-title">Burgers</div>
+      <div class="items-grid">
+        <div class="menu-card" onclick="addToCart(71,'Smash Burger',14.00)"><img class="card-img" src="https://krowdimg.b-cdn.net/1071_20251119185650.jpeg" alt="Smash Burger"><div class="card-body"><div class="card-name">Smash Burger</div><div class="card-desc">Velveeta cheese, lettuce, tomato, onion, smash sauce.</div><div class="card-footer"><span class="card-price">$14.00</span><button class="add-btn" onclick="event.stopPropagation();addToCart(71,'Smash Burger',14.00)">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart(72,'Peanut Butter Bacon Burger',15.50)"><img class="card-img" src="https://krowdimg.b-cdn.net/1071_20251119185604.jpeg" alt="PB Bacon"><div class="card-body"><div class="card-name">Peanut Butter Bacon Burger</div><div class="card-desc">Bacon jam, peanut butter, Velveeta.</div><div class="card-footer"><span class="card-price">$15.50</span><button class="add-btn" onclick="event.stopPropagation();addToCart(72,'Peanut Butter Bacon Burger',15.50)">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart(73,'Volcano Burger',16.99)"><img class="card-img" src="https://krowdimg.b-cdn.net/menuItem_1071_20251119185445.jpeg" alt="Volcano Burger"><div class="card-body"><div class="card-name">🌋 VOLCANO BURGER</div><div class="card-desc">5.3 oz beef burger, chili Volcano sauce, jalapeños, lettuce, tomato, fresh onion, cheddar cheese.</div><div class="card-footer"><span class="card-price">$16.99</span><button class="add-btn" onclick="event.stopPropagation();addToCart(73,'Volcano Burger',16.99)">+</button></div></div></div>
+      </div>
+    </div>
+    <div class="cat-section" id="cat-burritos">
+      <div class="cat-title">Spicy Burritos</div>
+      <div class="items-grid">
+        <div class="menu-card" onclick="addToCart(53,'OG Burrito',9.50)"><img class="card-img" src="https://krowdimg.b-cdn.net/1071_20251111112721.jpeg" alt="OG"><div class="card-body"><div class="card-name">OG</div><div class="card-desc">Garlic oil, mozzarella, pickled jalapeno, chili flake, buffalo sauce, green onion.</div><div class="card-footer"><span class="card-price">$9.50</span><button class="add-btn" onclick="event.stopPropagation();addToCart(53,'OG Burrito',9.50)">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart(54,'Lucky Local Burrito',9.00)"><img class="card-img" src="https://krowdimg.b-cdn.net/1071_20251111114523.jpeg" alt="Lucky Local"><div class="card-body"><div class="card-name">Lucky Local</div><div class="card-desc">Braised pork, potato, egg, cheese, fried shallot, lime crema.</div><div class="card-footer"><span class="card-price">$9.00</span><button class="add-btn" onclick="event.stopPropagation();addToCart(54,'Lucky Local Burrito',9.00)">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart(55,'The Roman Burrito',9.00)"><img class="card-img" src="https://krowdimg.b-cdn.net/1071_20251111115024.jpeg" alt="The Roman"><div class="card-body"><div class="card-name">The Roman</div><div class="card-desc">House-cured bacon, potato, egg, cheese, sun-dried tomato, aioli.</div><div class="card-footer"><span class="card-price">$9.00</span><button class="add-btn" onclick="event.stopPropagation();addToCart(55,'The Roman Burrito',9.00)">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart(56,'Miss June Burrito',9.00)"><img class="card-img" src="https://krowdimg.b-cdn.net/1071_20251111114608.jpg" alt="Miss June"><div class="card-body"><div class="card-name">Miss June</div><div class="card-desc">Fajita veggies, egg, potato, cheese, arugula, lime crema.</div><div class="card-footer"><span class="card-price">$9.00</span><button class="add-btn" onclick="event.stopPropagation();addToCart(56,'Miss June Burrito',9.00)">+</button></div></div></div>
+      </div>
+    </div>
+    <div class="cat-section" id="cat-parfaits">
+      <div class="cat-title">Parfaits</div>
+      <div class="items-grid">
+        <div class="menu-card" onclick="addToCart(57,'Highland Honey Parfait',9.00)"><img class="card-img" src="https://krowdimg.b-cdn.net/1071_20251111112417.jpeg" alt="Highland Honey"><div class="card-body"><div class="card-name">Highland Honey</div><div class="card-desc">Lemon curd, yogurt, granola, meringue crumble, hot honey, blueberry, mint.</div><div class="card-footer"><span class="card-price">$9.00</span><button class="add-btn" onclick="event.stopPropagation();addToCart(57,'Highland Honey Parfait',9.00)">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart(58,'Bogus Bliss Parfait',9.00)"><img class="card-img" src="https://krowdimg.b-cdn.net/1071_20251111112520.jpeg" alt="Bogus Bliss"><div class="card-body"><div class="card-name">Bogus Bliss</div><div class="card-desc">Strawberry compote, yogurt, granola, meringue crumble, hot honey, fresh strawberry, mint.</div><div class="card-footer"><span class="card-price">$9.00</span><button class="add-btn" onclick="event.stopPropagation();addToCart(58,'Bogus Bliss Parfait',9.00)">+</button></div></div></div>
+      </div>
+    </div>
+    <div class="cat-section" id="cat-desserts">
+      <div class="cat-title">Desserts</div>
+      <div class="items-grid">
+        <div class="menu-card" onclick="addToCart(52,'Iron Cookie',7.00)"><img class="card-img" src="https://krowdimg.b-cdn.net/1071_20251111111802.jpeg" alt="Iron Cookie"><div class="card-body"><div class="card-name">Iron Cookie</div><div class="card-desc">House-made chocolate chip cookie, STIL ice cream, beer caramel drizzle.</div><div class="card-footer"><span class="card-price">$7.00</span><button class="add-btn" onclick="event.stopPropagation();addToCart(52,'Iron Cookie',7.00)">+</button></div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CART SIDEBAR -->
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header"><h3>🛒 Your Order</h3><p>Pickup or dine in</p></div>
+    <div class="cart-items" id="cartItems"><div class="cart-empty"><div class="cart-empty-icon">🍺</div><p>Your cart is empty.<br>Add items to get started!</p></div></div>
+    <div class="cart-footer">
+      <div class="cart-subtotal"><span>Subtotal</span><span id="cartSubtotal">$0.00</span></div>
+      <div class="cart-subtotal"><span>Tax (8%)</span><span id="cartTax">$0.00</span></div>
+      <div class="cart-total"><span>Total</span><span id="cartTotal">$0.00</span></div>
+      <button class="checkout-btn" id="checkoutBtn" onclick="openCheckout()" disabled>Proceed to Checkout</button>
+    </div>
+  </div>
+</div>
+
+<footer data-section="footer"><p>© 2026 <a href="https://paymegpt.com/p/Z4fsdCvkk">Adirondack Ales & Eats</a> · <a href="tel:+13155993366">(315) 599-3366</a> · Drink responsibly. Must be 21+.</p></footer>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
