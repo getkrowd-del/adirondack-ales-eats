@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://brewpub.getkrowd.com/happyhour/</loc>
-    <lastmod>2026-05-03T17:56:52.905Z</lastmod>
+    <loc>https://brewpub.getkrowd.com/</loc>
+    <lastmod>2026-05-03T17:58:21.302Z</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://brewpub.getkrowd.com/</loc>
-    <lastmod>2026-05-03T17:26:49.104Z</lastmod>
+    <loc>https://brewpub.getkrowd.com/happyhour/</loc>
+    <lastmod>2026-05-03T17:57:52.934Z</lastmod>
     <changefreq>weekly</changefreq>
   </url>
 </urlset>
