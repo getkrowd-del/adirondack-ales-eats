@@ -70,7 +70,6 @@ let allHH = [];
     chatOpen = !chatOpen; 
     if (chatOpen) { 
       if (!chatLoaded) { 
-        // Updated to brewpub.getkrowd.com
         chatIframe.src = 'https://brewpub.getkrowd.com/agents/46866772/embed'; 
         chatLoaded = true; 
       } 
