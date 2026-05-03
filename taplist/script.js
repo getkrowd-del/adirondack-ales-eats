@@ -24,10 +24,37 @@ async function loadBeers() {
 }
 loadBeers();
 
-// Chat
-const chatBtn = document.getElementById('custom-chat-btn'), chatPanel = document.getElementById('chat-panel'), chatIframe = document.getElementById('chat-iframe'), teaser = document.getElementById('chat-teaser');
+const chatBtn = document.getElementById('custom-chat-btn'), 
+      chatPanel = document.getElementById('chat-panel'), 
+      chatIframe = document.getElementById('chat-iframe'), 
+      teaser = document.getElementById('chat-teaser');
 let chatLoaded = false, chatOpen = false;
-chatBtn.addEventListener('click', () => { chatOpen = !chatOpen; if (chatOpen) { if (!chatLoaded) { chatIframe.src = 'https://paymegpt.com/agents/46866772/embed'; chatLoaded = true; } chatPanel.classList.add('open'); teaser.classList.remove('visible'); teaser.classList.add('hidden'); } else chatPanel.classList.remove('open'); });
-document.addEventListener('click', e => { if (chatOpen && !chatPanel.contains(e.target) && e.target !== chatBtn && !chatBtn.contains(e.target)) { chatPanel.classList.remove('open'); chatOpen = false; } });
+
+chatBtn.addEventListener('click', () => { 
+  chatOpen = !chatOpen; 
+  if (chatOpen) { 
+    if (!chatLoaded) { 
+      chatIframe.src = 'https://brewpub.getkrowd.com/agents/46866772/embed'; 
+      chatLoaded = true; 
+    } 
+    chatPanel.classList.add('open'); 
+    teaser.classList.remove('visible'); 
+    teaser.classList.add('hidden'); 
+  } else {
+    chatPanel.classList.remove('open'); 
+  }
+});
+
+document.addEventListener('click', e => { 
+  if (chatOpen && !chatPanel.contains(e.target) && e.target !== chatBtn && !chatBtn.contains(e.target)) { 
+    chatPanel.classList.remove('open'); 
+    chatOpen = false; 
+  } 
+});
+
 setTimeout(() => teaser.classList.add('visible'), 2000);
-document.getElementById('teaser-close-btn').addEventListener('click', () => { teaser.classList.remove('visible'); teaser.classList.add('hidden'); });
+
+document.getElementById('teaser-close-btn').addEventListener('click', () => { 
+  teaser.classList.remove('visible'); 
+  teaser.classList.add('hidden'); 
+});
