@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://getkrowd-del.github.io/adirondack-ales-eats/</loc>
+    <loc>https://brewpub.getkrowd.com/happyhour/</loc>
+    <lastmod>2026-05-03T17:56:52.905Z</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://brewpub.getkrowd.com/</loc>
     <lastmod>2026-05-03T17:26:49.104Z</lastmod>
     <changefreq>weekly</changefreq>
   </url>
