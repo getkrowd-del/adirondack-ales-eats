@@ -196,15 +196,12 @@
 </head>
 <body>
 
-<!-- CHAT -->
 <div id="chat-teaser"><div class="teaser-bubble"><button class="teaser-close" id="teaser-close-btn">✕</button><p class="teaser-text">👋 Welcome! You can join or access our <strong>High Peaks Perks</strong> VIP Club here, or ask me any questions you have!</p></div></div>
 <button id="custom-chat-btn"><img src="https://krowdimg.b-cdn.net/mug.png" alt="Chat"></button>
 <div id="chat-panel"><iframe id="chat-iframe" src="" allow="microphone"></iframe></div>
 
-<!-- TOAST -->
 <div class="toast" id="toast"></div>
 
-<!-- CHECKOUT MODAL -->
 <div class="modal-overlay" id="modalOverlay">
   <div class="modal">
     <div id="checkoutForm">
@@ -225,37 +222,34 @@
       <div class="success-icon">🎉</div>
       <h2>Order Received!</h2>
       <div class="order-num" id="orderNum"></div>
-      <p>Thanks! We've received your order and will have it ready shortly.<br><br>Call us at <a href="tel:+13155993366" style="color:var(--amber-light)">(315) 599-3366</a> with questions.</p>
+      <p>Thanks! We've received your order and will have it ready shortly.<br><br>Call us at <a href="tel:+13155993366" style="color:var(--amber-light)">(315) 599-3366</a>.</p>
       <button class="checkout-btn" style="margin-top:24px;" onclick="closeModal()">Back to Menu</button>
     </div>
   </div>
 </div>
 
-<!-- NAV -->
 <nav data-section="navbar">
-  <a href="https://paymegpt.com/p/Z4fsdCvkk" class="nav-logo"><img src="https://brewpub.getkrowd.com/images/adkalelogo.png" alt="Logo"></a>
+  <a href="https://brewpub.getkrowd.com/" class="nav-logo"><img src="https://brewpub.getkrowd.com/images/adkalelogo.png" alt="Logo"></a>
   <div class="nav-center">
     <ul class="nav-links">
-      <li><a href="https://brewpub.getkrowd.com">Home</a></li>
-      <li><a href="https://brewpub.getkrowd.com/taplist">Tap List</a></li>
-      <li><a href="https://brewpub.getkrowd.com/order/" class="active">Food</a></li>
+      <li><a href="https://brewpub.getkrowd.com/">Home</a></li>
+      <li><a href="https://brewpub.getkrowd.com/tap-list">Tap List</a></li>
+      <li><a href="https://brewpub.getkrowd.com/order" class="active">Food</a></li>
       <li><a href="https://brewpub.getkrowd.com/events">Events</a></li>
       <li><a href="https://brewpub.getkrowd.com/specials">Specials</a></li>
-      <li><a href="https://brewpub.getkrowd.com/happyhour">Happy Hour</a></li>
-      <li><a href="https://paymegpt.com/p/Z4fsdCvkk#visit">Visit</a></li>
-      <li><a href="https://brewpub.getkrowd.com/order/" class="order-link">Order Online</a></li>
+      <li><a href="https://brewpub.getkrowd.com/happy-hour">Happy Hour</a></li>
+      <li><a href="https://brewpub.getkrowd.com/#visit">Visit</a></li>
+      <li><a href="https://brewpub.getkrowd.com/order" class="order-link">Order Online</a></li>
     </ul>
   </div>
-  <div class="nav-right"><a href="https://paymegpt.com/p/Z4fsdCvkk" class="nav-back">← Home</a></div>
+  <div class="nav-right"><a href="https://brewpub.getkrowd.com/" class="nav-back">← Home</a></div>
 </nav>
 
-<!-- HERO -->
 <div class="page-hero" data-section="hero">
   <h1>Order <em>Online</em></h1>
   <p>Fresh from our kitchen — pickup or dine in. Call us at (315) 599-3366 with questions.</p>
 </div>
 
-<!-- CATEGORY TABS -->
 <div class="menu-nav" id="menuNav" data-section="category-tabs">
   <button class="cat-tab active" data-cat="starters">Starters</button>
   <button class="cat-tab" data-cat="salads">Salads</button>
@@ -266,7 +260,6 @@
   <button class="cat-tab" data-cat="desserts">Desserts</button>
 </div>
 
-<!-- MAIN LAYOUT -->
 <div class="order-layout" data-section="order-layout">
   <div class="menu-content" id="menuContent">
     <div class="cat-section" id="cat-starters">
@@ -306,14 +299,14 @@
       <div class="cat-title">Burgers</div>
       <div class="items-grid">
         <div class="menu-card" onclick="addToCart(71,'Smash Burger',14.00)"><img class="card-img" src="https://krowdimg.b-cdn.net/1071_20251119185650.jpeg" alt="Smash Burger"><div class="card-body"><div class="card-name">Smash Burger</div><div class="card-desc">Velveeta cheese, lettuce, tomato, onion, smash sauce.</div><div class="card-footer"><span class="card-price">$14.00</span><button class="add-btn" onclick="event.stopPropagation();addToCart(71,'Smash Burger',14.00)">+</button></div></div></div>
-        <div class="menu-card" onclick="addToCart(72,'Peanut Butter Bacon Burger',15.50)"><img class="card-img" src="https://krowdimg.b-cdn.net/1071_20251119185604.jpeg" alt="PB Bacon"><div class="card-body"><div class="card-name">Peanut Butter Bacon Burger</div><div class="card-desc">Bacon jam, peanut butter, Velveeta.</div><div class="card-footer"><span class="card-price">$15.50</span><button class="add-btn" onclick="event.stopPropagation();addToCart(72,'Peanut Butter Bacon Burger',15.50)">+</button></div></div></div>
-        <div class="menu-card" onclick="addToCart(73,'Volcano Burger',16.99)"><img class="card-img" src="https://krowdimg.b-cdn.net/menuItem_1071_20251119185445.jpeg" alt="Volcano Burger"><div class="card-body"><div class="card-name">🌋 VOLCANO BURGER</div><div class="card-desc">5.3 oz beef burger, chili Volcano sauce, jalapeños, lettuce, tomato, fresh onion, cheddar cheese.</div><div class="card-footer"><span class="card-price">$16.99</span><button class="add-btn" onclick="event.stopPropagation();addToCart(73,'Volcano Burger',16.99)">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart(72,'PB Bacon Burger',15.50)"><img class="card-img" src="https://krowdimg.b-cdn.net/1071_20251119185604.jpeg" alt="PB Bacon"><div class="card-body"><div class="card-name">PB Bacon Burger</div><div class="card-desc">Bacon jam, peanut butter, Velveeta.</div><div class="card-footer"><span class="card-price">$15.50</span><button class="add-btn" onclick="event.stopPropagation();addToCart(72,'PB Bacon Burger',15.50)">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart(73,'Volcano Burger',16.99)"><img class="card-img" src="https://krowdimg.b-cdn.net/menuItem_1071_20251119185445.jpeg" alt="Volcano Burger"><div class="card-body"><div class="card-name">🌋 VOLCANO BURGER</div><div class="card-desc">Beef burger, chili Volcano sauce, jalapeños, lettuce, tomato, fresh onion, cheddar.</div><div class="card-footer"><span class="card-price">$16.99</span><button class="add-btn" onclick="event.stopPropagation();addToCart(73,'Volcano Burger',16.99)">+</button></div></div></div>
       </div>
     </div>
     <div class="cat-section" id="cat-burritos">
       <div class="cat-title">Spicy Burritos</div>
       <div class="items-grid">
-        <div class="menu-card" onclick="addToCart(53,'OG Burrito',9.50)"><img class="card-img" src="https://krowdimg.b-cdn.net/1071_20251111112721.jpeg" alt="OG"><div class="card-body"><div class="card-name">OG</div><div class="card-desc">Garlic oil, mozzarella, pickled jalapeno, chili flake, buffalo sauce, green onion.</div><div class="card-footer"><span class="card-price">$9.50</span><button class="add-btn" onclick="event.stopPropagation();addToCart(53,'OG Burrito',9.50)">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart(53,'OG Burrito',9.50)"><img class="card-img" src="https://krowdimg.b-cdn.net/1071_20251111112721.jpeg" alt="OG"><div class="card-body"><div class="card-name">OG</div><div class="card-desc">Garlic oil, mozzarella, pickled jalapeño, chili flake, buffalo sauce, green onion.</div><div class="card-footer"><span class="card-price">$9.50</span><button class="add-btn" onclick="event.stopPropagation();addToCart(53,'OG Burrito',9.50)">+</button></div></div></div>
         <div class="menu-card" onclick="addToCart(54,'Lucky Local Burrito',9.00)"><img class="card-img" src="https://krowdimg.b-cdn.net/1071_20251111114523.jpeg" alt="Lucky Local"><div class="card-body"><div class="card-name">Lucky Local</div><div class="card-desc">Braised pork, potato, egg, cheese, fried shallot, lime crema.</div><div class="card-footer"><span class="card-price">$9.00</span><button class="add-btn" onclick="event.stopPropagation();addToCart(54,'Lucky Local Burrito',9.00)">+</button></div></div></div>
         <div class="menu-card" onclick="addToCart(55,'The Roman Burrito',9.00)"><img class="card-img" src="https://krowdimg.b-cdn.net/1071_20251111115024.jpeg" alt="The Roman"><div class="card-body"><div class="card-name">The Roman</div><div class="card-desc">House-cured bacon, potato, egg, cheese, sun-dried tomato, aioli.</div><div class="card-footer"><span class="card-price">$9.00</span><button class="add-btn" onclick="event.stopPropagation();addToCart(55,'The Roman Burrito',9.00)">+</button></div></div></div>
         <div class="menu-card" onclick="addToCart(56,'Miss June Burrito',9.00)"><img class="card-img" src="https://krowdimg.b-cdn.net/1071_20251111114608.jpg" alt="Miss June"><div class="card-body"><div class="card-name">Miss June</div><div class="card-desc">Fajita veggies, egg, potato, cheese, arugula, lime crema.</div><div class="card-footer"><span class="card-price">$9.00</span><button class="add-btn" onclick="event.stopPropagation();addToCart(56,'Miss June Burrito',9.00)">+</button></div></div></div>
@@ -329,15 +322,14 @@
     <div class="cat-section" id="cat-desserts">
       <div class="cat-title">Desserts</div>
       <div class="items-grid">
-        <div class="menu-card" onclick="addToCart(52,'Iron Cookie',7.00)"><img class="card-img" src="https://krowdimg.b-cdn.net/1071_20251111111802.jpeg" alt="Iron Cookie"><div class="card-body"><div class="card-name">Iron Cookie</div><div class="card-desc">House-made chocolate chip cookie, STIL ice cream, beer caramel drizzle.</div><div class="card-footer"><span class="card-price">$7.00</span><button class="add-btn" onclick="event.stopPropagation();addToCart(52,'Iron Cookie',7.00)">+</button></div></div></div>
+        <div class="menu-card" onclick="addToCart(52,'Iron Cookie',7.00)"><img class="card-img" src="https://krowdimg.b-cdn.net/1071_20251111111802.jpeg" alt="Iron Cookie"><div class="card-body"><div class="card-name">Iron Cookie</div><div class="card-desc">Chocolate chip cookie, ice cream, beer caramel drizzle.</div><div class="card-footer"><span class="card-price">$7.00</span><button class="add-btn" onclick="event.stopPropagation();addToCart(52,'Iron Cookie',7.00)">+</button></div></div></div>
       </div>
     </div>
   </div>
 
-  <!-- CART SIDEBAR -->
   <div class="cart-sidebar" id="cartSidebar">
     <div class="cart-header"><h3>🛒 Your Order</h3><p>Pickup or dine in</p></div>
-    <div class="cart-items" id="cartItems"><div class="cart-empty"><div class="cart-empty-icon">🍺</div><p>Your cart is empty.<br>Add items to get started!</p></div></div>
+    <div class="cart-items" id="cartItems"><div class="cart-empty"><div class="cart-empty-icon">🍺</div><p>Your cart is empty.</p></div></div>
     <div class="cart-footer">
       <div class="cart-subtotal"><span>Subtotal</span><span id="cartSubtotal">$0.00</span></div>
       <div class="cart-subtotal"><span>Tax (8%)</span><span id="cartTax">$0.00</span></div>
@@ -347,7 +339,7 @@
   </div>
 </div>
 
-<footer data-section="footer"><p>© 2026 <a href="https://paymegpt.com/p/Z4fsdCvkk">Adirondack Ales & Eats</a> · <a href="tel:+13155993366">(315) 599-3366</a> · Drink responsibly. Must be 21+.</p></footer>
+<footer data-section="footer"><p>© 2026 <a href="https://brewpub.getkrowd.com/">Adirondack Ales & Eats</a> · <a href="tel:+13155993366">(315) 599-3366</a> · Drink responsibly.</p></footer>
 
 
   <script src="script.js"></script>
