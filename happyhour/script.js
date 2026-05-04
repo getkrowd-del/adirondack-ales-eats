@@ -70,7 +70,7 @@ let allHH = [];
     chatOpen = !chatOpen; 
     if (chatOpen) { 
       if (!chatLoaded) { 
-        chatIframe.src = 'https://brewpub.getkrowd.com/agents/46866772/embed'; 
+        chatIframe.src = 'https://paymegpt.com/agents/46866772/embed'; 
         chatLoaded = true; 
       } 
       chatPanel.classList.add('open'); 
