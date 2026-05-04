@@ -1,83 +1,84 @@
-// The exact URL you provided
-    const API_URL = 'https://api.getkrowd.com/v3/beer/index.cfm?companyId=1071&apiKey=krwd_55d0f6ea46590c34c08265bdf0fabe6a3296b6546f0a7ee2c500623ad31';
+const API_URL = 'https://api.getkrowd.com/v3/beer/index.cfm?companyId=1071&apiKey=krwd_55d0f6ea46590c34c08265bdf0fabe6a3296b6546f0a7ee2c500623ad31';
+  let allBeers = [];
 
-    async function testAPI() {
-      const statusEl = document.getElementById('status');
-      const listEl = document.getElementById('beer-list');
+  function normalize(beer) {
+    // Lucee-safe casing
+    const b = {};
+    Object.keys(beer).forEach(k => b[k.toLowerCase()] = beer[k]);
+    
+    return {
+      title: b.title || 'House Brew',
+      style: b.beer_type || b.category_name || 'Draft Ale',
+      description: b.description || 'No description available.',
+      image: b.image || 'https://brewpub.getkrowd.com/images/adkalelogo.png',
+      abv: b.abv ? (b.abv.toString().includes('%') ? b.abv : `${b.abv}%`) : null,
+      ibu: b.ibu && b.ibu !== "0" ? b.ibu : null,
+      price: b.price && b.price !== "" ? `$${b.price}` : null,
+      status: b.status || b.availability || 'Active'
+    };
+  }
 
-      try {
-        // 1. THE FETCH: Absolutely no extra headers or options. 
-        // This guarantees the browser sends a "Simple Request" and avoids CORS preflight checks.
-        const response = await fetch(API_URL);
-
-        if (!response.ok) {
-          throw new Error('Server responded with status: ' + response.status);
-        }
-
-        // 2. PARSE DATA: Use text() first to safely handle any Lucee quirks before parsing to JSON
-        const textData = await response.text();
-        const payload = JSON.parse(textData.trim());
-
-        // 3. FIND THE BEERS: Handle various JSON structures
-        let beers = [];
-        if (Array.isArray(payload)) {
-          beers = payload;
-        } else if (payload.data && Array.isArray(payload.data)) {
-          beers = payload.data;
-        } else if (payload.beers && Array.isArray(payload.beers)) {
-          beers = payload.beers;
-        } else {
-          // Dig into the object to find the first array
-          for (let key in payload) {
-            if (Array.isArray(payload[key])) {
-              beers = payload[key];
-              break;
-            }
-          }
-        }
-
-        if (beers.length === 0) {
-          statusEl.className = 'status';
-          statusEl.textContent = 'API connected successfully, but no beers were returned.';
-          return;
-        }
-
-        // 4. SUCCESS: Display the data
-        statusEl.className = 'status success';
-        statusEl.textContent = `Success! Loaded ${beers.length} beers.`;
-
-        let html = '';
-        beers.forEach(beer => {
-          // Normalize keys to lowercase to handle Lucee sending UPPERCASE keys
-          const b = {};
-          for (let key in beer) {
-            b[key.toLowerCase()] = beer[key];
-          }
-
-          // Extract basic info
-          const name = b.title || b.name || b.beer_name || 'Unnamed Beer';
-          const style = b.beer_type || b.style || b.category || 'Unknown Style';
-          const desc = b.description || b.tasting_notes || 'No description provided.';
-          const abv = b.abv ? ` | ABV: ${b.abv}%` : '';
-
-          html += `
-            <div class="beer-item">
-              <h2>${name}</h2>
-              <div class="beer-style">${style}${abv}</div>
-              <p>${desc}</p>
+  function render(beers) {
+    const grid = document.getElementById('beerGrid');
+    if (!beers.length) { grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;padding:40px">No matching beers found.</p>'; return; }
+    
+    grid.innerHTML = beers.map(b => `
+      <div class="beer-card">
+        <div class="beer-img-container">
+          <div class="beer-badge">${b.status}</div>
+          <img class="beer-img" src="${b.image}" alt="${b.title}" onerror="this.src='https://brewpub.getkrowd.com/images/adkalelogo.png'">
+        </div>
+        <div class="beer-body">
+          <div class="beer-title">${b.title}</div>
+          <div class="beer-style">${b.style}</div>
+          <div class="beer-desc">${b.description}</div>
+          <div class="beer-footer">
+            <div class="beer-stats">
+              ${b.abv ? `<span class="stat-tag">ABV ${b.abv}</span>` : ''}
+              ${b.ibu ? `<span class="stat-tag">IBU ${b.ibu}</span>` : ''}
             </div>
-          `;
-        });
+            ${b.price ? `<div class="beer-price">${b.price}</div>` : ''}
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
 
-        listEl.innerHTML = html;
+  async function load() {
+    try {
+      const res = await fetch(API_URL);
+      const data = await res.json();
+      const raw = data.beers || data.BEERS || (Array.isArray(data) ? data : []);
+      allBeers = raw.map(normalize);
+      
+      // Fill styles dropdown
+      const styles = [...new Set(allBeers.map(b => b.style))].sort();
+      const filter = document.getElementById('styleFilter');
+      styles.forEach(s => {
+        const opt = document.createElement('option');
+        opt.value = opt.textContent = s;
+        filter.appendChild(opt);
+      });
 
-      } catch (error) {
-        // 5. ERROR HANDLING
-        statusEl.className = 'status error';
-        statusEl.textContent = 'Connection Failed: ' + error.message;
-        console.error('Full error details:', error);
-      }
+      render(allBeers);
+    } catch (e) {
+      document.getElementById('beerGrid').innerHTML = '<p style="grid-column:1/-1;text-align:center">Error loading tap list.</p>';
     }
+  }
 
-    // Run the test immediately
-    testAPI();
+  function handleFilters() {
+    const search = document.getElementById('beerSearch').value.toLowerCase();
+    const style = document.getElementById('styleFilter').value;
+    
+    const filtered = allBeers.filter(b => {
+      const matchesSearch = b.title.toLowerCase().includes(search) || b.description.toLowerCase().includes(search);
+      const matchesStyle = !style || b.style === style;
+      return matchesSearch && matchesStyle;
+    });
+    render(filtered);
+  }
+
+  document.getElementById('beerSearch').addEventListener('input', handleFilters);
+  document.getElementById('styleFilter').addEventListener('change', handleFilters);
+
+  load();
