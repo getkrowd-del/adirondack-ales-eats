@@ -196,15 +196,26 @@
 </head>
 <body>
 
-<!-- CHAT -->
-<div id="chat-teaser"><div class="teaser-bubble"><button class="teaser-close" id="teaser-close-btn">✕</button><p class="teaser-text">👋 Welcome! You can join or access our <strong>High Peaks Perks</strong> VIP Club here, or ask me any questions you have!</p></div></div>
-<button id="custom-chat-btn"><img src="https://krowdimg.b-cdn.net/mug.png" alt="Chat"></button>
-<div id="chat-panel"><iframe id="chat-iframe" src="" allow="microphone"></iframe></div>
+<!-- CHAT TEASER -->
+<div id="chat-teaser">
+  <div class="teaser-bubble">
+    <button class="teaser-close" id="teaser-close-btn">✕</button>
+    <p class="teaser-text">👋 Welcome! You can join or access our <strong>High Peaks Perks</strong> VIP Club here, or ask me any questions you have!</p>
+  </div>
+</div>
+<!-- MUG BUTTON -->
+<button id="custom-chat-btn">
+  <img src="https://krowdimg.b-cdn.net/mug.png" alt="Chat with us">
+</button>
+<!-- CHAT PANEL -->
+<div id="chat-panel">
+  <iframe id="chat-iframe" src="" allow="microphone"></iframe>
+</div>
 
 <!-- TOAST -->
 <div class="toast" id="toast"></div>
 
-<!-- CHECKOUT MODAL -->
+<!-- MODAL -->
 <div class="modal-overlay" id="modalOverlay">
   <div class="modal">
     <div id="checkoutForm">
@@ -226,14 +237,16 @@
       <h2>Order Received!</h2>
       <div class="order-num" id="orderNum"></div>
       <p>Thanks! We've received your order and will have it ready shortly.<br><br>Call us at <a href="tel:+13155993366" style="color:var(--amber-light)">(315) 599-3366</a> with questions.</p>
-      <button class="checkout-btn" style="margin-top:24px;" onclick="closeModal()">Back to Menu</button>
+      <button class="checkout-btn" style="margin-top:24px;width:100%;" onclick="closeModal()">Back to Menu</button>
     </div>
   </div>
 </div>
 
 <!-- NAV -->
-<nav data-section="navbar">
-  <a href="https://brewpub.getkrowd.com/" class="nav-logo"><img src="https://brewpub.getkrowd.com/images/adkalelogo.png" alt="Logo"></a>
+<nav>
+  <a href="https://brewpub.getkrowd.com/" class="nav-logo">
+    <img src="https://brewpub.getkrowd.com/images/adkalelogo.png" alt="Adirondack Ales & Eats">
+  </a>
   <div class="nav-center">
     <ul class="nav-links">
       <li><a href="https://brewpub.getkrowd.com/">Home</a></li>
@@ -249,13 +262,13 @@
 </nav>
 
 <!-- HERO -->
-<section class="page-hero" data-section="hero">
+<div class="page-hero">
   <h1>Order <em>Online</em></h1>
   <p>Fresh from our kitchen — pickup or dine in. Call us at (315) 599-3366 with questions.</p>
-</section>
+</div>
 
 <!-- CATEGORY TABS -->
-<nav class="menu-nav" id="menuNav" data-section="category-tabs">
+<div class="menu-nav">
   <button class="cat-tab active" data-cat="starters">Starters</button>
   <button class="cat-tab" data-cat="salads">Salads</button>
   <button class="cat-tab" data-cat="pizzas">Pizzas</button>
@@ -263,11 +276,11 @@
   <button class="cat-tab" data-cat="burritos">Spicy Burritos</button>
   <button class="cat-tab" data-cat="parfaits">Parfaits</button>
   <button class="cat-tab" data-cat="desserts">Desserts</button>
-</nav>
+</div>
 
-<!-- MAIN LAYOUT -->
-<div class="order-layout" data-section="menu-and-cart">
-  <div class="menu-content" id="menuContent">
+<!-- ORDER LAYOUT -->
+<div class="order-layout">
+  <div class="menu-content">
 
     <div class="cat-section" id="cat-starters">
       <div class="cat-title">Starters</div>
@@ -341,20 +354,22 @@
 
   </div>
 
-  <!-- CART SIDEBAR -->
+  <!-- CART -->
   <div class="cart-sidebar" id="cartSidebar">
     <div class="cart-header"><h3>🛒 Your Order</h3><p>Pickup or dine in</p></div>
-    <div class="cart-items" id="cartItems"><div class="cart-empty"><div class="cart-empty-icon">🍺</div><p>Your cart is empty.<br>Add items to get started!</p></div></div>
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty"><div class="cart-empty-icon">🍺</div><p>Your cart is empty.<br>Add items to get started!</p></div>
+    </div>
     <div class="cart-footer">
-      <div class="cart-subtotal"><span>Subtotal</span><span id="cartSubtotal">$0.00</span></div>
-      <div class="cart-subtotal"><span>Tax (8%)</span><span id="cartTax">$0.00</span></div>
-      <div class="cart-total"><span>Total</span><span id="cartTotal">$0.00</span></div>
+      <div class="cart-row"><span>Subtotal</span><span id="cartSubtotal">$0.00</span></div>
+      <div class="cart-row"><span>Tax (8%)</span><span id="cartTax">$0.00</span></div>
+      <div class="cart-total-row"><span>Total</span><span id="cartTotal">$0.00</span></div>
       <button class="checkout-btn" id="checkoutBtn" disabled>Proceed to Checkout</button>
     </div>
   </div>
 </div>
 
-<footer data-section="footer"><p>© 2026 <a href="https://brewpub.getkrowd.com/">Adirondack Ales & Eats</a> · <a href="tel:+13155993366">(315) 599-3366</a> · Drink responsibly. Must be 21+.</p></footer>
+<footer><p>© 2026 <a href="https://brewpub.getkrowd.com/">Adirondack Ales & Eats</a> · <a href="tel:+13155993366">(315) 599-3366</a> · Drink responsibly. Must be 21+.</p></footer>
 
 
   <script src="script.js"></script>
