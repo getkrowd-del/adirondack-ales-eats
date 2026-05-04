@@ -1,4 +1,4 @@
-// ── CART ──
+// CART
   var cart = [];
   function addToCart(id, name, price) {
     var ex = cart.find(function(i){ return i.id === id; });
@@ -30,7 +30,7 @@
     }).join('');
   }
 
-  // ── CHECKOUT ──
+  // CHECKOUT
   document.getElementById('checkoutBtn').addEventListener('click', function() {
     document.getElementById('summaryItems').innerHTML = cart.map(function(i){ return '<div class="summary-item"><span>' + i.qty + 'x ' + i.name + '</span><span>$' + (i.price*i.qty).toFixed(2) + '</span></div>'; }).join('');
     document.getElementById('summaryTotal').textContent = '$' + (getSubtotal() * 1.08).toFixed(2);
@@ -55,7 +55,7 @@
     renderCart();
   });
 
-  // ── CATEGORY TABS ──
+  // CATEGORY TABS
   var tabs = document.querySelectorAll('.cat-tab');
   tabs.forEach(function(tab) {
     tab.addEventListener('click', function() {
@@ -73,7 +73,7 @@
     });
   });
 
-  // ── TOAST ──
+  // TOAST
   function showToast(msg) {
     var t = document.getElementById('toast');
     t.textContent = msg;
@@ -81,7 +81,7 @@
     setTimeout(function(){ t.classList.remove('show'); }, 2200);
   }
 
-  // ── CHAT ──
+  // CHAT
   var chatBtn = document.getElementById('custom-chat-btn');
   var chatPanel = document.getElementById('chat-panel');
   var chatIframe = document.getElementById('chat-iframe');
