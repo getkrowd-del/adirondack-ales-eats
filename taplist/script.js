@@ -70,36 +70,47 @@ const BEER_API_URL = 'https://api.getkrowd.com/v3/beer/index.cfm?companyId=1071&
       const grid = document.getElementById('taplist-grid');
       const btn = document.getElementById('refresh-taplist');
       
+      if (grid) grid.innerHTML = '';
+      if (btn) {
+        btn.disabled = true;
+        btn.textContent = 'Fetching...';
+      }
       setTaplistMessage('Loading the latest beers from the tap list API…', false);
-      grid.innerHTML = '';
-      btn.disabled = true;
-      btn.textContent = 'Refreshing…';
 
       try {
-        // Simple GET request without custom headers avoids CORS preflight blocking
+        // Simple GET request without custom headers avoids CORS preflight blocking completely
         const response = await fetch(BEER_API_URL);
-        if (!response.ok) throw new Error('API Error');
         
-        const payload = await response.json();
+        if (!response.ok) {
+          throw new Error('API returned status: ' + response.status);
+        }
+        
+        // Use .text() then JSON.parse() safely instead of .json() in case Lucee sends hidden whitespace/BOMs
+        const textData = await response.text();
+        const payload = JSON.parse(textData.trim());
+        
         allBeers = normalizeBeerPayload(payload);
         
         updateLastUpdated();
         
-        if (!allBeers.length) {
-          setTaplistMessage('No beers found on tap right now.', false);
+        if (!allBeers || allBeers.length === 0) {
+          setTaplistMessage('The API connected successfully, but no active beers were returned.', false);
         } else {
           setTaplistMessage('', false);
           populateStyleFilter(allBeers);
         }
+        
         renderFilteredTaplist();
       } catch (error) {
         console.error('Fetch error:', error);
         allBeers = [];
-        updateLastUpdated('Error');
-        setTaplistMessage('We could not load the live tap list from the beer API. Please refresh, or ask your bartender for the latest pours.', true);
+        updateLastUpdated('Connection Error');
+        setTaplistMessage('We could not load the tap list. This usually means the browser blocked the request or the API is temporarily unreachable.', true);
       } finally {
-        btn.disabled = false;
-        btn.textContent = 'Refresh Tap List';
+        if (btn) {
+          btn.disabled = false;
+          btn.textContent = 'Refresh Tap List';
+        }
       }
     }
 
@@ -133,6 +144,8 @@ const BEER_API_URL = 'https://api.getkrowd.com/v3/beer/index.cfm?companyId=1071&
 
     function renderFilteredTaplist() {
       const grid = document.getElementById('taplist-grid');
+      if (!grid) return;
+
       const filtered = allBeers.filter(b => {
         const n = normalizeBeerFields(b);
         const search = `${n.name} ${n.style} ${n.description}`.toLowerCase();
@@ -144,7 +157,7 @@ const BEER_API_URL = 'https://api.getkrowd.com/v3/beer/index.cfm?companyId=1071&
       grid.innerHTML = '';
       
       if (allBeers.length && !filtered.length) {
-        setTaplistMessage('No beers match your filter.', false);
+        setTaplistMessage('No beers match your filter. Try adjusting your search.', false);
         return;
       }
       
@@ -154,15 +167,16 @@ const BEER_API_URL = 'https://api.getkrowd.com/v3/beer/index.cfm?companyId=1071&
 
     // Creates the new Dope Card HTML format
     function createBeerCardHTML(beer) {
-      let imageHTML = '';
-      if (beer.image) {
-        imageHTML = `
-          <div class="beer-img-container">
-            <img src="${beer.image}" alt="${beer.name}" onerror="this.src='https://brewpub.getkrowd.com/images/close-up-happy-men-with-beer-mugs.jpg'">
-            <div class="beer-img-overlay"></div>
-            <div class="beer-badge">${beer.badge}</div>
-          </div>`;
-      }
+      // Provide a fallback if an image wasn't supplied by the API
+      const fallbackImg = 'https://brewpub.getkrowd.com/images/adkalelogo.png';
+      const imgSrc = beer.image || fallbackImg;
+
+      const imageHTML = `
+        <div class="beer-img-container">
+          <img src="${imgSrc}" alt="${beer.name}" onerror="this.src='${fallbackImg}'">
+          <div class="beer-img-overlay"></div>
+          <div class="beer-badge">${beer.badge}</div>
+        </div>`;
 
       let statsHTML = '';
       if (beer.abv) statsHTML += `<div class="stat-pill"><span>ABV:</span> ${beer.abv}</div>`;
@@ -174,7 +188,6 @@ const BEER_API_URL = 'https://api.getkrowd.com/v3/beer/index.cfm?companyId=1071&
         <article class="beer-card">
           ${imageHTML}
           <div class="beer-body">
-            ${!beer.image ? `<div class="beer-badge" style="position:relative; top:0; right:0; margin-bottom:10px; display:inline-block; align-self:flex-start;">${beer.badge}</div>` : ''}
             <h3 class="beer-title">${beer.name}</h3>
             <div class="beer-style">${beer.style}</div>
             <p class="beer-desc">${beer.description}</p>
@@ -229,5 +242,6 @@ const BEER_API_URL = 'https://api.getkrowd.com/v3/beer/index.cfm?companyId=1071&
     }
 
     function updateLastUpdated(txt) {
-      document.getElementById('beer-updated').textContent = txt || new Date().toLocaleString([], {month:'short', day:'numeric', hour:'numeric', minute:'2-digit'});
+      const el = document.getElementById('beer-updated');
+      if (el) el.textContent = txt || new Date().toLocaleString([], {month:'short', day:'numeric', hour:'numeric', minute:'2-digit'});
     }
