@@ -1,5 +1,4 @@
 /* ===== GLOBAL RESET STYLES ===== */
-    /* Purpose: Normalize box sizing and remove default browser spacing */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -7,7 +6,6 @@
     }
 
     /* ===== BRAND DESIGN TOKENS ===== */
-    /* Purpose: Centralize colors used across the Adirondack Ales & Eats design */
     :root {
       --amber: #C17A2B;
       --amber-light: #E8A44A;
@@ -24,13 +22,11 @@
     }
 
     /* ===== ROOT SCROLL BEHAVIOR ===== */
-    /* Purpose: Smooth anchor navigation for same-page section links */
     html {
       scroll-behavior: smooth;
     }
 
     /* ===== BODY BASE STYLES ===== */
-    /* Purpose: Apply brand font, background, color, and prevent horizontal clipping */
     body {
       font-family: 'Inter', sans-serif;
       background: var(--dark);
@@ -39,7 +35,6 @@
     }
 
     /* ===== ACCESSIBILITY FOCUS STYLES ===== */
-    /* Purpose: Provide visible keyboard focus state for links, buttons, and fields */
     a:focus-visible,
     button:focus-visible,
     input:focus-visible,
@@ -50,7 +45,6 @@
     }
 
     /* ===== NAVIGATION BAR STYLES ===== */
-    /* Purpose: Fixed top navigation with translucent dark background and logo badge */
     nav {
       position: fixed;
       top: 0;
@@ -69,7 +63,6 @@
     }
 
     /* ===== NAVIGATION LOGO LINK ===== */
-    /* Purpose: Keep logo clickable while preserving existing alignment */
     .nav-logo {
       display: flex;
       align-items: flex-start;
@@ -77,7 +70,6 @@
     }
 
     /* ===== NAVIGATION LOGO IMAGE ===== */
-    /* Purpose: Circular branded badge with layered border and shadow */
     .nav-logo img {
       height: 130px;
       width: 130px;
@@ -91,7 +83,6 @@
     }
 
     /* ===== NAVIGATION CENTER AREA ===== */
-    /* Purpose: Vertically align desktop navigation links */
     .nav-center {
       display: flex;
       align-items: center;
@@ -99,7 +90,6 @@
     }
 
     /* ===== NAVIGATION LINK LIST ===== */
-    /* Purpose: Horizontal desktop menu layout */
     .nav-links {
       display: flex;
       gap: 1.5rem;
@@ -108,7 +98,6 @@
     }
 
     /* ===== NAVIGATION LINK TYPOGRAPHY ===== */
-    /* Purpose: Uppercase compact nav link styling */
     .nav-links a {
       color: var(--text);
       text-decoration: none;
@@ -120,13 +109,11 @@
     }
 
     /* ===== NAVIGATION LINK HOVER ===== */
-    /* Purpose: Amber hover feedback for desktop menu links */
     .nav-links a:hover {
       color: var(--amber-light);
     }
 
     /* ===== NAVIGATION ORDER LINK ===== */
-    /* Purpose: Highlight online ordering as primary desktop nav action */
     .nav-links .order-link {
       background: var(--amber);
       color: var(--dark);
@@ -136,14 +123,12 @@
     }
 
     /* ===== NAVIGATION ORDER LINK HOVER ===== */
-    /* Purpose: Lighter amber hover feedback for primary nav action */
     .nav-links .order-link:hover {
       background: var(--amber-light);
       color: var(--dark);
     }
 
     /* ===== NAVIGATION RIGHT AREA ===== */
-    /* Purpose: Align phone call CTA on desktop */
     .nav-right {
       display: flex;
       align-items: center;
@@ -151,7 +136,6 @@
     }
 
     /* ===== NAVIGATION PHONE CTA ===== */
-    /* Purpose: Styled call button for reservations and questions */
     .nav-cta {
       background: var(--amber);
       color: var(--dark);
@@ -168,13 +152,11 @@
     }
 
     /* ===== NAVIGATION PHONE CTA HOVER ===== */
-    /* Purpose: Lighter amber hover state for call button */
     .nav-cta:hover {
       background: var(--amber-light);
     }
 
     /* ===== MOBILE HAMBURGER BUTTON ===== */
-    /* Purpose: Hidden on desktop, visible on small screens for mobile menu access */
     .nav-hamburger {
       display: none;
       flex-direction: column;
@@ -189,7 +171,6 @@
     }
 
     /* ===== MOBILE HAMBURGER BARS ===== */
-    /* Purpose: Three-line menu icon styling */
     .nav-hamburger span {
       display: block;
       width: 26px;
@@ -199,25 +180,21 @@
     }
 
     /* ===== MOBILE HAMBURGER OPEN STATE BAR ONE ===== */
-    /* Purpose: Transform first bar into close icon */
     .nav-hamburger.open span:nth-child(1) {
       transform: translateY(7px) rotate(45deg);
     }
 
     /* ===== MOBILE HAMBURGER OPEN STATE BAR TWO ===== */
-    /* Purpose: Hide middle bar for close icon */
     .nav-hamburger.open span:nth-child(2) {
       opacity: 0;
     }
 
     /* ===== MOBILE HAMBURGER OPEN STATE BAR THREE ===== */
-    /* Purpose: Transform third bar into close icon */
     .nav-hamburger.open span:nth-child(3) {
       transform: translateY(-7px) rotate(-45deg);
     }
 
     /* ===== MOBILE MENU PANEL ===== */
-    /* Purpose: Collapsible mobile navigation below fixed header */
     .mobile-menu {
       position: fixed;
       top: 90px;
@@ -234,13 +211,11 @@
     }
 
     /* ===== MOBILE MENU OPEN STATE ===== */
-    /* Purpose: Reveal mobile menu after hamburger click */
     .mobile-menu.open {
       display: flex;
     }
 
     /* ===== MOBILE MENU LINKS ===== */
-    /* Purpose: Large tap-friendly mobile menu links with separators */
     .mobile-menu a {
       color: var(--cream);
       text-decoration: none;
@@ -254,7 +229,6 @@
     }
 
     /* ===== MOBILE ORDER LINK ===== */
-    /* Purpose: Primary mobile menu ordering CTA */
     .mobile-menu a.order-mobile {
       background: var(--amber);
       color: var(--dark);
@@ -267,7 +241,6 @@
     }
 
     /* ===== HERO SECTION LAYOUT ===== */
-    /* Purpose: Full-screen visual introduction with beer lifestyle imagery */
     .hero {
       position: relative;
       min-height: 650px;
@@ -276,7 +249,6 @@
     }
 
     /* ===== HERO SLIDER TRACK ===== */
-    /* Purpose: Existing slider container with smooth transform transitions */
     .hero-slides {
       display: flex;
       height: 100%;
@@ -284,7 +256,6 @@
     }
 
     /* ===== HERO SLIDE ITEM ===== */
-    /* Purpose: Individual full-width hero slide */
     .hero-slide {
       min-width: 100%;
       height: 100%;
@@ -293,7 +264,6 @@
     }
 
     /* ===== HERO SLIDE IMAGE ===== */
-    /* Purpose: Full-bleed image cover behavior */
     .hero-slide img {
       width: 100%;
       height: 100%;
@@ -302,7 +272,6 @@
     }
 
     /* ===== HERO IMAGE OVERLAY ===== */
-    /* Purpose: Gradient overlay for readable foreground text */
     .hero-slide-overlay {
       position: absolute;
       inset: 0;
@@ -310,7 +279,6 @@
     }
 
     /* ===== HERO CONTENT POSITIONING ===== */
-    /* Purpose: Center hero text while enforcing mobile-safe padding */
     .hero-content {
       position: absolute;
       inset: 0;
@@ -324,7 +292,6 @@
     }
 
     /* ===== HERO EYEBROW BADGE ===== */
-    /* Purpose: Small category label above main headline */
     .hero-eyebrow {
       color: var(--amber-light);
       border: 1px solid var(--amber);
@@ -337,7 +304,6 @@
     }
 
     /* ===== HERO HEADLINE ===== */
-    /* Purpose: Large responsive branded headline with safe mobile spacing */
     .hero h1 {
       font-family: 'Playfair Display', serif;
       font-size: clamp(3rem, 8vw, 6.5rem);
@@ -348,14 +314,12 @@
     }
 
     /* ===== HERO HEADLINE EMPHASIS ===== */
-    /* Purpose: Amber highlight on key headline phrase */
     .hero h1 em {
       font-style: normal;
       color: var(--amber-light);
     }
 
     /* ===== HERO BODY COPY ===== */
-    /* Purpose: Readable supporting text beneath headline */
     .hero-content p {
       max-width: 680px;
       color: var(--cream);
@@ -365,7 +329,6 @@
     }
 
     /* ===== HERO BUTTON GROUP ===== */
-    /* Purpose: Responsive CTA button layout */
     .hero-buttons {
       display: flex;
       justify-content: center;
@@ -376,7 +339,6 @@
     }
 
     /* ===== PRIMARY BUTTON ===== */
-    /* Purpose: Main amber CTA styling used throughout page */
     .btn-primary {
       background: var(--amber);
       color: var(--dark);
@@ -394,7 +356,6 @@
     }
 
     /* ===== PRIMARY BUTTON HOVER ===== */
-    /* Purpose: Lift and lighten primary CTA on hover */
     .btn-primary:hover {
       background: var(--amber-light);
       border-color: var(--amber-light);
@@ -402,7 +363,6 @@
     }
 
     /* ===== OUTLINE BUTTON ===== */
-    /* Purpose: Secondary CTA styling with transparent fill */
     .btn-outline {
       background: transparent;
       color: var(--cream);
@@ -420,7 +380,6 @@
     }
 
     /* ===== OUTLINE BUTTON HOVER ===== */
-    /* Purpose: Highlight secondary CTA with amber border on hover */
     .btn-outline:hover {
       border-color: var(--amber-light);
       color: var(--amber-light);
@@ -428,13 +387,11 @@
     }
 
     /* ===== SHARED SECTION STYLES ===== */
-    /* Purpose: Existing section spacing with mobile-safe padding support */
     section {
       padding: 100px 5%;
     }
 
     /* ===== SECTION LABEL TEXT ===== */
-    /* Purpose: Small uppercase amber label above section titles */
     .section-label {
       font-family: 'Oswald', sans-serif;
       font-size: 0.75rem;
@@ -445,7 +402,6 @@
     }
 
     /* ===== SECTION HEADINGS ===== */
-    /* Purpose: Branded serif titles used across content sections */
     h2 {
       font-family: 'Playfair Display', serif;
       font-size: clamp(2.2rem, 4vw, 3.2rem);
@@ -455,7 +411,6 @@
     }
 
     /* ===== LEAD PARAGRAPH ===== */
-    /* Purpose: Larger descriptive text used beneath section headings */
     .lead {
       font-size: 1.1rem;
       line-height: 1.8;
@@ -463,7 +418,6 @@
     }
 
     /* ===== TAPLIST SECTION BACKGROUND ===== */
-    /* Purpose: API-powered beer list section with rich dark amber styling */
     .taplist-section {
       background:
         radial-gradient(circle at 15% 15%, rgba(193, 122, 43, 0.16), transparent 30%),
@@ -474,7 +428,6 @@
     }
 
     /* ===== TAPLIST DECORATIVE TOP LINE ===== */
-    /* Purpose: Thin brand accent at top of tap list section */
     .taplist-section::before {
       content: "";
       position: absolute;
@@ -486,7 +439,6 @@
     }
 
     /* ===== TAPLIST CONTAINER ===== */
-    /* Purpose: Constrain tap list content width and enforce safe mobile padding */
     .taplist-container {
       max-width: 1200px;
       margin: 0 auto;
@@ -495,7 +447,6 @@
     }
 
     /* ===== TAPLIST HEADER LAYOUT ===== */
-    /* Purpose: Flexible header with title, copy, and refresh status tools */
     .taplist-header {
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
@@ -505,13 +456,11 @@
     }
 
     /* ===== TAPLIST HEADER COPY WIDTH ===== */
-    /* Purpose: Prevent overly long tap list intro text on wide screens */
     .taplist-intro {
       max-width: 720px;
     }
 
     /* ===== TAPLIST STATUS PANEL ===== */
-    /* Purpose: Shows beer count, last updated, and refresh button */
     .taplist-status-panel {
       border: 1px solid rgba(193, 122, 43, 0.28);
       background: rgba(26, 18, 8, 0.74);
@@ -522,7 +471,6 @@
     }
 
     /* ===== TAPLIST STATUS META ===== */
-    /* Purpose: Compact metadata lines for API state */
     .taplist-status-meta {
       display: grid;
       gap: 0.35rem;
@@ -533,14 +481,12 @@
     }
 
     /* ===== TAPLIST STATUS STRONG TEXT ===== */
-    /* Purpose: Highlight dynamic API values in status panel */
     .taplist-status-meta strong {
       color: var(--cream);
       font-weight: 700;
     }
 
     /* ===== TAPLIST CONTROLS GRID ===== */
-    /* Purpose: Search and filter controls above API beer cards */
     .taplist-controls {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(220px, 280px);
@@ -549,7 +495,6 @@
     }
 
     /* ===== TAPLIST CONTROL FIELD ===== */
-    /* Purpose: Brand styled search input and select dropdown */
     .taplist-control {
       width: 100%;
       background: rgba(8, 5, 3, 0.72);
@@ -561,13 +506,11 @@
     }
 
     /* ===== TAPLIST CONTROL PLACEHOLDER ===== */
-    /* Purpose: Muted placeholder text inside search input */
     .taplist-control::placeholder {
       color: rgba(212, 196, 160, 0.55);
     }
 
     /* ===== TAPLIST MESSAGE BOX ===== */
-    /* Purpose: Loading, error, and empty state presentation */
     .taplist-message {
       border: 1px solid rgba(193, 122, 43, 0.28);
       background: rgba(26, 18, 8, 0.72);
@@ -579,14 +522,12 @@
     }
 
     /* ===== TAPLIST ERROR MESSAGE ===== */
-    /* Purpose: Visual distinction for API error state */
     .taplist-message.error {
       border-color: rgba(216, 106, 74, 0.5);
       color: #FFD7CC;
     }
 
     /* ===== TAPLIST GRID ===== */
-    /* Purpose: Responsive beer card layout populated from API response */
     .taplist-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -594,7 +535,6 @@
     }
 
     /* ===== BEER CARD ===== */
-    /* Purpose: Individual API beer display card */
     .beer-card {
       position: relative;
       border: 1px solid rgba(193, 122, 43, 0.26);
@@ -612,7 +552,6 @@
     }
 
     /* ===== BEER CARD HOVER ===== */
-    /* Purpose: Subtle interactive lift for beer cards */
     .beer-card:hover {
       transform: translateY(-4px);
       border-color: rgba(232, 164, 74, 0.58);
@@ -620,31 +559,49 @@
     }
 
     /* ===== BEER CARD TOP ACCENT ===== */
-    /* Purpose: Amber accent line for each card */
     .beer-card::before {
       content: "";
       position: absolute;
       top: 0;
-      left: 1.25rem;
-      right: 1.25rem;
-      height: 3px;
+      left: 0;
+      right: 0;
+      height: 4px;
       background: linear-gradient(90deg, var(--amber-dark), var(--amber-light), var(--amber-dark));
-      border-radius: 0 0 999px 999px;
+      z-index: 2;
+    }
+
+    /* ===== BEER CARD IMAGE (NEW) ===== */
+    .beer-image-wrapper {
+      margin: -1.25rem -1.25rem 1rem -1.25rem;
+      height: 200px;
+      border-bottom: 1px solid rgba(193, 122, 43, 0.26);
+      background: rgba(8, 5, 3, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .beer-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    
+    .beer-card:hover .beer-image {
+      transform: scale(1.05);
     }
 
     /* ===== BEER CARD HEADER ===== */
-    /* Purpose: Beer name and availability badge layout */
     .beer-card-header {
       display: flex;
       justify-content: space-between;
       gap: 1rem;
       align-items: flex-start;
       margin-bottom: 0.9rem;
-      padding-top: 0.25rem;
     }
 
     /* ===== BEER NAME ===== */
-    /* Purpose: Prominent beer title typography */
     .beer-name {
       font-family: 'Playfair Display', serif;
       color: var(--cream);
@@ -654,7 +611,6 @@
     }
 
     /* ===== BEER BADGE ===== */
-    /* Purpose: Availability or tap number badge */
     .beer-badge {
       flex: 0 0 auto;
       border: 1px solid rgba(232, 164, 74, 0.45);
@@ -670,7 +626,6 @@
     }
 
     /* ===== BEER STYLE ===== */
-    /* Purpose: Beer style/category text below name */
     .beer-style {
       color: var(--amber-light);
       font-family: 'Oswald', sans-serif;
@@ -681,7 +636,6 @@
     }
 
     /* ===== BEER DESCRIPTION ===== */
-    /* Purpose: Tasting notes and beer details */
     .beer-description {
       color: var(--text);
       line-height: 1.68;
@@ -691,7 +645,6 @@
     }
 
     /* ===== BEER META ROW ===== */
-    /* Purpose: ABV, IBU, pour size, and price metadata chips */
     .beer-meta {
       display: flex;
       flex-wrap: wrap;
@@ -702,7 +655,6 @@
     }
 
     /* ===== BEER META CHIP ===== */
-    /* Purpose: Compact beer statistic chip styling */
     .beer-meta span {
       border: 1px solid rgba(193, 122, 43, 0.24);
       background: rgba(8, 5, 3, 0.34);
@@ -714,14 +666,12 @@
     }
 
     /* ===== BEER META LABEL ===== */
-    /* Purpose: Amber labels inside metadata chips */
     .beer-meta b {
       color: var(--amber-light);
       font-weight: 700;
     }
 
     /* ===== TAPLIST FINE PRINT ===== */
-    /* Purpose: Responsible drinking and availability note */
     .taplist-note {
       color: rgba(212, 196, 160, 0.62);
       font-size: 0.88rem;
@@ -731,13 +681,11 @@
     }
 
     /* ===== FOOD SECTION BACKGROUND ===== */
-    /* Purpose: Existing kitchen section dark contrast background */
     .food {
       background: var(--dark2);
     }
 
     /* ===== FOOD SECTION GRID ===== */
-    /* Purpose: Two-column desktop layout for kitchen copy and image */
     .food-grid {
       max-width: 1200px;
       margin: 0 auto;
@@ -748,7 +696,6 @@
     }
 
     /* ===== FOOD BUTTON GROUP ===== */
-    /* Purpose: Existing food CTA button layout */
     .food-btns {
       display: flex;
       gap: 1rem;
@@ -757,7 +704,6 @@
     }
 
     /* ===== FOOD IMAGE ===== */
-    /* Purpose: Rounded responsive food photography */
     .food-image {
       width: 100%;
       border-radius: 10px;
@@ -766,7 +712,6 @@
     }
 
     /* ===== FOOTER SECTION ===== */
-    /* Purpose: Existing footer with brand, navigation, visit, and connect columns */
     footer {
       background: #080503;
       padding: 60px 5% 30px;
@@ -774,7 +719,6 @@
     }
 
     /* ===== FOOTER GRID ===== */
-    /* Purpose: Four-column footer layout on desktop */
     .footer-inner {
       max-width: 1200px;
       margin: 0 auto;
@@ -784,7 +728,6 @@
     }
 
     /* ===== FOOTER BRAND LOGO ===== */
-    /* Purpose: Small circular logo in footer brand column */
     .footer-brand img {
       width: 70px;
       border-radius: 50%;
@@ -793,14 +736,12 @@
     }
 
     /* ===== FOOTER BRAND COPY ===== */
-    /* Purpose: Footer mission text line height */
     .footer-brand p {
       line-height: 1.75;
       max-width: 330px;
     }
 
     /* ===== FOOTER COLUMN HEADINGS ===== */
-    /* Purpose: Footer section labels */
     .footer-col h4 {
       font-family: 'Oswald', sans-serif;
       font-size: 0.8rem;
@@ -811,19 +752,16 @@
     }
 
     /* ===== FOOTER LIST RESET ===== */
-    /* Purpose: Remove bullets from footer link lists */
     .footer-col ul {
       list-style: none;
     }
 
     /* ===== FOOTER LIST ITEMS ===== */
-    /* Purpose: Vertical spacing between footer links */
     .footer-col ul li {
       margin-bottom: 10px;
     }
 
     /* ===== FOOTER LINKS ===== */
-    /* Purpose: Existing muted footer link styling */
     .footer-col ul li a {
       color: var(--text);
       text-decoration: none;
@@ -832,13 +770,11 @@
     }
 
     /* ===== FOOTER LINK HOVER ===== */
-    /* Purpose: Amber hover for footer links */
     .footer-col ul li a:hover {
       color: var(--amber-light);
     }
 
     /* ===== FOOTER COPYRIGHT ===== */
-    /* Purpose: Centered responsible drinking copyright line */
     .footer-bottom {
       text-align: center;
       padding-top: 40px;
@@ -847,7 +783,6 @@
     }
 
     /* ===== CHAT TEASER POSITION ===== */
-    /* Purpose: Fixed chat teaser near bottom-right corner */
     #chat-teaser {
       position: fixed;
       bottom: 90px;
@@ -860,21 +795,18 @@
     }
 
     /* ===== CHAT TEASER VISIBLE STATE ===== */
-    /* Purpose: Show chat teaser after timed delay */
     #chat-teaser.visible {
       opacity: 1;
       pointer-events: all;
     }
 
     /* ===== CHAT TEASER HIDDEN STATE ===== */
-    /* Purpose: Hide chat teaser after dismiss or chat open */
     #chat-teaser.hidden {
       opacity: 0 !important;
       pointer-events: none;
     }
 
     /* ===== CHAT TEASER BUBBLE ===== */
-    /* Purpose: Styled message bubble for High Peaks Perks prompt */
     .teaser-bubble {
       background: var(--dark2);
       border: 1.5px solid var(--amber);
@@ -885,7 +817,6 @@
     }
 
     /* ===== CHAT TEASER CLOSE BUTTON ===== */
-    /* Purpose: Small dismiss button inside teaser bubble */
     .teaser-close {
       position: absolute;
       top: 5px;
@@ -898,7 +829,6 @@
     }
 
     /* ===== CHAT TEASER TEXT ===== */
-    /* Purpose: Compact visible chat prompt text */
     .teaser-text {
       font-size: 0.88rem;
       color: var(--cream);
@@ -907,7 +837,6 @@
     }
 
     /* ===== CHAT BUTTON POSITION ===== */
-    /* Purpose: Fixed floating mug button to open chat */
     #custom-chat-btn {
       position: fixed;
       bottom: 16px;
@@ -922,14 +851,12 @@
     }
 
     /* ===== CHAT BUTTON IMAGE ===== */
-    /* Purpose: Ensure mug graphic fills chat button */
     #custom-chat-btn img {
       width: 100%;
       display: block;
     }
 
     /* ===== CHAT PANEL ===== */
-    /* Purpose: Embedded assistant iframe container */
     #chat-panel {
       position: fixed;
       bottom: 90px;
@@ -947,13 +874,11 @@
     }
 
     /* ===== CHAT PANEL OPEN STATE ===== */
-    /* Purpose: Reveal chat iframe when button is clicked */
     #chat-panel.open {
       display: flex;
     }
 
     /* ===== CHAT IFRAME ===== */
-    /* Purpose: Remove iframe border and fill panel */
     #chat-iframe {
       width: 100%;
       height: 100%;
@@ -962,108 +887,87 @@
     }
 
     /* ===== TABLET AND SMALL DESKTOP RESPONSIVE STYLES ===== */
-    /* Breakpoint: max-width 1100px for taplist grid adjustment */
     @media (max-width: 1100px) {
-      /* Purpose: Reduce beer card columns on medium screens */
       .taplist-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      /* Purpose: Make taplist header a single column on narrower screens */
       .taplist-header {
         grid-template-columns: 1fr;
       }
 
-      /* Purpose: Let status panel fill available width on medium screens */
       .taplist-status-panel {
         min-width: 0;
       }
     }
 
     /* ===== MOBILE NAVIGATION RESPONSIVE STYLES ===== */
-    /* Breakpoint: max-width 900px for mobile menu and footer layout */
     @media (max-width: 900px) {
-      /* Purpose: Hide desktop navigation groups on mobile */
       .nav-center,
       .nav-right {
         display: none;
       }
 
-      /* Purpose: Show hamburger button on mobile */
       .nav-hamburger {
         display: flex;
       }
 
-      /* Purpose: Two-column footer on tablet/mobile */
       .footer-inner {
         grid-template-columns: 1fr 1fr;
       }
 
-      /* Purpose: Shrink logo badge for mobile header */
       .nav-logo img {
         height: 90px;
         width: 90px;
         margin-top: 30px;
       }
 
-      /* Purpose: Stack kitchen content on mobile */
       .food-grid {
         grid-template-columns: 1fr;
       }
     }
 
     /* ===== MOBILE SECTION RESPONSIVE STYLES ===== */
-    /* Breakpoint: max-width 700px for narrow phone layout */
     @media (max-width: 700px) {
-      /* Purpose: Enforce minimum mobile section padding and avoid clipped text */
       section {
         padding: 80px 1rem;
       }
 
-      /* Purpose: Reduce hero minimum height and protect headline from logo overlap */
       .hero {
         min-height: 720px;
       }
 
-      /* Purpose: Increase top padding and safe side padding for hero copy */
       .hero-content {
         padding: 150px 1rem 2rem;
       }
 
-      /* Purpose: Make hero buttons full-width friendly on phones */
       .hero-buttons {
         flex-direction: column;
         align-items: stretch;
       }
 
-      /* Purpose: Center hero button text on narrow screens */
       .hero-buttons a {
         text-align: center;
       }
 
-      /* Purpose: Stack taplist controls on mobile */
       .taplist-controls {
         grid-template-columns: 1fr;
       }
 
-      /* Purpose: Single-column beer cards on mobile */
       .taplist-grid {
         grid-template-columns: 1fr;
       }
 
-      /* Purpose: Stack footer columns on small phones */
       .footer-inner {
         grid-template-columns: 1fr;
       }
 
-      /* Purpose: Make chat panel fit phone viewport with margins */
       #chat-panel {
         width: calc(100vw - 32px);
         height: min(560px, calc(100vh - 120px));
         right: 16px;
       }
 
-      /* Purpose: Keep chat teaser from touching screen edges */
       #chat-teaser {
         right: 16px;
         left: 16px;
