@@ -2,25 +2,23 @@ const API_URL = 'https://api.getkrowd.com/v3/beer/index.cfm?companyId=1071&apiKe
   let allBeers = [];
 
   function normalize(beer) {
-    // Lucee-safe casing
     const b = {};
     Object.keys(beer).forEach(k => b[k.toLowerCase()] = beer[k]);
-    
     return {
       title: b.title || 'House Brew',
       style: b.beer_type || b.category_name || 'Draft Ale',
-      description: b.description || 'No description available.',
+      description: b.description || 'Ask your bartender for tasting notes on this pour.',
       image: b.image || 'https://brewpub.getkrowd.com/images/adkalelogo.png',
       abv: b.abv ? (b.abv.toString().includes('%') ? b.abv : `${b.abv}%`) : null,
       ibu: b.ibu && b.ibu !== "0" ? b.ibu : null,
       price: b.price && b.price !== "" ? `$${b.price}` : null,
-      status: b.status || b.availability || 'Active'
+      status: b.status || b.availability || 'On Tap'
     };
   }
 
   function render(beers) {
     const grid = document.getElementById('beerGrid');
-    if (!beers.length) { grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;padding:40px">No matching beers found.</p>'; return; }
+    if (!beers.length) { grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;padding:60px;opacity:0.6;">No brews found matching that search.</p>'; return; }
     
     grid.innerHTML = beers.map(b => `
       <div class="beer-card">
@@ -51,7 +49,6 @@ const API_URL = 'https://api.getkrowd.com/v3/beer/index.cfm?companyId=1071&apiKe
       const raw = data.beers || data.BEERS || (Array.isArray(data) ? data : []);
       allBeers = raw.map(normalize);
       
-      // Fill styles dropdown
       const styles = [...new Set(allBeers.map(b => b.style))].sort();
       const filter = document.getElementById('styleFilter');
       styles.forEach(s => {
@@ -62,7 +59,7 @@ const API_URL = 'https://api.getkrowd.com/v3/beer/index.cfm?companyId=1071&apiKe
 
       render(allBeers);
     } catch (e) {
-      document.getElementById('beerGrid').innerHTML = '<p style="grid-column:1/-1;text-align:center">Error loading tap list.</p>';
+      document.getElementById('beerGrid').innerHTML = '<p style="grid-column:1/-1;text-align:center">Failed to load tap list. Please refresh the page.</p>';
     }
   }
 
