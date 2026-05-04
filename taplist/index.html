@@ -1,13 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- ============================================================================ -->
+  <!-- DOCUMENT METADATA: Character set, viewport, SEO title, and page description  -->
+  <!-- Features: Responsive rendering, search-friendly brewpub landing page copy    -->
+  <!-- ============================================================================ -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="description" content="Adirondack Ales & Eats — handcrafted ales, locally sourced food, and good times in the heart of the Adirondacks.">
 
-<meta name="description" content="Adirondack Ales & Eats — handcrafted ales, locally sourced food, and good times in the heart of the Adirondacks.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- ============================================================================ -->
+  <!-- FONT & FRAMEWORK ASSETS: Google Fonts and Tailwind CSS CDN                   -->
+  <!-- Features: Existing brand typography plus utility classes for safe spacing    -->
+  <!-- ============================================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
 
+  <!-- ============================================================================ -->
+  <!-- CUSTOM CSS: Existing brewpub styling plus API-powered tap list presentation  -->
+  <!-- Features: Mobile-first responsiveness, brand colors, interactions, chat UI   -->
+  <!-- ============================================================================ -->
+  
 
 <!-- SEO Meta Tags -->
 <title>Tap List | Adirondack Ales &amp; Eats</title>
@@ -196,109 +211,914 @@
 })();
 </script>  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-
-<div id="chat-teaser">
-  <div class="teaser-bubble">
-    <button class="teaser-close" id="teaser-close-btn" style="position:absolute; top:5px; right:10px; color:var(--text); background:none; border:none; cursor:pointer;">✕</button>
-    <p class="teaser-text" style="font-size:0.88rem; color:var(--cream);">👋 Welcome! Join <strong>High Peaks Perks</strong> Club here!</p>
-  </div>
-</div>
-
-<button id="custom-chat-btn"><img src="https://krowdimg.b-cdn.net/mug.png" alt="Chat" style="width:100%;"></button>
-
-<div id="chat-panel"><iframe id="chat-iframe" width="100%" height="100%" frameborder="0" allow="microphone"></iframe></div>
-
-<div class="mobile-menu" id="mobileMenu">
-  <a href="https://brewpub.getkrowd.com/taplist/">🍺 Tap List</a>
-  <a href="https://brewpub.getkrowd.com/order/">🍕 Food Menu</a>
-  <a href="https://brewpub.getkrowd.com/events/">🎸 Events</a>
-  <a href="https://brewpub.getkrowd.com/specials/">🏷️ Specials</a>
-  <a href="https://brewpub.getkrowd.com/happyhour/">🍻 Happy Hour</a>
-  <a href="https://brewpub.getkrowd.com/order/" class="order-mobile">Order Online</a>
-</div>
-
-<nav>
-  <a href="https://brewpub.getkrowd.com/" class="nav-logo"><img src="https://brewpub.getkrowd.com/images/adkalelogo.png" alt="Logo"></a>
-  <div class="nav-center">
-    <ul class="nav-links">
-      <li><a href="https://brewpub.getkrowd.com/taplist/">Tap List</a></li>
-      <li><a href="https://brewpub.getkrowd.com/order/">Food</a></li>
-      <li><a href="https://brewpub.getkrowd.com/events/">Events</a></li>
-      <li><a href="https://brewpub.getkrowd.com/specials/">Specials</a></li>
-      <li><a href="https://brewpub.getkrowd.com/happyhour/">Happy Hour</a></li>
-      <li><a href="https://brewpub.getkrowd.com/order/" class="order-link">Order Online</a></li>
-    </ul>
-  </div>
-  <div class="nav-right"><a href="tel:+13155993366" class="nav-cta">📞 315-599-3366</a></div>
-  <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
-</nav>
-
-<div class="hero">
-  <div class="hero-slides" id="heroSlides">
-    <div class="hero-slide"><img src="https://brewpub.getkrowd.com/images/close-up-happy-men-with-beer-mugs.jpg"><div class="hero-slide-overlay"></div></div>
-  </div>
-  <div class="hero-content">
-    <div class="hero-eyebrow" style="color:var(--amber-light); border: 1px solid var(--amber); padding: 4px 10px; margin-bottom:1rem; text-transform:uppercase; letter-spacing:2px;">Craft Brewery & Kitchen</div>
-    <h1>Brewed in the<br><em>Adirondacks.</em></h1>
-    <p>Small-batch ales and locally sourced food in the heart of the North Country.</p>
-    <div class="hero-buttons">
-      <a href="https://brewpub.getkrowd.com/taplist/" class="btn-primary">See What's on Tap</a>
-      <a href="https://brewpub.getkrowd.com/order/" class="btn-outline">Explore the Menu</a>
-    </div>
-  </div>
-</div>
-
-<section class="food">
-  <div style="max-width:1200px; margin:0 auto; display:grid; grid-template-columns: 1fr 1fr; gap:50px; align-items:center;">
-    <div>
-      <div class="section-label">The Kitchen</div>
-      <h2>Food That<br>Earns Its Seat.</h2>
-      <p class="lead">Chef-driven, seasonal plates always paired perfectly to the pint.</p>
-      <div class="food-btns">
-        <a href="https://brewpub.getkrowd.com/order/" class="btn-primary">Order Online Now</a>
-        <a href="https://menu.eatdrinklocals.com/index.cfm/1071" target="_blank" class="btn-outline">Personalize Our Menu</a>
+  <!-- ============================================================================ -->
+  <!-- CHAT WIDGET: Floating beer mug chat launcher and High Peaks Perks teaser     -->
+  <!-- Features: Deferred iframe loading, dismissible teaser, mobile-safe position  -->
+  <!-- Mobile Padding: Fixed controls stay 16px away from viewport edges            -->
+  <!-- ============================================================================ -->
+  <div data-section="chat-widget" class="chat-widget">
+    <div id="chat-teaser" aria-live="polite">
+      <div class="teaser-bubble">
+        <button class="teaser-close" id="teaser-close-btn" type="button" aria-label="Close chat invitation">✕</button>
+        <p class="teaser-text">👋 Welcome! Join <strong>High Peaks Perks</strong> Club here!</p>
       </div>
     </div>
-    <div><img src="https://brewpub.getkrowd.com/images/fresh-buffalo-chicken-wings-with-savory-dip-appetizer-generative-ai.jpg" style="width:100%; border-radius:10px;"></div>
-  </div>
-</section>
 
-<footer>
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <img src="https://brewpub.getkrowd.com/images/adkalelogo.png" style="width:70px; border-radius:50%; margin-bottom:1rem;">
-      <p>Handcrafted beers and the spirit of the Adirondacks in every pint.</p>
+    <button id="custom-chat-btn" type="button" aria-label="Open Adirondack Ales chat">
+      <img src="https://krowdimg.b-cdn.net/mug.png" alt="Open chat">
+    </button>
+
+    <div id="chat-panel" aria-label="Adirondack Ales chat window">
+      <iframe id="chat-iframe" title="Adirondack Ales chat assistant" allow="microphone"></iframe>
     </div>
-    <div class="footer-col">
-      <h4>Explore</h4>
-      <ul>
-        <li><a href="https://brewpub.getkrowd.com/taplist/">Tap List</a></li>
-        <li><a href="https://brewpub.getkrowd.com/order/">Food Menu</a></li>
+  </div>
+
+  <!-- ============================================================================ -->
+  <!-- MOBILE MENU SECTION: Collapsible mobile navigation links                     -->
+  <!-- Features: Tap list anchor, food menu, events, specials, happy hour, order    -->
+  <!-- Mobile Padding: Menu uses generous 5% side spacing and large tap targets     -->
+  <!-- ============================================================================ -->
+  <div data-section="mobile-menu" class="mobile-menu" id="mobileMenu">
+    <a href="#taplist">🍺 Tap List</a>
+    <a href="https://brewpub.getkrowd.com/order/">🍕 Food Menu</a>
+    <a href="https://brewpub.getkrowd.com/events/">🎸 Events</a>
+    <a href="https://brewpub.getkrowd.com/specials/">🏷️ Specials</a>
+    <a href="https://brewpub.getkrowd.com/happyhour/">🍻 Happy Hour</a>
+    <a href="https://brewpub.getkrowd.com/order/" class="order-mobile">Order Online</a>
+  </div>
+
+  <!-- ============================================================================ -->
+  <!-- NAVBAR SECTION: Fixed primary site navigation with logo and phone CTA        -->
+  <!-- Features: Desktop links, mobile hamburger, API tap list anchor               -->
+  <!-- Mobile Padding: Header keeps content inset and hamburger accessible          -->
+  <!-- ============================================================================ -->
+  <nav data-section="navbar" aria-label="Primary navigation">
+    <a href="https://brewpub.getkrowd.com/" class="nav-logo" aria-label="Adirondack Ales & Eats home">
+      <img src="https://brewpub.getkrowd.com/images/adkalelogo.png" alt="Adirondack Ales & Eats logo">
+    </a>
+
+    <div class="nav-center">
+      <ul class="nav-links">
+        <li><a href="#taplist">Tap List</a></li>
+        <li><a href="https://brewpub.getkrowd.com/order/">Food</a></li>
         <li><a href="https://brewpub.getkrowd.com/events/">Events</a></li>
         <li><a href="https://brewpub.getkrowd.com/specials/">Specials</a></li>
         <li><a href="https://brewpub.getkrowd.com/happyhour/">Happy Hour</a></li>
+        <li><a href="https://brewpub.getkrowd.com/order/" class="order-link">Order Online</a></li>
       </ul>
     </div>
-    <div class="footer-col">
-      <h4>Visit</h4>
-      <ul>
-        <li><a href="#">Lake Placid, NY</a></li>
-        <li><a href="tel:+13155993366">(315) 599-3366</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Connect</h4>
-      <ul>
-        <li><a href="https://brewpub.getkrowd.com/order/">Order Online</a></li>
-        <li><a href="https://menu.eatdrinklocals.com/index.cfm/1071" target="_blank">Full Digital Menu</a></li>
-      </ul>
-    </div>
-  </div>
-  <div style="text-align:center; padding-top:40px; color:rgba(180,160,120,0.4); font-size:0.8rem;">© 2026 Adirondack Ales & Eats. Drink responsibly. Must be 21+.</div>
-</footer>
 
+    <div class="nav-right">
+      <a href="tel:+13155993366" class="nav-cta">📞 315-599-3366</a>
+    </div>
 
-  <script src="script.js"></script>
+    <button class="nav-hamburger nav-menu-toggle" id="hamburger" type="button" aria-label="Toggle mobile menu" aria-controls="mobileMenu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- ============================================================================ -->
+  <!-- HERO SECTION: Main landing area with headline, subtext, and primary CTA      -->
+  <!-- Features: Full-bleed image, gradient overlay, tap list and menu actions      -->
+  <!-- Mobile Padding: px-4 equivalent padding prevents headline clipping           -->
+  <!-- ============================================================================ -->
+  <section data-section="hero" class="hero hero-section" aria-label="Adirondack Ales & Eats hero">
+    <div class="hero-slides" id="heroSlides">
+      <div class="hero-slide">
+        <img src="https://brewpub.getkrowd.com/images/close-up-happy-men-with-beer-mugs.jpg" alt="Friends raising craft beer mugs at Adirondack Ales and Eats">
+        <div class="hero-slide-overlay" aria-hidden="true"></div>
+      </div>
+    </div>
+
+    <div class="hero-content px-4 sm:px-6 md:px-8 lg:px-12">
+      <div class="hero-eyebrow">Craft Brewery &amp; Kitchen</div>
+      <h1>Brewed in the<br><em>Adirondacks.</em></h1>
+      <p>Small-batch ales and locally sourced food in the heart of the North Country.</p>
+      <div class="hero-buttons">
+        <a href="#taplist" class="btn-primary cta-primary">See What's on Tap</a>
+        <a href="https://brewpub.getkrowd.com/order/" class="btn-outline">Explore the Menu</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================================ -->
+  <!-- TAP LIST SECTION: Live beer list powered by the getkrowd beer API            -->
+  <!-- Features: Fetches API beers, renders cards, search/filter, refresh button    -->
+  <!-- Mobile Padding: px-4 py-6 minimum preserved through section rules            -->
+  <!-- ============================================================================ -->
+  <section data-section="taplist" class="taplist-section px-4 py-6 md:px-8 lg:px-12" id="taplist" aria-labelledby="taplist-title">
+    <div class="taplist-container">
+      <div class="taplist-header">
+        <div class="taplist-intro">
+          <div class="section-label">Fresh From the Taps</div>
+          <h2 id="taplist-title">Live Tap List</h2>
+          <p class="lead">Our current beers are pulled directly from the Adirondack Ales &amp; Eats beer API, so you can see what is pouring before you head in.</p>
+        </div>
+
+        <aside class="taplist-status-panel" aria-label="Tap list status">
+          <div class="taplist-status-meta">
+            <span>Beers loaded: <strong id="beer-count">0</strong></span>
+            <span>Last updated: <strong id="beer-updated">Loading…</strong></span>
+          </div>
+          <button id="refresh-taplist" class="btn-primary" type="button">Refresh Tap List</button>
+        </aside>
+      </div>
+
+      <div class="taplist-controls" aria-label="Tap list search and filter controls">
+        <label class="sr-only" for="beer-search">Search beers</label>
+        <input id="beer-search" class="taplist-control" type="search" placeholder="Search by beer name, style, or tasting notes..." autocomplete="off">
+
+        <label class="sr-only" for="beer-style-filter">Filter by style</label>
+        <select id="beer-style-filter" class="taplist-control">
+          <option value="">All beer styles</option>
+        </select>
+      </div>
+
+      <div id="taplist-message" class="taplist-message" role="status">
+        Loading the latest beers from the tap list API…
+      </div>
+
+      <div id="taplist-grid" class="taplist-grid" aria-live="polite"></div>
+
+      <p class="taplist-note">Tap availability can change quickly during busy service. Please ask your bartender for the most current pours, flights, growler fills, and limited releases. Must be 21+ to consume alcohol.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================================ -->
+  <!-- FOOD SECTION: Kitchen highlight with ordering and menu personalization CTAs  -->
+  <!-- Features: Seasonal copy, food photography, order links                       -->
+  <!-- Mobile Padding: Section padding scales down safely to avoid clipped content  -->
+  <!-- ============================================================================ -->
+  <section data-section="food" class="food px-4 py-6 md:px-8 lg:px-12" aria-labelledby="food-title">
+    <div class="food-grid">
+      <div>
+        <div class="section-label">The Kitchen</div>
+        <h2 id="food-title">Food That<br>Earns Its Seat.</h2>
+        <p class="lead">Chef-driven, seasonal plates always paired perfectly to the pint.</p>
+        <div class="food-btns">
+          <a href="https://brewpub.getkrowd.com/order/" class="btn-primary">Order Online Now</a>
+          <a href="https://menu.eatdrinklocals.com/index.cfm/1071" target="_blank" rel="noopener" class="btn-outline">Personalize Our Menu</a>
+        </div>
+      </div>
+
+      <div>
+        <img class="food-image" src="https://brewpub.getkrowd.com/images/fresh-buffalo-chicken-wings-with-savory-dip-appetizer-generative-ai.jpg" alt="Fresh buffalo chicken wings with savory dip appetizer">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================================ -->
+  <!-- FOOTER SECTION: Brand summary, helpful links, visit details, and copyright   -->
+  <!-- Features: Updated tap list anchor, phone link, online order and menu links   -->
+  <!-- Mobile Padding: Footer grid collapses to single column on narrow screens     -->
+  <!-- ============================================================================ -->
+  <footer data-section="footer" class="px-4 py-6 md:px-8 lg:px-12">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="https://brewpub.getkrowd.com/images/adkalelogo.png" alt="Adirondack Ales & Eats logo">
+        <p>Handcrafted beers and the spirit of the Adirondacks in every pint.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#taplist">Tap List</a></li>
+          <li><a href="https://brewpub.getkrowd.com/order/">Food Menu</a></li>
+          <li><a href="https://brewpub.getkrowd.com/events/">Events</a></li>
+          <li><a href="https://brewpub.getkrowd.com/specials/">Specials</a></li>
+          <li><a href="https://brewpub.getkrowd.com/happyhour/">Happy Hour</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Visit</h4>
+        <ul>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Adirondack%20Ales%20%26%20Eats" target="_blank" rel="noopener">Lake Placid, NY</a></li>
+          <li><a href="tel:+13155993366">(315) 599-3366</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://brewpub.getkrowd.com/order/">Order Online</a></li>
+          <li><a href="https://menu.eatdrinklocals.com/index.cfm/1071" target="_blank" rel="noopener">Full Digital Menu</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">© 2026 Adirondack Ales &amp; Eats. Drink responsibly. Must be 21+.</div>
+  </footer>
+
+  <!-- ============================================================================ -->
+  <!-- JAVASCRIPT: Mobile navigation, API tap list rendering, and chat interactions -->
+  <!-- Features: Fetches beer API, normalizes response shapes, interactive filters  -->
+  <!-- ============================================================================ -->
+  <script>
+    // ===== API CONFIGURATION =====
+    // Purpose: Store the live beer endpoint supplied by Adirondack Ales & Eats
+    // Notes: The tap list renderer reads directly from this URL on page load and refresh
+    const BEER_API_URL = 'https://api.getkrowd.com/v3/beer/index.cfm?companyId=1071&apiKey=krwd_55d0f6ea46590c34c08265bdf0fabe6a3296b6546f0a7ee2c500623ad31';
+
+    // ===== TAPLIST STATE =====
+    // Purpose: Maintain the complete API result and current filtered display state
+    // Notes: Search and style filters operate on allBeers without re-fetching
+    let allBeers = [];
+    let currentStyleFilter = '';
+    let currentSearchTerm = '';
+
+    // ===== DOM READY INITIALIZER =====
+    // Function: initializePage()
+    // Purpose: Attach all interactions after the DOM is available
+    // Triggers: DOMContentLoaded event
+    document.addEventListener('DOMContentLoaded', initializePage);
+
+    // ===== PAGE INITIALIZATION =====
+    // Function: initializePage()
+    // Purpose: Start mobile nav, chat widget, and live API tap list
+    // Triggers: DOMContentLoaded
+    function initializePage() {
+      initializeMobileMenu();
+      initializeChatWidget();
+      initializeTaplistControls();
+      fetchAndRenderTaplist();
+    }
+
+    // ===== MOBILE MENU TOGGLE =====
+    // Function: initializeMobileMenu()
+    // Purpose: Show/hide navigation menu on mobile devices
+    // Triggers: Click on hamburger menu button and mobile link clicks
+    function initializeMobileMenu() {
+      const hamburger = document.getElementById('hamburger');
+      const mobileMenu = document.getElementById('mobileMenu');
+
+      if (!hamburger || !mobileMenu) {
+        return;
+      }
+
+      hamburger.addEventListener('click', function () {
+        const isOpen = hamburger.classList.toggle('open');
+        mobileMenu.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      mobileMenu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          hamburger.classList.remove('open');
+          mobileMenu.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    // ===== CHAT WIDGET INITIALIZATION =====
+    // Function: initializeChatWidget()
+    // Purpose: Manage floating chat teaser, lazy iframe loading, and open/close state
+    // Triggers: Click on mug button, teaser close button, and timed teaser display
+    function initializeChatWidget() {
+      const chatBtn = document.getElementById('custom-chat-btn');
+      const chatPanel = document.getElementById('chat-panel');
+      const chatIframe = document.getElementById('chat-iframe');
+      const teaser = document.getElementById('chat-teaser');
+      const teaserCloseBtn = document.getElementById('teaser-close-btn');
+
+      let chatLoaded = false;
+      let chatOpen = false;
+
+      if (!chatBtn || !chatPanel || !chatIframe || !teaser) {
+        return;
+      }
+
+      chatBtn.addEventListener('click', function () {
+        chatOpen = !chatOpen;
+
+        if (chatOpen) {
+          if (!chatLoaded) {
+            chatIframe.src = 'https://paymegpt.com/agents/46866772/embed';
+            chatLoaded = true;
+          }
+
+          chatPanel.classList.add('open');
+          teaser.classList.add('hidden');
+        } else {
+          chatPanel.classList.remove('open');
+        }
+      });
+
+      setTimeout(function () {
+        if (!chatOpen) {
+          teaser.classList.add('visible');
+        }
+      }, 2000);
+
+      if (teaserCloseBtn) {
+        teaserCloseBtn.addEventListener('click', function () {
+          teaser.classList.add('hidden');
+        });
+      }
+    }
+
+    // ===== TAPLIST CONTROL INITIALIZATION =====
+    // Function: initializeTaplistControls()
+    // Purpose: Wire search, style filter, and refresh button interactions
+    // Triggers: Input, change, and click events
+    function initializeTaplistControls() {
+      const searchInput = document.getElementById('beer-search');
+      const styleFilter = document.getElementById('beer-style-filter');
+      const refreshButton = document.getElementById('refresh-taplist');
+
+      if (searchInput) {
+        searchInput.addEventListener('input', function (event) {
+          currentSearchTerm = event.target.value.trim().toLowerCase();
+          renderFilteredTaplist();
+        });
+      }
+
+      if (styleFilter) {
+        styleFilter.addEventListener('change', function (event) {
+          currentStyleFilter = event.target.value;
+          renderFilteredTaplist();
+        });
+      }
+
+      if (refreshButton) {
+        refreshButton.addEventListener('click', function () {
+          fetchAndRenderTaplist();
+        });
+      }
+    }
+
+    // ===== FETCH LIVE TAPLIST =====
+    // Function: fetchAndRenderTaplist()
+    // Purpose: Retrieve current beers from the supplied API and render them on page
+    // Triggers: Page load and Refresh Tap List button click
+    async function fetchAndRenderTaplist() {
+      const message = document.getElementById('taplist-message');
+      const grid = document.getElementById('taplist-grid');
+      const refreshButton = document.getElementById('refresh-taplist');
+
+      setTaplistMessage('Loading the latest beers from the tap list API…', false);
+
+      if (grid) {
+        grid.innerHTML = '';
+      }
+
+      if (refreshButton) {
+        refreshButton.disabled = true;
+        refreshButton.textContent = 'Refreshing…';
+      }
+
+      try {
+        const response = await fetch(BEER_API_URL, {
+          method: 'GET',
+          headers: {
+            'Accept': 'application/json'
+          },
+          cache: 'no-store'
+        });
+
+        if (!response.ok) {
+          throw new Error('Tap list API responded with status ' + response.status);
+        }
+
+        const payload = await response.json();
+        allBeers = normalizeBeerPayload(payload);
+
+        updateBeerCount(allBeers.length);
+        updateLastUpdated();
+
+        if (!allBeers.length) {
+          setTaplistMessage('The API responded successfully, but no beers were found in the tap list right now.', false);
+          renderFilteredTaplist();
+          return;
+        }
+
+        setTaplistMessage('', false);
+        populateStyleFilter(allBeers);
+        renderFilteredTaplist();
+      } catch (error) {
+        console.error('Unable to load tap list:', error);
+        allBeers = [];
+        updateBeerCount(0);
+        updateLastUpdated('Unable to update');
+        setTaplistMessage('We could not load the live tap list from the beer API. Please refresh, or ask your bartender for the latest pours.', true);
+      } finally {
+        if (refreshButton) {
+          refreshButton.disabled = false;
+          refreshButton.textContent = 'Refresh Tap List';
+        }
+
+        if (message && message.textContent.trim() === '') {
+          message.style.display = 'none';
+        }
+      }
+    }
+
+    // ===== NORMALIZE API PAYLOAD =====
+    // Function: normalizeBeerPayload(payload)
+    // Purpose: Convert several possible API response formats into an array of beer objects
+    // Triggers: Called after the beer API returns JSON
+    function normalizeBeerPayload(payload) {
+      if (Array.isArray(payload)) {
+        return payload;
+      }
+
+      if (!payload || typeof payload !== 'object') {
+        return [];
+      }
+
+      const directArrayKeys = [
+        'beers',
+        'beer',
+        'items',
+        'results',
+        'records',
+        'data',
+        'response',
+        'taplist',
+        'tapList'
+      ];
+
+      for (const key of directArrayKeys) {
+        if (Array.isArray(payload[key])) {
+          return payload[key];
+        }
+      }
+
+      if (payload.COLUMNS && payload.DATA && Array.isArray(payload.COLUMNS) && Array.isArray(payload.DATA)) {
+        return convertColdFusionQueryToObjects(payload.COLUMNS, payload.DATA);
+      }
+
+      if (payload.columns && payload.data && Array.isArray(payload.columns) && Array.isArray(payload.data)) {
+        return convertColdFusionQueryToObjects(payload.columns, payload.data);
+      }
+
+      for (const value of Object.values(payload)) {
+        if (Array.isArray(value) && value.length && typeof value[0] === 'object') {
+          return value;
+        }
+
+        if (value && typeof value === 'object') {
+          const nested = normalizeBeerPayload(value);
+          if (nested.length) {
+            return nested;
+          }
+        }
+      }
+
+      return [];
+    }
+
+    // ===== CONVERT COLDFUSION QUERY FORMAT =====
+    // Function: convertColdFusionQueryToObjects(columns, rows)
+    // Purpose: Support ColdFusion query JSON responses with COLUMNS and DATA arrays
+    // Triggers: Called by normalizeBeerPayload when query-style payload is detected
+    function convertColdFusionQueryToObjects(columns, rows) {
+      return rows.map(function (row) {
+        const object = {};
+
+        columns.forEach(function (column, index) {
+          object[String(column).toLowerCase()] = row[index];
+          object[String(column)] = row[index];
+        });
+
+        return object;
+      });
+    }
+
+    // ===== RENDER FILTERED TAPLIST =====
+    // Function: renderFilteredTaplist()
+    // Purpose: Apply current search/style filters and render matching beer cards
+    // Triggers: Search input, style dropdown, successful API fetch
+    function renderFilteredTaplist() {
+      const grid = document.getElementById('taplist-grid');
+
+      if (!grid) {
+        return;
+      }
+
+      const filteredBeers = allBeers.filter(function (beer) {
+        const normalized = normalizeBeerFields(beer);
+        const searchableText = [
+          normalized.name,
+          normalized.style,
+          normalized.description,
+          normalized.abv,
+          normalized.ibu
+        ].join(' ').toLowerCase();
+
+        const matchesSearch = !currentSearchTerm || searchableText.includes(currentSearchTerm);
+        const matchesStyle = !currentStyleFilter || normalized.style === currentStyleFilter;
+
+        return matchesSearch && matchesStyle;
+      });
+
+      updateBeerCount(filteredBeers.length);
+      grid.innerHTML = '';
+
+      if (!allBeers.length) {
+        return;
+      }
+
+      if (!filteredBeers.length) {
+        setTaplistMessage('No beers match your current search or style filter. Try clearing the search to see the full tap list.', false);
+        return;
+      }
+
+      setTaplistMessage('', false);
+
+      filteredBeers.forEach(function (beer) {
+        grid.appendChild(createBeerCard(beer));
+      });
+    }
+
+    // ===== CREATE BEER CARD =====
+    // Function: createBeerCard(beer)
+    // Purpose: Build an accessible beer card using safe textContent assignments
+    // Triggers: Called for each filtered beer item during render
+    function createBeerCard(beer) {
+      const normalized = normalizeBeerFields(beer);
+      const card = document.createElement('article');
+      card.className = 'beer-card';
+
+      const header = document.createElement('div');
+      header.className = 'beer-card-header';
+
+      const name = document.createElement('h3');
+      name.className = 'beer-name';
+      name.textContent = normalized.name;
+
+      const badge = document.createElement('span');
+      badge.className = 'beer-badge';
+      badge.textContent = normalized.badge;
+
+      header.appendChild(name);
+      header.appendChild(badge);
+
+      const style = document.createElement('div');
+      style.className = 'beer-style';
+      style.textContent = normalized.style;
+
+      const description = document.createElement('p');
+      description.className = 'beer-description';
+      description.textContent = normalized.description;
+
+      const meta = document.createElement('div');
+      meta.className = 'beer-meta';
+
+      appendMetaChip(meta, 'ABV', normalized.abv);
+      appendMetaChip(meta, 'IBU', normalized.ibu);
+      appendMetaChip(meta, 'Pour', normalized.pour);
+      appendMetaChip(meta, 'Price', normalized.price);
+
+      card.appendChild(header);
+      card.appendChild(style);
+      card.appendChild(description);
+      card.appendChild(meta);
+
+      return card;
+    }
+
+    // ===== APPEND BEER META CHIP =====
+    // Function: appendMetaChip(container, label, value)
+    // Purpose: Add a beer statistic chip only when a value is available
+    // Triggers: Called while creating each beer card
+    function appendMetaChip(container, label, value) {
+      if (!value) {
+        return;
+      }
+
+      const chip = document.createElement('span');
+      const strong = document.createElement('b');
+
+      strong.textContent = label + ': ';
+      chip.appendChild(strong);
+      chip.appendChild(document.createTextNode(value));
+
+      container.appendChild(chip);
+    }
+
+    // ===== NORMALIZE BEER FIELDS =====
+    // Function: normalizeBeerFields(beer)
+    // Purpose: Map different API field names into consistent display fields
+    // Triggers: Rendering, filtering, and style filter population
+    function normalizeBeerFields(beer) {
+      const name = getFirstValue(beer, [
+        'name',
+        'beer_name',
+        'beerName',
+        'beer',
+        'product_name',
+        'productName',
+        'title',
+        'item_name',
+        'itemName'
+      ]) || 'Featured Ale';
+
+      const style = getFirstValue(beer, [
+        'style',
+        'beer_style',
+        'beerStyle',
+        'category',
+        'type',
+        'family',
+        'substyle',
+        'beer_type',
+        'beerType'
+      ]) || 'House Brew';
+
+      const description = getFirstValue(beer, [
+        'description',
+        'tasting_notes',
+        'tastingNotes',
+        'notes',
+        'profile',
+        'flavor',
+        'flavour',
+        'body',
+        'excerpt',
+        'short_description',
+        'shortDescription'
+      ]) || 'Ask our team for tasting notes, pairing ideas, and the story behind this pour.';
+
+      const abv = formatPercent(getFirstValue(beer, [
+        'abv',
+        'ABV',
+        'alc_by_vol',
+        'alcohol',
+        'alcohol_by_volume',
+        'abv_percent',
+        'abvPercent'
+      ]));
+
+      const ibu = formatPlainValue(getFirstValue(beer, [
+        'ibu',
+        'IBU',
+        'bitterness',
+        'ibus',
+        'IBUs'
+      ]));
+
+      const pour = getFirstValue(beer, [
+        'pour',
+        'pour_size',
+        'pourSize',
+        'serving',
+        'serving_size',
+        'servingSize',
+        'glass',
+        'glass_size',
+        'glassSize',
+        'size'
+      ]);
+
+      const price = formatPrice(getFirstValue(beer, [
+        'price',
+        'pint_price',
+        'pintPrice',
+        'pour_price',
+        'pourPrice',
+        'cost',
+        'menu_price',
+        'menuPrice'
+      ]));
+
+      const tapNumber = getFirstValue(beer, [
+        'tap',
+        'tap_number',
+        'tapNumber',
+        'tap_no',
+        'tapNo',
+        'handle',
+        'line'
+      ]);
+
+      const availability = getFirstValue(beer, [
+        'availability',
+        'status',
+        'draft_status',
+        'draftStatus',
+        'on_tap',
+        'onTap',
+        'active'
+      ]);
+
+      return {
+        name: String(name).trim(),
+        style: String(style).trim(),
+        description: String(description).trim(),
+        abv: abv,
+        ibu: ibu,
+        pour: pour ? String(pour).trim() : '',
+        price: price,
+        badge: createBeerBadge(tapNumber, availability)
+      };
+    }
+
+    // ===== GET FIRST AVAILABLE FIELD VALUE =====
+    // Function: getFirstValue(source, keys)
+    // Purpose: Find the first non-empty value across possible API field names
+    // Triggers: normalizeBeerFields
+    function getFirstValue(source, keys) {
+      if (!source || typeof source !== 'object') {
+        return '';
+      }
+
+      for (const key of keys) {
+        if (source[key] !== undefined && source[key] !== null && String(source[key]).trim() !== '') {
+          return source[key];
+        }
+      }
+
+      const lowerCaseMap = {};
+      Object.keys(source).forEach(function (key) {
+        lowerCaseMap[key.toLowerCase()] = source[key];
+      });
+
+      for (const key of keys) {
+        const lowerKey = key.toLowerCase();
+        if (lowerCaseMap[lowerKey] !== undefined && lowerCaseMap[lowerKey] !== null && String(lowerCaseMap[lowerKey]).trim() !== '') {
+          return lowerCaseMap[lowerKey];
+        }
+      }
+
+      return '';
+    }
+
+    // ===== FORMAT PERCENT VALUE =====
+    // Function: formatPercent(value)
+    // Purpose: Display ABV values consistently with a percent symbol
+    // Triggers: normalizeBeerFields
+    function formatPercent(value) {
+      if (value === undefined || value === null || String(value).trim() === '') {
+        return '';
+      }
+
+      const stringValue = String(value).trim();
+
+      if (stringValue.includes('%')) {
+        return stringValue;
+      }
+
+      const numeric = Number(stringValue);
+
+      if (!Number.isNaN(numeric)) {
+        return numeric.toFixed(numeric % 1 === 0 ? 0 : 1) + '%';
+      }
+
+      return stringValue;
+    }
+
+    // ===== FORMAT PLAIN VALUE =====
+    // Function: formatPlainValue(value)
+    // Purpose: Convert simple beer stats into displayable strings
+    // Triggers: normalizeBeerFields
+    function formatPlainValue(value) {
+      if (value === undefined || value === null || String(value).trim() === '') {
+        return '';
+      }
+
+      return String(value).trim();
+    }
+
+    // ===== FORMAT PRICE VALUE =====
+    // Function: formatPrice(value)
+    // Purpose: Display numeric prices with dollar sign while preserving existing strings
+    // Triggers: normalizeBeerFields
+    function formatPrice(value) {
+      if (value === undefined || value === null || String(value).trim() === '') {
+        return '';
+      }
+
+      const stringValue = String(value).trim();
+
+      if (stringValue.includes('$')) {
+        return stringValue;
+      }
+
+      const numeric = Number(stringValue);
+
+      if (!Number.isNaN(numeric)) {
+        return '$' + numeric.toFixed(2);
+      }
+
+      return stringValue;
+    }
+
+    // ===== CREATE BEER BADGE =====
+    // Function: createBeerBadge(tapNumber, availability)
+    // Purpose: Prefer tap number when present, otherwise show current draft status
+    // Triggers: normalizeBeerFields
+    function createBeerBadge(tapNumber, availability) {
+      if (tapNumber !== undefined && tapNumber !== null && String(tapNumber).trim() !== '') {
+        return 'Tap ' + String(tapNumber).trim();
+      }
+
+      if (availability !== undefined && availability !== null && String(availability).trim() !== '') {
+        const normalizedAvailability = String(availability).trim();
+
+        if (normalizedAvailability === '1' || normalizedAvailability.toLowerCase() === 'true') {
+          return 'On Tap';
+        }
+
+        return normalizedAvailability;
+      }
+
+      return 'On Tap';
+    }
+
+    // ===== POPULATE STYLE FILTER =====
+    // Function: populateStyleFilter(beers)
+    // Purpose: Create dropdown options from unique API beer styles
+    // Triggers: Successful API fetch
+    function populateStyleFilter(beers) {
+      const styleFilter = document.getElementById('beer-style-filter');
+
+      if (!styleFilter) {
+        return;
+      }
+
+      const currentValue = styleFilter.value;
+      const styles = Array.from(new Set(beers.map(function (beer) {
+        return normalizeBeerFields(beer).style;
+      }).filter(Boolean))).sort();
+
+      styleFilter.innerHTML = '';
+
+      const allOption = document.createElement('option');
+      allOption.value = '';
+      allOption.textContent = 'All beer styles';
+      styleFilter.appendChild(allOption);
+
+      styles.forEach(function (style) {
+        const option = document.createElement('option');
+        option.value = style;
+        option.textContent = style;
+        styleFilter.appendChild(option);
+      });
+
+      if (styles.includes(currentValue)) {
+        styleFilter.value = currentValue;
+      } else {
+        currentStyleFilter = '';
+      }
+    }
+
+    // ===== SET TAPLIST MESSAGE =====
+    // Function: setTaplistMessage(text, isError)
+    // Purpose: Display loading, error, empty, or filter feedback above beer grid
+    // Triggers: API fetch lifecycle and filtering changes
+    function setTaplistMessage(text, isError) {
+      const message = document.getElementById('taplist-message');
+
+      if (!message) {
+        return;
+      }
+
+      message.textContent = text;
+      message.classList.toggle('error', Boolean(isError));
+      message.style.display = text ? 'block' : 'none';
+    }
+
+    // ===== UPDATE BEER COUNT =====
+    // Function: updateBeerCount(count)
+    // Purpose: Reflect currently visible beer count in the tap list status panel
+    // Triggers: API fetch and filtering changes
+    function updateBeerCount(count) {
+      const countElement = document.getElementById('beer-count');
+
+      if (countElement) {
+        countElement.textContent = String(count);
+      }
+    }
+
+    // ===== UPDATE LAST UPDATED TIMESTAMP =====
+    // Function: updateLastUpdated(customText)
+    // Purpose: Show local timestamp after a successful API refresh or custom error text
+    // Triggers: API fetch success or failure
+    function updateLastUpdated(customText) {
+      const updatedElement = document.getElementById('beer-updated');
+
+      if (!updatedElement) {
+        return;
+      }
+
+      if (customText) {
+        updatedElement.textContent = customText;
+        return;
+      }
+
+      updatedElement.textContent = new Date().toLocaleString([], {
+        month: 'short',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: '2-digit'
+      });
+    }
+  </script>
 </body>
 </html>
