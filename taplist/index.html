@@ -3,16 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Adirondack Ales & Eats — handcrafted ales, locally sourced food, and good times in the heart of the Adirondacks.">
   
-
-  <link rel="preconnect" href="https://api.getkrowd.com" crossorigin>
-  <link rel="dns-prefetch" href="https://api.getkrowd.com">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-
   
 
 <!-- SEO Meta Tags -->
@@ -202,137 +194,46 @@
 })();
 </script>  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#taplist">🍺 Tap List</a>
-    <a href="https://brewpub.getkrowd.com/order/">🍕 Food Menu</a>
-    <a href="https://brewpub.getkrowd.com/events/">🎸 Events</a>
-    <a href="https://brewpub.getkrowd.com/specials/">🏷️ Specials</a>
-    <a href="https://brewpub.getkrowd.com/happyhour/">🍻 Happy Hour</a>
-    <a href="https://brewpub.getkrowd.com/order/" class="order-mobile">Order Online</a>
+
+<nav>
+  <a href="https://brewpub.getkrowd.com/" class="nav-logo"><img src="https://brewpub.getkrowd.com/images/adkalelogo.png" alt="Logo"></a>
+  <div class="nav-center">
+    <ul class="nav-links">
+      <li><a href="https://brewpub.getkrowd.com/">Home</a></li>
+      <li><a href="https://brewpub.getkrowd.com/taplist/" class="active">Tap List</a></li>
+      <li><a href="https://brewpub.getkrowd.com/order/">Food</a></li>
+      <li><a href="https://brewpub.getkrowd.com/events/">Events</a></li>
+      <li><a href="https://brewpub.getkrowd.com/specials/">Specials</a></li>
+      <li><a href="https://brewpub.getkrowd.com/order/" class="order-link">Order Online</a></li>
+    </ul>
   </div>
+  <div class="nav-right"><a href="https://brewpub.getkrowd.com/" class="nav-back">← Home</a></div>
+</nav>
 
-  <nav>
-    <a href="https://brewpub.getkrowd.com/" class="nav-logo">
-      <img src="https://brewpub.getkrowd.com/images/adkalelogo.png" alt="Adirondack Ales & Eats logo">
-    </a>
-    <div class="nav-center">
-      <ul class="nav-links">
-        <li><a href="#taplist">Tap List</a></li>
-        <li><a href="https://brewpub.getkrowd.com/order/">Food</a></li>
-        <li><a href="https://brewpub.getkrowd.com/events/">Events</a></li>
-        <li><a href="https://brewpub.getkrowd.com/specials/">Specials</a></li>
-        <li><a href="https://brewpub.getkrowd.com/happyhour/">Happy Hour</a></li>
-        <li><a href="https://brewpub.getkrowd.com/order/" class="order-link">Order Online</a></li>
-      </ul>
-    </div>
-    <div class="nav-right"><a href="tel:+13155993366" class="nav-cta">📞 315-599-3366</a></div>
-    <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
-  </nav>
+<header class="page-hero">
+  <h1>Fresh on <em>Tap.</em></h1>
+  <p>Freshly poured, small-batch Adirondack ales.</p>
+  <a href="https://menu.eatdrinklocals.com/index.cfm/1071" class="btn-personalize">Personalize Beer Menu 🍺</a>
+</header>
 
-  <section class="hero">
-    <div class="hero-slides">
-      <div class="hero-slide">
-        <img src="https://brewpub.getkrowd.com/images/close-up-happy-men-with-beer-mugs.jpg" alt="Friends raising craft beer mugs at Adirondack Ales and Eats">
-        <div class="hero-slide-overlay"></div>
-      </div>
-    </div>
-    <div class="hero-content">
-      <div class="hero-eyebrow">Craft Brewery & Kitchen</div>
-      <h1>Brewed in the<br><em>Adirondacks.</em></h1>
-      <p>Small-batch ales and locally sourced food in the heart of the North Country.</p>
-      <div class="hero-buttons">
-        <a href="#taplist" class="btn-primary">See What's on Tap</a>
-        <a href="https://brewpub.getkrowd.com/order/" class="btn-outline">Explore the Menu</a>
-      </div>
-    </div>
-  </section>
+<div class="taplist-filters">
+  <input type="text" id="beerSearch" class="filter-input" placeholder="Search by name or keyword...">
+  <select id="styleFilter" class="filter-input">
+    <option value="">All Beer Styles</option>
+  </select>
+</div>
 
-  <section class="taplist-section" id="taplist">
-    <div class="taplist-container">
-      <div class="taplist-header">
-        <div class="taplist-intro">
-          <div class="section-label">Fresh From the Taps</div>
-          <h2>Live Tap List</h2>
-          <p class="lead">Our current beers are pulled directly from the Adirondack Ales & Eats beer API, so you can see what is pouring before you head in.</p>
-        </div>
-        <aside class="taplist-status-panel">
-          <div class="taplist-status-meta">
-            <span>Beers loaded: <strong id="beer-count">0</strong></span>
-            <span>Last updated: <strong id="beer-updated">Loading…</strong></span>
-          </div>
-          <button id="refresh-taplist" class="btn-primary" style="width:100%; padding: 10px;">Refresh Tap List</button>
-        </aside>
-      </div>
+<main class="page-content">
+  <div class="taplist-grid" id="beerGrid">
+    <div class="loading"><div class="spinner"></div><p>Pulling the latest taps...</p></div>
+  </div>
+</main>
 
-      <div class="taplist-controls">
-        <input id="beer-search" class="taplist-control" type="search" placeholder="Search by name, style, or tasting notes...">
-        <select id="beer-style-filter" class="taplist-control">
-          <option value="">All beer styles</option>
-        </select>
-      </div>
+<footer><p>© 2026 Adirondack Ales & Eats · Drink responsibly. Must be 21+.</p></footer>
 
-      <div id="taplist-message" class="taplist-message">Loading the latest beers from the tap list API…</div>
-      
-      <div id="taplist-grid" class="taplist-grid"></div>
-      
-      <p class="lead" style="font-size:0.9rem; opacity:0.7; margin-top: 30px;">Tap availability can change quickly during busy service. Please ask your bartender for the most current pours. Must be 21+ to consume alcohol.</p>
-    </div>
-  </section>
 
-  <section class="food">
-    <div class="food-grid">
-      <div>
-        <div class="section-label">The Kitchen</div>
-        <h2>Food That<br>Earns Its Seat.</h2>
-        <p class="lead">Chef-driven, seasonal plates always paired perfectly to the pint.</p>
-        <div class="food-btns">
-          <a href="https://brewpub.getkrowd.com/order/" class="btn-primary">Order Online Now</a>
-          <a href="https://menu.eatdrinklocals.com/index.cfm/1071" target="_blank" rel="noopener" class="btn-outline">Personalize Our Menu</a>
-        </div>
-      </div>
-      <div>
-        <img class="food-image" src="https://brewpub.getkrowd.com/images/fresh-buffalo-chicken-wings-with-savory-dip-appetizer-generative-ai.jpg" alt="Fresh buffalo chicken wings with savory dip appetizer">
-      </div>
-    </div>
-  </section>
 
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <img src="https://brewpub.getkrowd.com/images/adkalelogo.png" alt="Adirondack Ales & Eats logo">
-        <p>Handcrafted beers and the spirit of the Adirondacks in every pint.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Explore</h4>
-        <ul>
-          <li><a href="#taplist">Tap List</a></li>
-          <li><a href="https://brewpub.getkrowd.com/order/">Food Menu</a></li>
-          <li><a href="https://brewpub.getkrowd.com/events/">Events</a></li>
-          <li><a href="https://brewpub.getkrowd.com/specials/">Specials</a></li>
-          <li><a href="https://brewpub.getkrowd.com/happyhour/">Happy Hour</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Visit</h4>
-        <ul>
-          <li><a href="https://www.google.com/maps/search/?api=1&query=Adirondack%20Ales%20%26%20Eats" target="_blank" rel="noopener">Lake Placid, NY</a></li>
-          <li><a href="tel:+13155993366">(315) 599-3366</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Connect</h4>
-        <ul>
-          <li><a href="https://brewpub.getkrowd.com/order/">Order Online</a></li>
-          <li><a href="https://menu.eatdrinklocals.com/index.cfm/1071" target="_blank" rel="noopener">Full Digital Menu</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">© 2026 Adirondack Ales & Eats. Drink responsibly. Must be 21+.</div>
-  </footer>
-
-  
   <script src="script.js"></script>
 </body>
 </html>
