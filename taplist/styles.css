@@ -1,9 +1,5 @@
 /* ===== GLOBAL RESET STYLES ===== */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     /* ===== BRAND DESIGN TOKENS ===== */
     :root {
@@ -16,961 +12,256 @@
       --dark3: #241A0C;
       --text: #D4C4A0;
       --muted: rgba(212, 196, 160, 0.72);
-      --line: rgba(193, 122, 43, 0.25);
-      --success: #78B159;
-      --danger: #D86A4A;
     }
 
-    /* ===== ROOT SCROLL BEHAVIOR ===== */
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--dark); color: var(--text); overflow-x: hidden; }
 
-    /* ===== BODY BASE STYLES ===== */
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--dark);
-      color: var(--text);
-      overflow-x: hidden;
-    }
-
-    /* ===== ACCESSIBILITY FOCUS STYLES ===== */
-    a:focus-visible,
-    button:focus-visible,
-    input:focus-visible,
-    textarea:focus-visible,
-    select:focus-visible {
-      outline: 3px solid var(--amber-light);
-      outline-offset: 4px;
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+      outline: 3px solid var(--amber-light); outline-offset: 4px;
     }
 
     /* ===== NAVIGATION BAR STYLES ===== */
     nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      padding: 0 5%;
-      height: 90px;
-      background: rgba(14, 10, 5, 0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(193, 122, 43, 0.25);
-      overflow: visible;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: flex-start;
+      justify-content: space-between; padding: 0 5%; height: 90px; background: rgba(14, 10, 5, 0.95);
+      backdrop-filter: blur(12px); border-bottom: 1px solid rgba(193, 122, 43, 0.25); overflow: visible;
     }
-
-    /* ===== NAVIGATION LOGO LINK ===== */
-    .nav-logo {
-      display: flex;
-      align-items: flex-start;
-      text-decoration: none;
-    }
-
-    /* ===== NAVIGATION LOGO IMAGE ===== */
+    .nav-logo { display: flex; align-items: flex-start; text-decoration: none; }
     .nav-logo img {
-      height: 130px;
-      width: 130px;
-      border-radius: 50%;
-      border: 3px solid var(--amber);
-      object-fit: cover;
+      height: 130px; width: 130px; border-radius: 50%; border: 3px solid var(--amber); object-fit: cover;
       box-shadow: 0 0 0 4px #0E0A05, 0 0 0 7px #8B5A1F, 0 10px 40px rgba(0, 0, 0, 0.7);
-      position: relative;
-      z-index: 1001;
-      margin-top: 20px;
+      position: relative; z-index: 1001; margin-top: 20px;
     }
-
-    /* ===== NAVIGATION CENTER AREA ===== */
-    .nav-center {
-      display: flex;
-      align-items: center;
-      height: 90px;
-    }
-
-    /* ===== NAVIGATION LINK LIST ===== */
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-      list-style: none;
-      align-items: center;
-    }
-
-    /* ===== NAVIGATION LINK TYPOGRAPHY ===== */
+    .nav-center { display: flex; align-items: center; height: 90px; }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; align-items: center; }
     .nav-links a {
-      color: var(--text);
-      text-decoration: none;
-      font-size: 0.82rem;
-      font-weight: 500;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      transition: color 0.2s, background 0.2s;
+      color: var(--text); text-decoration: none; font-size: 0.82rem; font-weight: 500;
+      letter-spacing: 1.5px; text-transform: uppercase; transition: color 0.2s;
     }
-
-    /* ===== NAVIGATION LINK HOVER ===== */
-    .nav-links a:hover {
-      color: var(--amber-light);
-    }
-
-    /* ===== NAVIGATION ORDER LINK ===== */
-    .nav-links .order-link {
-      background: var(--amber);
-      color: var(--dark);
-      padding: 8px 18px;
-      border-radius: 4px;
-      font-weight: 700;
-    }
-
-    /* ===== NAVIGATION ORDER LINK HOVER ===== */
-    .nav-links .order-link:hover {
-      background: var(--amber-light);
-      color: var(--dark);
-    }
-
-    /* ===== NAVIGATION RIGHT AREA ===== */
-    .nav-right {
-      display: flex;
-      align-items: center;
-      height: 90px;
-    }
-
-    /* ===== NAVIGATION PHONE CTA ===== */
+    .nav-links a:hover { color: var(--amber-light); }
+    .nav-links .order-link { background: var(--amber); color: var(--dark); padding: 8px 18px; border-radius: 4px; font-weight: 700; }
+    .nav-links .order-link:hover { background: var(--amber-light); color: var(--dark); }
+    .nav-right { display: flex; align-items: center; height: 90px; }
     .nav-cta {
-      background: var(--amber);
-      color: var(--dark);
-      border: none;
-      padding: 10px 24px;
-      border-radius: 4px;
-      font-weight: 700;
-      font-size: 0.8rem;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.2s;
+      background: var(--amber); color: var(--dark); border: none; padding: 10px 24px; border-radius: 4px;
+      font-weight: 700; font-size: 0.8rem; letter-spacing: 1.5px; text-transform: uppercase;
+      text-decoration: none; transition: background 0.2s;
     }
+    .nav-cta:hover { background: var(--amber-light); }
+    
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; align-items: center; justify-content: center; height: 90px; background: transparent; border: 0; }
+    .nav-hamburger span { display: block; width: 26px; height: 2px; background: var(--cream); transition: all 0.3s; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-    /* ===== NAVIGATION PHONE CTA HOVER ===== */
-    .nav-cta:hover {
-      background: var(--amber-light);
-    }
-
-    /* ===== MOBILE HAMBURGER BUTTON ===== */
-    .nav-hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      align-items: center;
-      justify-content: center;
-      height: 90px;
-      z-index: 1002;
-      background: transparent;
-      border: 0;
-    }
-
-    /* ===== MOBILE HAMBURGER BARS ===== */
-    .nav-hamburger span {
-      display: block;
-      width: 26px;
-      height: 2px;
-      background: var(--cream);
-      transition: all 0.3s;
-    }
-
-    /* ===== MOBILE HAMBURGER OPEN STATE BAR ONE ===== */
-    .nav-hamburger.open span:nth-child(1) {
-      transform: translateY(7px) rotate(45deg);
-    }
-
-    /* ===== MOBILE HAMBURGER OPEN STATE BAR TWO ===== */
-    .nav-hamburger.open span:nth-child(2) {
-      opacity: 0;
-    }
-
-    /* ===== MOBILE HAMBURGER OPEN STATE BAR THREE ===== */
-    .nav-hamburger.open span:nth-child(3) {
-      transform: translateY(-7px) rotate(-45deg);
-    }
-
-    /* ===== MOBILE MENU PANEL ===== */
     .mobile-menu {
-      position: fixed;
-      top: 90px;
-      left: 0;
-      right: 0;
-      background: rgba(14, 10, 5, 0.98);
-      backdrop-filter: blur(12px);
-      z-index: 999;
-      border-bottom: 1px solid rgba(193, 122, 43, 0.3);
-      padding: 20px 5% 30px;
-      display: none;
-      flex-direction: column;
-      gap: 4px;
+      position: fixed; top: 90px; left: 0; right: 0; background: rgba(14, 10, 5, 0.98); backdrop-filter: blur(12px);
+      z-index: 999; border-bottom: 1px solid rgba(193, 122, 43, 0.3); padding: 20px 5% 30px; display: none; flex-direction: column; gap: 4px;
     }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: var(--cream); text-decoration: none; font-size: 1.1rem; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; padding: 14px 0; border-bottom: 1px solid rgba(193, 122, 43, 0.12); display: block; }
+    .mobile-menu a.order-mobile { background: var(--amber); color: var(--dark); padding: 14px 20px; border-radius: 4px; text-align: center; margin-top: 10px; border-bottom: none; font-weight: 700; }
 
-    /* ===== MOBILE MENU OPEN STATE ===== */
-    .mobile-menu.open {
-      display: flex;
-    }
+    /* ===== HERO SECTION ===== */
+    .hero { position: relative; min-height: 650px; height: 100vh; overflow: hidden; }
+    .hero-slide { min-width: 100%; height: 100%; position: relative; }
+    .hero-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hero-slide-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(14, 10, 5, 0.85) 0%, rgba(14, 10, 5, 0.5) 50%, rgba(14, 10, 5, 0.3) 100%); }
+    .hero-content { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 120px 1rem 2rem; z-index: 2; }
+    .hero-eyebrow { color: var(--amber-light); border: 1px solid var(--amber); padding: 4px 10px; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; font-size: 0.78rem; background: rgba(14, 10, 5, 0.45); }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 8vw, 6.5rem); line-height: 1.05; color: var(--cream); margin-bottom: 1.4rem; max-width: 980px; }
+    .hero h1 em { font-style: normal; color: var(--amber-light); }
+    .hero-content p { max-width: 680px; color: var(--cream); font-size: clamp(1rem, 2vw, 1.25rem); line-height: 1.75; margin-bottom: 1.8rem; }
+    
+    .hero-buttons { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; width: 100%; max-width: 720px; }
+    .btn-primary { background: var(--amber); color: var(--dark); padding: 15px 36px; border-radius: 4px; font-weight: 700; font-size: 0.9rem; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; border: 2px solid var(--amber); cursor: pointer; transition: all 0.2s; display: inline-block; }
+    .btn-primary:hover { background: var(--amber-light); border-color: var(--amber-light); transform: translateY(-2px); }
+    .btn-outline { background: transparent; color: var(--cream); padding: 15px 36px; border-radius: 4px; font-weight: 600; font-size: 0.9rem; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; border: 2px solid rgba(245, 237, 216, 0.4); cursor: pointer; transition: all 0.2s; display: inline-block; }
+    .btn-outline:hover { border-color: var(--amber-light); color: var(--amber-light); transform: translateY(-2px); }
 
-    /* ===== MOBILE MENU LINKS ===== */
-    .mobile-menu a {
-      color: var(--cream);
-      text-decoration: none;
-      font-size: 1.1rem;
-      font-weight: 500;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      padding: 14px 0;
-      border-bottom: 1px solid rgba(193, 122, 43, 0.12);
-      display: block;
-    }
+    /* ===== SHARED SECTIONS ===== */
+    section { padding: 100px 5%; }
+    .section-label { font-family: 'Oswald', sans-serif; font-size: 0.75rem; letter-spacing: 4px; text-transform: uppercase; color: var(--amber); margin-bottom: 0.8rem; }
+    h2 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 4vw, 3.2rem); color: var(--cream); margin-bottom: 1rem; line-height: 1.08; }
+    .lead { font-size: 1.1rem; line-height: 1.8; color: var(--text); }
 
-    /* ===== MOBILE ORDER LINK ===== */
-    .mobile-menu a.order-mobile {
-      background: var(--amber);
-      color: var(--dark);
-      padding: 14px 20px;
-      border-radius: 4px;
-      text-align: center;
-      margin-top: 10px;
-      border-bottom: none;
-      font-weight: 700;
-    }
+    /* ===== TAPLIST SECTION ===== */
+    .taplist-section { position: relative; }
+    .taplist-container { max-width: 1300px; margin: 0 auto; position: relative; z-index: 1; }
+    .taplist-header { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2rem; align-items: end; margin-bottom: 2.4rem; }
+    .taplist-status-panel { border: 1px solid rgba(193, 122, 43, 0.28); background: rgba(26, 18, 8, 0.74); border-radius: 14px; padding: 1rem; min-width: 240px; box-shadow: 0 18px 60px rgba(0, 0, 0, 0.22); }
+    .taplist-status-meta { display: grid; gap: 0.35rem; margin-bottom: 0.85rem; color: var(--muted); font-size: 0.86rem; }
+    .taplist-status-meta strong { color: var(--cream); font-weight: 700; }
+    .taplist-controls { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 280px); gap: 1rem; margin-bottom: 2rem; }
+    .taplist-control { width: 100%; background: rgba(8, 5, 3, 0.72); border: 1px solid rgba(193, 122, 43, 0.32); border-radius: 8px; color: var(--cream); padding: 0.95rem 1rem; font-size: 0.98rem; }
+    .taplist-message { border: 1px solid rgba(193, 122, 43, 0.28); background: rgba(26, 18, 8, 0.72); border-radius: 14px; padding: 1.25rem; color: var(--cream); margin-bottom: 1.5rem; text-align: center; }
+    .taplist-message.error { border-color: rgba(216, 106, 74, 0.5); color: #FFD7CC; }
 
-    /* ===== HERO SECTION LAYOUT ===== */
-    .hero {
-      position: relative;
-      min-height: 650px;
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    /* ===== HERO SLIDER TRACK ===== */
-    .hero-slides {
-      display: flex;
-      height: 100%;
-      transition: transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-
-    /* ===== HERO SLIDE ITEM ===== */
-    .hero-slide {
-      min-width: 100%;
-      height: 100%;
-      position: relative;
-      flex-shrink: 0;
-    }
-
-    /* ===== HERO SLIDE IMAGE ===== */
-    .hero-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* ===== HERO IMAGE OVERLAY ===== */
-    .hero-slide-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(14, 10, 5, 0.72) 0%, rgba(14, 10, 5, 0.4) 50%, rgba(14, 10, 5, 0.2) 100%);
-    }
-
-    /* ===== HERO CONTENT POSITIONING ===== */
-    .hero-content {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 120px 1rem 2rem;
-      z-index: 2;
-    }
-
-    /* ===== HERO EYEBROW BADGE ===== */
-    .hero-eyebrow {
-      color: var(--amber-light);
-      border: 1px solid var(--amber);
-      padding: 4px 10px;
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 0.78rem;
-      background: rgba(14, 10, 5, 0.45);
-    }
-
-    /* ===== HERO HEADLINE ===== */
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(3rem, 8vw, 6.5rem);
-      line-height: 1.05;
-      color: var(--cream);
-      margin-bottom: 1.4rem;
-      max-width: 980px;
-    }
-
-    /* ===== HERO HEADLINE EMPHASIS ===== */
-    .hero h1 em {
-      font-style: normal;
-      color: var(--amber-light);
-    }
-
-    /* ===== HERO BODY COPY ===== */
-    .hero-content p {
-      max-width: 680px;
-      color: var(--cream);
-      font-size: clamp(1rem, 2vw, 1.25rem);
-      line-height: 1.75;
-      margin-bottom: 1.8rem;
-    }
-
-    /* ===== HERO BUTTON GROUP ===== */
-    .hero-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-      width: 100%;
-      max-width: 720px;
-    }
-
-    /* ===== PRIMARY BUTTON ===== */
-    .btn-primary {
-      background: var(--amber);
-      color: var(--dark);
-      padding: 15px 36px;
-      border-radius: 4px;
-      font-weight: 700;
-      font-size: 0.9rem;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      text-decoration: none;
-      display: inline-block;
-      border: 2px solid var(--amber);
-      cursor: pointer;
-      transition: background 0.2s, border-color 0.2s, transform 0.2s;
-    }
-
-    /* ===== PRIMARY BUTTON HOVER ===== */
-    .btn-primary:hover {
-      background: var(--amber-light);
-      border-color: var(--amber-light);
-      transform: translateY(-2px);
-    }
-
-    /* ===== OUTLINE BUTTON ===== */
-    .btn-outline {
-      background: transparent;
-      color: var(--cream);
-      padding: 15px 36px;
-      border-radius: 4px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      text-decoration: none;
-      border: 2px solid rgba(245, 237, 216, 0.4);
-      display: inline-block;
-      cursor: pointer;
-      transition: border-color 0.2s, color 0.2s, transform 0.2s;
-    }
-
-    /* ===== OUTLINE BUTTON HOVER ===== */
-    .btn-outline:hover {
-      border-color: var(--amber-light);
-      color: var(--amber-light);
-      transform: translateY(-2px);
-    }
-
-    /* ===== SHARED SECTION STYLES ===== */
-    section {
-      padding: 100px 5%;
-    }
-
-    /* ===== SECTION LABEL TEXT ===== */
-    .section-label {
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.75rem;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--amber);
-      margin-bottom: 0.8rem;
-    }
-
-    /* ===== SECTION HEADINGS ===== */
-    h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.2rem, 4vw, 3.2rem);
-      color: var(--cream);
-      margin-bottom: 1rem;
-      line-height: 1.08;
-    }
-
-    /* ===== LEAD PARAGRAPH ===== */
-    .lead {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: var(--text);
-    }
-
-    /* ===== TAPLIST SECTION BACKGROUND ===== */
-    .taplist-section {
-      background:
-        radial-gradient(circle at 15% 15%, rgba(193, 122, 43, 0.16), transparent 30%),
-        radial-gradient(circle at 90% 10%, rgba(232, 164, 74, 0.08), transparent 28%),
-        linear-gradient(180deg, #120d07 0%, var(--dark) 100%);
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* ===== TAPLIST DECORATIVE TOP LINE ===== */
-    .taplist-section::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 5%;
-      right: 5%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(232, 164, 74, 0.5), transparent);
-    }
-
-    /* ===== TAPLIST CONTAINER ===== */
-    .taplist-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
-
-    /* ===== TAPLIST HEADER LAYOUT ===== */
-    .taplist-header {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 2rem;
-      align-items: end;
-      margin-bottom: 2.4rem;
-    }
-
-    /* ===== TAPLIST HEADER COPY WIDTH ===== */
-    .taplist-intro {
-      max-width: 720px;
-    }
-
-    /* ===== TAPLIST STATUS PANEL ===== */
-    .taplist-status-panel {
-      border: 1px solid rgba(193, 122, 43, 0.28);
-      background: rgba(26, 18, 8, 0.74);
-      border-radius: 14px;
-      padding: 1rem;
-      min-width: 240px;
-      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.22);
-    }
-
-    /* ===== TAPLIST STATUS META ===== */
-    .taplist-status-meta {
-      display: grid;
-      gap: 0.35rem;
-      margin-bottom: 0.85rem;
-      color: var(--muted);
-      font-size: 0.86rem;
-      line-height: 1.45;
-    }
-
-    /* ===== TAPLIST STATUS STRONG TEXT ===== */
-    .taplist-status-meta strong {
-      color: var(--cream);
-      font-weight: 700;
-    }
-
-    /* ===== TAPLIST CONTROLS GRID ===== */
-    .taplist-controls {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(220px, 280px);
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    /* ===== TAPLIST CONTROL FIELD ===== */
-    .taplist-control {
-      width: 100%;
-      background: rgba(8, 5, 3, 0.72);
-      border: 1px solid rgba(193, 122, 43, 0.32);
-      border-radius: 10px;
-      color: var(--cream);
-      padding: 0.95rem 1rem;
-      font-size: 0.98rem;
-    }
-
-    /* ===== TAPLIST CONTROL PLACEHOLDER ===== */
-    .taplist-control::placeholder {
-      color: rgba(212, 196, 160, 0.55);
-    }
-
-    /* ===== TAPLIST MESSAGE BOX ===== */
-    .taplist-message {
-      border: 1px solid rgba(193, 122, 43, 0.28);
-      background: rgba(26, 18, 8, 0.72);
-      border-radius: 14px;
-      padding: 1.25rem;
-      color: var(--cream);
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
-    }
-
-    /* ===== TAPLIST ERROR MESSAGE ===== */
-    .taplist-message.error {
-      border-color: rgba(216, 106, 74, 0.5);
-      color: #FFD7CC;
-    }
-
-    /* ===== TAPLIST GRID ===== */
-    .taplist-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.25rem;
-    }
-
-    /* ===== BEER CARD ===== */
+    /* ===== DOPE BEER CARDS ===== */
+    .taplist-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
+    
     .beer-card {
-      position: relative;
-      border: 1px solid rgba(193, 122, 43, 0.26);
-      background:
-        linear-gradient(180deg, rgba(36, 26, 12, 0.96), rgba(20, 14, 7, 0.96)),
-        radial-gradient(circle at 80% 0%, rgba(232, 164, 74, 0.14), transparent 36%);
-      border-radius: 16px;
-      padding: 1.25rem;
-      min-height: 270px;
+      background: var(--dark2);
+      border: 1px solid rgba(193, 122, 43, 0.15);
+      border-radius: 12px;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
-      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.24);
-      overflow: hidden;
-      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
-    }
-
-    /* ===== BEER CARD HOVER ===== */
-    .beer-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(232, 164, 74, 0.58);
-      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.36);
-    }
-
-    /* ===== BEER CARD TOP ACCENT ===== */
-    .beer-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--amber-dark), var(--amber-light), var(--amber-dark));
-      z-index: 2;
-    }
-
-    /* ===== BEER CARD IMAGE (NEW) ===== */
-    .beer-image-wrapper {
-      margin: -1.25rem -1.25rem 1rem -1.25rem;
-      height: 200px;
-      border-bottom: 1px solid rgba(193, 122, 43, 0.26);
-      background: rgba(8, 5, 3, 0.5);
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
       position: relative;
-      overflow: hidden;
     }
-
-    .beer-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.4s ease;
+    .beer-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(193, 122, 43, 0.6);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
     }
     
-    .beer-card:hover .beer-image {
-      transform: scale(1.05);
-    }
-
-    /* ===== BEER CARD HEADER ===== */
-    .beer-card-header {
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      align-items: flex-start;
-      margin-bottom: 0.9rem;
-    }
-
-    /* ===== BEER NAME ===== */
-    .beer-name {
-      font-family: 'Playfair Display', serif;
-      color: var(--cream);
-      font-size: 1.55rem;
-      line-height: 1.12;
-      margin: 0;
-    }
-
-    /* ===== BEER BADGE ===== */
-    .beer-badge {
-      flex: 0 0 auto;
-      border: 1px solid rgba(232, 164, 74, 0.45);
-      color: var(--amber-light);
-      background: rgba(193, 122, 43, 0.12);
-      border-radius: 999px;
-      padding: 0.3rem 0.62rem;
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.68rem;
-      letter-spacing: 1.3px;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-
-    /* ===== BEER STYLE ===== */
-    .beer-style {
-      color: var(--amber-light);
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.9rem;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      margin-bottom: 0.9rem;
-    }
-
-    /* ===== BEER DESCRIPTION ===== */
-    .beer-description {
-      color: var(--text);
-      line-height: 1.68;
-      font-size: 0.95rem;
-      margin-bottom: 1rem;
-      flex: 1;
-    }
-
-    /* ===== BEER META ROW ===== */
-    .beer-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.55rem;
-      margin-top: auto;
-      padding-top: 1rem;
-      border-top: 1px solid rgba(193, 122, 43, 0.16);
-    }
-
-    /* ===== BEER META CHIP ===== */
-    .beer-meta span {
-      border: 1px solid rgba(193, 122, 43, 0.24);
-      background: rgba(8, 5, 3, 0.34);
-      border-radius: 999px;
-      color: var(--cream);
-      font-size: 0.82rem;
-      padding: 0.35rem 0.62rem;
-      line-height: 1;
-    }
-
-    /* ===== BEER META LABEL ===== */
-    .beer-meta b {
-      color: var(--amber-light);
-      font-weight: 700;
-    }
-
-    /* ===== TAPLIST FINE PRINT ===== */
-    .taplist-note {
-      color: rgba(212, 196, 160, 0.62);
-      font-size: 0.88rem;
-      line-height: 1.65;
-      margin-top: 1.5rem;
-      max-width: 820px;
-    }
-
-    /* ===== FOOD SECTION BACKGROUND ===== */
-    .food {
-      background: var(--dark2);
-    }
-
-    /* ===== FOOD SECTION GRID ===== */
-    .food-grid {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      align-items: center;
-    }
-
-    /* ===== FOOD BUTTON GROUP ===== */
-    .food-btns {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-top: 2rem;
-    }
-
-    /* ===== FOOD IMAGE ===== */
-    .food-image {
+    /* Image Header */
+    .beer-img-container {
       width: 100%;
-      border-radius: 10px;
-      display: block;
-      box-shadow: 0 22px 70px rgba(0, 0, 0, 0.35);
-    }
-
-    /* ===== FOOTER SECTION ===== */
-    footer {
-      background: #080503;
-      padding: 60px 5% 30px;
-      border-top: 1px solid rgba(193, 122, 43, 0.2);
-    }
-
-    /* ===== FOOTER GRID ===== */
-    .footer-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 50px;
-    }
-
-    /* ===== FOOTER BRAND LOGO ===== */
-    .footer-brand img {
-      width: 70px;
-      border-radius: 50%;
-      margin-bottom: 1rem;
-      border: 2px solid rgba(193, 122, 43, 0.55);
-    }
-
-    /* ===== FOOTER BRAND COPY ===== */
-    .footer-brand p {
-      line-height: 1.75;
-      max-width: 330px;
-    }
-
-    /* ===== FOOTER COLUMN HEADINGS ===== */
-    .footer-col h4 {
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.8rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--amber);
-      margin-bottom: 20px;
-    }
-
-    /* ===== FOOTER LIST RESET ===== */
-    .footer-col ul {
-      list-style: none;
-    }
-
-    /* ===== FOOTER LIST ITEMS ===== */
-    .footer-col ul li {
-      margin-bottom: 10px;
-    }
-
-    /* ===== FOOTER LINKS ===== */
-    .footer-col ul li a {
-      color: var(--text);
-      text-decoration: none;
-      font-size: 0.88rem;
-      transition: color 0.2s;
-    }
-
-    /* ===== FOOTER LINK HOVER ===== */
-    .footer-col ul li a:hover {
-      color: var(--amber-light);
-    }
-
-    /* ===== FOOTER COPYRIGHT ===== */
-    .footer-bottom {
-      text-align: center;
-      padding-top: 40px;
-      color: rgba(180, 160, 120, 0.4);
-      font-size: 0.8rem;
-    }
-
-    /* ===== CHAT TEASER POSITION ===== */
-    #chat-teaser {
-      position: fixed;
-      bottom: 90px;
-      right: 20px;
-      z-index: 9999;
-      max-width: 280px;
-      opacity: 0;
-      transition: opacity 0.4s;
-      pointer-events: none;
-    }
-
-    /* ===== CHAT TEASER VISIBLE STATE ===== */
-    #chat-teaser.visible {
-      opacity: 1;
-      pointer-events: all;
-    }
-
-    /* ===== CHAT TEASER HIDDEN STATE ===== */
-    #chat-teaser.hidden {
-      opacity: 0 !important;
-      pointer-events: none;
-    }
-
-    /* ===== CHAT TEASER BUBBLE ===== */
-    .teaser-bubble {
-      background: var(--dark2);
-      border: 1.5px solid var(--amber);
-      border-radius: 16px 16px 4px 16px;
-      padding: 14px 16px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.55);
+      height: 220px;
       position: relative;
-    }
-
-    /* ===== CHAT TEASER CLOSE BUTTON ===== */
-    .teaser-close {
-      position: absolute;
-      top: 5px;
-      right: 10px;
-      color: var(--text);
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-size: 0.9rem;
-    }
-
-    /* ===== CHAT TEASER TEXT ===== */
-    .teaser-text {
-      font-size: 0.88rem;
-      color: var(--cream);
-      padding-right: 1.25rem;
-      line-height: 1.45;
-    }
-
-    /* ===== CHAT BUTTON POSITION ===== */
-    #custom-chat-btn {
-      position: fixed;
-      bottom: 16px;
-      right: 16px;
-      z-index: 9999;
-      width: 64px;
-      height: 64px;
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      padding: 0;
-    }
-
-    /* ===== CHAT BUTTON IMAGE ===== */
-    #custom-chat-btn img {
-      width: 100%;
-      display: block;
-    }
-
-    /* ===== CHAT PANEL ===== */
-    #chat-panel {
-      position: fixed;
-      bottom: 90px;
-      right: 16px;
-      z-index: 9998;
-      width: 380px;
-      height: 560px;
-      border-radius: 16px;
+      background: #111;
       overflow: hidden;
-      border: 1px solid rgba(193, 122, 43, 0.3);
-      display: none;
-      flex-direction: column;
-      background: var(--dark2);
-      box-shadow: 0 22px 80px rgba(0, 0, 0, 0.55);
     }
-
-    /* ===== CHAT PANEL OPEN STATE ===== */
-    #chat-panel.open {
-      display: flex;
-    }
-
-    /* ===== CHAT IFRAME ===== */
-    #chat-iframe {
+    .beer-img-container img {
       width: 100%;
       height: 100%;
-      border: 0;
-      display: block;
+      object-fit: cover;
+      opacity: 0.85;
+      transition: opacity 0.3s, transform 0.5s;
+    }
+    .beer-card:hover .beer-img-container img {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+    .beer-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, var(--dark2) 0%, transparent 100%);
+    }
+    .beer-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: var(--amber);
+      color: var(--dark);
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
     }
 
-    /* ===== TABLET AND SMALL DESKTOP RESPONSIVE STYLES ===== */
-    @media (max-width: 1100px) {
-      .taplist-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .taplist-header {
-        grid-template-columns: 1fr;
-      }
-
-      .taplist-status-panel {
-        min-width: 0;
-      }
+    /* Content Body */
+    .beer-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .beer-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--cream);
+      margin-bottom: 5px;
+      line-height: 1.2;
+    }
+    .beer-style {
+      font-family: 'Oswald', sans-serif;
+      color: var(--amber-light);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+    }
+    .beer-desc {
+      color: var(--text);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+    
+    /* Stats Footer */
+    .beer-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding-top: 15px;
+      border-top: 1px solid rgba(193, 122, 43, 0.15);
+      align-items: center;
+      justify-content: space-between;
+    }
+    .stat-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+    .stat-pill {
+      background: rgba(193, 122, 43, 0.1);
+      border: 1px solid rgba(193, 122, 43, 0.25);
+      color: var(--cream);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .stat-pill span { color: var(--amber-light); }
+    .beer-price {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--cream);
     }
 
-    /* ===== MOBILE NAVIGATION RESPONSIVE STYLES ===== */
+    /* ===== FOOD & FOOTER ===== */
+    .food { background: var(--dark2); }
+    .food-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+    .food-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+    .food-image { width: 100%; border-radius: 10px; box-shadow: 0 22px 70px rgba(0, 0, 0, 0.35); }
+    
+    footer { background: #080503; padding: 60px 5% 30px; border-top: 1px solid rgba(193, 122, 43, 0.2); }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 50px; }
+    .footer-brand img { width: 70px; border-radius: 50%; margin-bottom: 1rem; border: 2px solid rgba(193, 122, 43, 0.55); }
+    .footer-col h4 { font-family: 'Oswald', sans-serif; font-size: 0.8rem; letter-spacing: 3px; text-transform: uppercase; color: var(--amber); margin-bottom: 20px; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a { color: var(--text); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--amber-light); }
+    .footer-bottom { text-align: center; padding-top: 40px; color: rgba(180, 160, 120, 0.4); font-size: 0.8rem; }
+
+    /* ===== CHAT WIDGET ===== */
+    #chat-teaser { position: fixed; bottom: 90px; right: 20px; z-index: 9999; max-width: 280px; opacity: 0; pointer-events: none; transition: opacity 0.4s; }
+    #chat-teaser.visible { opacity: 1; pointer-events: all; }
+    #chat-teaser.hidden { opacity: 0 !important; pointer-events: none; }
+    .teaser-bubble { background: var(--dark2); border: 1.5px solid var(--amber); border-radius: 16px 16px 4px 16px; padding: 14px 16px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.55); position: relative; }
+    .teaser-close { position: absolute; top: 5px; right: 10px; color: var(--text); background: none; border: none; cursor: pointer; font-size: 0.9rem; }
+    .teaser-text { font-size: 0.88rem; color: var(--cream); padding-right: 1.25rem; line-height: 1.45; }
+    #custom-chat-btn { position: fixed; bottom: 16px; right: 16px; z-index: 9999; width: 64px; height: 64px; background: transparent; border: none; cursor: pointer; padding: 0; }
+    #custom-chat-btn img { width: 100%; display: block; }
+    #chat-panel { position: fixed; bottom: 90px; right: 16px; z-index: 9998; width: 380px; height: 560px; border-radius: 16px; overflow: hidden; border: 1px solid rgba(193, 122, 43, 0.3); display: none; background: var(--dark2); box-shadow: 0 22px 80px rgba(0, 0, 0, 0.55); }
+    #chat-panel.open { display: flex; }
+    #chat-panel iframe { width: 100%; height: 100%; border: 0; display: block; }
+
     @media (max-width: 900px) {
-      .nav-center,
-      .nav-right {
-        display: none;
-      }
-
-      .nav-hamburger {
-        display: flex;
-      }
-
-      .footer-inner {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .nav-logo img {
-        height: 90px;
-        width: 90px;
-        margin-top: 30px;
-      }
-
-      .food-grid {
-        grid-template-columns: 1fr;
-      }
+      .nav-center, .nav-right { display: none; }
+      .nav-hamburger { display: flex; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .nav-logo img { height: 90px; width: 90px; margin-top: 30px; }
+      .food-grid { grid-template-columns: 1fr; }
+      .taplist-header { grid-template-columns: 1fr; }
     }
-
-    /* ===== MOBILE SECTION RESPONSIVE STYLES ===== */
     @media (max-width: 700px) {
-      section {
-        padding: 80px 1rem;
-      }
-
-      .hero {
-        min-height: 720px;
-      }
-
-      .hero-content {
-        padding: 150px 1rem 2rem;
-      }
-
-      .hero-buttons {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .hero-buttons a {
-        text-align: center;
-      }
-
-      .taplist-controls {
-        grid-template-columns: 1fr;
-      }
-
-      .taplist-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .footer-inner {
-        grid-template-columns: 1fr;
-      }
-
-      #chat-panel {
-        width: calc(100vw - 32px);
-        height: min(560px, calc(100vh - 120px));
-        right: 16px;
-      }
-
-      #chat-teaser {
-        right: 16px;
-        left: 16px;
-        max-width: none;
-      }
+      section { padding: 80px 1rem; }
+      .hero-buttons { flex-direction: column; align-items: stretch; }
+      .taplist-controls { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+      #chat-panel { width: calc(100vw - 32px); right: 16px; }
+      #chat-teaser { right: 16px; left: 16px; max-width: none; }
     }
