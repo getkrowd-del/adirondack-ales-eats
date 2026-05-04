@@ -52,11 +52,17 @@
 
   // ── CATEGORY TABS — scroll to section ──
   document.querySelectorAll('.cat-tab').forEach(tab => {
-    tab.addEventListener('click', () => {
+    tab.addEventListener('click', function() {
       document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      const el = document.getElementById('cat-' + tab.dataset.cat);
-      if (el) { const offset = el.getBoundingClientRect().top + window.scrollY - 160; window.scrollTo({ top: offset, behavior: 'smooth' }); }
+      this.classList.add('active');
+      const targetId = 'cat-' + this.dataset.cat;
+      const el = document.getElementById(targetId);
+      if (el) {
+        const navHeight = document.querySelector('nav') ? document.querySelector('nav').offsetHeight : 90;
+        const menuNavHeight = document.querySelector('.menu-nav') ? document.querySelector('.menu-nav').offsetHeight : 50;
+        const top = el.getBoundingClientRect().top + window.pageYOffset - navHeight - menuNavHeight - 10;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }
     });
   });
 
