@@ -13,7 +13,7 @@
   chatBtn.addEventListener('click', () => {
     chatOpen = !chatOpen;
     if (chatOpen) {
-      if (!chatLoaded) { chatIframe.src = 'https://brewpub.getkrowd.com/agents/46866772/embed'; chatLoaded = true; }
+      if (!chatLoaded) { chatIframe.src = 'https://paymegpt.com/agents/46866772/embed'; chatLoaded = true; }
       chatPanel.classList.add('open');
       teaser.classList.add('hidden');
     } else chatPanel.classList.remove('open');
