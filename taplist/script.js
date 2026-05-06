@@ -7,19 +7,18 @@ const API_URL = 'https://api.getkrowd.com/v3/beer/index.cfm?companyId=1071&apiKe
     return {
       title: b.title || 'House Brew',
       style: b.beer_type || b.category_name || 'Draft Ale',
-      description: b.description || 'Ask your bartender for tasting notes on this pour.',
+      description: b.description || 'Ask your bartender for details.',
       image: b.image || 'https://brewpub.getkrowd.com/images/adkalelogo.png',
       abv: b.abv ? (b.abv.toString().includes('%') ? b.abv : `${b.abv}%`) : null,
       ibu: b.ibu && b.ibu !== "0" ? b.ibu : null,
       price: b.price && b.price !== "" ? `$${b.price}` : null,
-      status: b.status || b.availability || 'On Tap'
+      status: b.status || b.availability || 'Active'
     };
   }
 
   function render(beers) {
     const grid = document.getElementById('beerGrid');
-    if (!beers.length) { grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;padding:60px;opacity:0.6;">No brews found matching that search.</p>'; return; }
-    
+    if (!beers.length) { grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;padding:60px">No brews found.</p>'; return; }
     grid.innerHTML = beers.map(b => `
       <div class="beer-card">
         <div class="beer-img-container">
@@ -48,25 +47,16 @@ const API_URL = 'https://api.getkrowd.com/v3/beer/index.cfm?companyId=1071&apiKe
       const data = await res.json();
       const raw = data.beers || data.BEERS || (Array.isArray(data) ? data : []);
       allBeers = raw.map(normalize);
-      
       const styles = [...new Set(allBeers.map(b => b.style))].sort();
       const filter = document.getElementById('styleFilter');
-      styles.forEach(s => {
-        const opt = document.createElement('option');
-        opt.value = opt.textContent = s;
-        filter.appendChild(opt);
-      });
-
+      styles.forEach(s => { const opt = document.createElement('option'); opt.value = opt.textContent = s; filter.appendChild(opt); });
       render(allBeers);
-    } catch (e) {
-      document.getElementById('beerGrid').innerHTML = '<p style="grid-column:1/-1;text-align:center">Failed to load tap list. Please refresh the page.</p>';
-    }
+    } catch (e) { document.getElementById('beerGrid').innerHTML = '<p style="grid-column:1/-1;text-align:center">Error loading taps.</p>'; }
   }
 
   function handleFilters() {
     const search = document.getElementById('beerSearch').value.toLowerCase();
     const style = document.getElementById('styleFilter').value;
-    
     const filtered = allBeers.filter(b => {
       const matchesSearch = b.title.toLowerCase().includes(search) || b.description.toLowerCase().includes(search);
       const matchesStyle = !style || b.style === style;
@@ -77,5 +67,33 @@ const API_URL = 'https://api.getkrowd.com/v3/beer/index.cfm?companyId=1071&apiKe
 
   document.getElementById('beerSearch').addEventListener('input', handleFilters);
   document.getElementById('styleFilter').addEventListener('change', handleFilters);
-
   load();
+
+  // CHAT LOGIC
+  var chatBtn = document.getElementById('custom-chat-btn');
+  var chatPanel = document.getElementById('chat-panel');
+  var chatIframe = document.getElementById('chat-iframe');
+  var teaser = document.getElementById('chat-teaser');
+  var chatLoaded = false, chatOpen = false;
+  chatBtn.addEventListener('click', function() {
+    chatOpen = !chatOpen;
+    if (chatOpen) {
+      if (!chatLoaded) { chatIframe.src = 'https://paymegpt.com/agents/46866772/embed'; chatLoaded = true; }
+      chatPanel.classList.add('open');
+      teaser.classList.remove('visible');
+      teaser.classList.add('hidden');
+    } else {
+      chatPanel.classList.remove('open');
+    }
+  });
+  document.addEventListener('click', function(e) {
+    if (chatOpen && !chatPanel.contains(e.target) && e.target !== chatBtn && !chatBtn.contains(e.target)) {
+      chatPanel.classList.remove('open');
+      chatOpen = false;
+    }
+  });
+  setTimeout(function(){ teaser.classList.add('visible'); }, 2000);
+  document.getElementById('teaser-close-btn').addEventListener('click', function() {
+    teaser.classList.remove('visible');
+    teaser.classList.add('hidden');
+  });
