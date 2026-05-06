@@ -196,6 +196,19 @@
 </head>
 <body>
 
+<div id="chat-teaser">
+  <div class="teaser-bubble">
+    <button class="teaser-close" id="teaser-close-btn">✕</button>
+    <p class="teaser-text">👋 Welcome! You can join or access our <strong>High Peaks Perks</strong> VIP Club here, or ask me any questions you have!</p>
+  </div>
+</div>
+<button id="custom-chat-btn">
+  <img src="https://krowdimg.b-cdn.net/mug.png" alt="Chat with us">
+</button>
+<div id="chat-panel">
+  <iframe id="chat-iframe" src="" allow="microphone"></iframe>
+</div>
+
 <nav>
   <a href="https://brewpub.getkrowd.com/" class="nav-logo"><img src="https://brewpub.getkrowd.com/images/adkalelogo.png" alt="Logo"></a>
   <div class="nav-center">
@@ -218,9 +231,9 @@
 </header>
 
 <div class="taplist-filters">
-  <input type="text" id="beerSearch" class="filter-input" placeholder="Search by beer name or tasting notes...">
+  <input type="text" id="beerSearch" class="filter-input" placeholder="Search by beer name or notes...">
   <select id="styleFilter" class="filter-input">
-    <option value="">Filter by Beer Style</option>
+    <option value="">All Beer Styles</option>
   </select>
 </div>
 
@@ -230,7 +243,7 @@
   </div>
 </main>
 
-<footer><p>© 2026 Adirondack Ales & Eats · Handcrafted in NY · Drink responsibly.</p></footer>
+<footer><p>© 2026 Adirondack Ales & Eats · Drink responsibly. Must be 21+.</p></footer>
 
 
   <script src="script.js"></script>
