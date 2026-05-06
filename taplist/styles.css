@@ -2,7 +2,7 @@
     :root { --amber: #C17A2B; --amber-light: #E8A44A; --amber-dark: #8B5A1F; --cream: #F5EDD8; --dark: #0E0A05; --dark2: #1A1208; --dark3: #241A0C; --text: #D4C4A0; }
     body { font-family: 'Inter', sans-serif; background: var(--dark); color: var(--text); min-height: 100vh; overflow-x: hidden; }
 
-    /* NAV - Synced with Specials */
+    /* NAV */
     nav { position: sticky; top: 0; z-index: 1000; display: flex; align-items: flex-start; justify-content: space-between; padding: 0 5%; height: 90px; background: rgba(14,10,5,0.97); border-bottom: 1px solid rgba(193,122,43,0.3); overflow: visible; }
     .nav-logo { display: flex; align-items: flex-start; text-decoration: none; }
     .nav-logo img { height: 130px; width: 130px; border-radius: 50%; border: 3px solid var(--amber); object-fit: cover; box-shadow: 0 0 0 4px #0E0A05, 0 0 0 7px #8B5A1F, 0 10px 40px rgba(0,0,0,0.7); position: relative; z-index: 1001; margin-top: 20px; }
@@ -15,7 +15,7 @@
     .nav-right { display: flex; align-items: center; height: 90px; }
     .nav-back { color: var(--text); text-decoration: none; font-size: 0.78rem; letter-spacing: 1px; text-transform: uppercase; transition: color .2s; border: 1px solid rgba(193,122,43,0.3); padding: 8px 14px; border-radius: 4px; }
 
-    /* HERO - Updated with Bartender Background & Opacity */
+    /* HERO */
     .page-hero { 
       position: relative;
       background: linear-gradient(rgba(14, 10, 5, 0.82), rgba(14, 10, 5, 0.82)), 
@@ -41,7 +41,7 @@
     /* FILTERS */
     .taplist-filters { max-width: 1300px; margin: 40px auto 0; padding: 0 5%; display: grid; grid-template-columns: 1fr 280px; gap: 20px; }
     .filter-input { background: var(--dark2); border: 1px solid rgba(193,122,43,0.25); border-radius: 6px; padding: 14px 18px; color: var(--cream); font-family: 'Inter', sans-serif; font-size: 0.95rem; }
-    .filter-input:focus { outline: none; border-color: var(--amber); box-shadow: 0 0 0 2px rgba(193,122,43,0.1); }
+    .filter-input:focus { outline: none; border-color: var(--amber); }
 
     /* GRID */
     .page-content { max-width: 1300px; margin: 0 auto; padding: 40px 5% 80px; }
@@ -52,7 +52,6 @@
     .beer-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(0,0,0,0.6); border-color: rgba(193,122,43,0.5); }
     .beer-img-container { width: 100%; height: 240px; position: relative; background: var(--dark3); }
     .beer-img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: opacity 0.4s; }
-    .beer-card:hover .beer-img { opacity: 1; }
     .beer-badge { position: absolute; top: 18px; right: 18px; background: var(--amber); color: var(--dark); font-family: 'Oswald', sans-serif; font-size: 0.75rem; font-weight: 700; padding: 5px 12px; border-radius: 4px; z-index: 2; box-shadow: 0 4px 12px rgba(0,0,0,0.4); }
     
     .beer-body { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
@@ -62,18 +61,35 @@
     
     .beer-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 20px; border-top: 1px solid rgba(193,122,43,0.1); }
     .stat-tag { background: rgba(193, 122, 43, 0.08); border: 1px solid rgba(193, 122, 43, 0.2); color: var(--cream); padding: 4px 10px; border-radius: 4px; font-size: 0.78rem; font-weight: 600; margin-right: 6px; }
-    .beer-price { font-family: 'Oswald', sans-serif; font-weight: 700; color: var(--cream); font-size: 1.2rem; letter-spacing: 0.5px; }
+    .beer-price { font-family: 'Oswald', sans-serif; font-weight: 700; color: var(--cream); font-size: 1.2rem; }
+
+    /* CHAT STYLES */
+    #chat-teaser { position: fixed; bottom: 90px; right: 20px; z-index: 9999; max-width: 280px; opacity: 0; transform: translateY(10px) scale(0.95); transition: opacity 0.4s ease, transform 0.4s ease; pointer-events: none; }
+    #chat-teaser.visible { opacity: 1; transform: translateY(0) scale(1); pointer-events: all; }
+    #chat-teaser.hidden { opacity: 0 !important; transform: translateY(10px) scale(0.95) !important; pointer-events: none !important; }
+    .teaser-bubble { background: var(--dark2); border: 1.5px solid var(--amber); border-radius: 16px 16px 4px 16px; padding: 14px 36px 14px 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.55); position: relative; }
+    .teaser-bubble::after { content: ''; position: absolute; bottom: -10px; right: 18px; width: 0; height: 0; border-left: 10px solid transparent; border-top: 10px solid var(--amber); }
+    .teaser-bubble::before { content: ''; position: absolute; bottom: -8px; right: 19px; width: 0; height: 0; border-left: 9px solid transparent; border-top: 9px solid var(--dark2); z-index: 1; }
+    .teaser-text { font-size: 0.88rem; color: var(--cream); line-height: 1.55; }
+    .teaser-text strong { color: var(--amber-light); }
+    .teaser-close { position: absolute; top: 8px; right: 10px; background: none; border: none; color: rgba(212,196,160,0.5); font-size: 1rem; cursor: pointer; }
+    #custom-chat-btn { position: fixed; bottom: 16px; right: 16px; z-index: 9999; width: 64px; height: 64px; background: transparent; border: none; padding: 0; cursor: pointer; transition: transform .2s; }
+    #custom-chat-btn:hover { transform: scale(1.1); }
+    #custom-chat-btn img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    #chat-panel { position: fixed; bottom: 90px; right: 16px; z-index: 9998; width: 380px; height: 560px; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.6); border: 1px solid rgba(193,122,43,0.3); display: none; flex-direction: column; }
+    #chat-panel.open { display: flex; }
+    #chat-panel iframe { width: 100%; flex: 1; border: none; }
 
     .loading { text-align: center; padding: 100px 20px; grid-column: 1/-1; }
     .spinner { width: 44px; height: 44px; border: 3px solid rgba(193,122,43,0.1); border-top-color: var(--amber); border-radius: 50%; animation: spin .8s linear infinite; margin: 0 auto 20px; }
     @keyframes spin { to { transform: rotate(360deg); } }
 
     footer { background: #080503; padding: 40px 5%; border-top: 1px solid rgba(193,122,43,0.15); text-align: center; }
-    footer p { font-size: 0.85rem; color: rgba(180,160,120,0.4); letter-spacing: 0.5px; }
+    footer p { font-size: 0.85rem; color: rgba(180,160,120,0.4); }
 
     @media(max-width:900px) { 
       .nav-center { display: none; } 
       .nav-logo img { height: 90px; width: 90px; } 
       .taplist-filters { grid-template-columns: 1fr; }
-      .page-hero { padding: 100px 5% 60px; }
+      #chat-panel { width: calc(100vw - 32px); }
     }
