@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://brewpub.getkrowd.com/beerclub/</loc>
+    <lastmod>2026-05-29T12:06:17.722Z</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://brewpub.getkrowd.com/</loc>
+    <lastmod>2026-05-27T01:24:08.516Z</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>https://brewpub.getkrowd.com/taplist/</loc>
-    <lastmod>2026-05-06T18:06:55.524Z</lastmod>
+    <lastmod>2026-05-06T18:06:59.991Z</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
@@ -23,11 +33,6 @@
   <url>
     <loc>https://brewpub.getkrowd.com/specials/</loc>
     <lastmod>2026-05-04T14:09:59.907Z</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://brewpub.getkrowd.com/</loc>
-    <lastmod>2026-05-03T23:26:37.921Z</lastmod>
     <changefreq>weekly</changefreq>
   </url>
 </urlset>
