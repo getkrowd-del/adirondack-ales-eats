@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;600;700;900&family=Barlow+Condensed:wght@700;900&display=swap" rel="stylesheet"/>
+
+
+<!-- SEO Meta Tags -->
+<title>High Peaks Perks VIP Club | Adirondack Ales &amp; Eats</title>
+<meta name="description" content="Join the High Peaks Perks VIP Club at Adirondack Ales &amp; Eats. Free loyalty pass, BOGO drinks, family deals, and birthday bonus. Upgrade to VIP for $29/month." />
+<meta property="og:title" content="High Peaks Perks VIP Club | Adirondack Ales &amp; Eats" />
+<meta property="og:description" content="Join the High Peaks Perks VIP Club at Adirondack Ales &amp; Eats. Free loyalty pass, BOGO drinks, family deals, and birthday bonus. Upgrade to VIP for $29/month." />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="High Peaks Perks VIP Club | Adirondack Ales &amp; Eats" />
+<meta name="twitter:description" content="Join the High Peaks Perks VIP Club at Adirondack Ales &amp; Eats. Free loyalty pass, BOGO drinks, family deals, and birthday bonus. Upgrade to VIP for $29/month." />
+<!-- End SEO Meta Tags -->
+<meta name="sheet-data-url" content="https://paymegpt.com/api/public/landing-pages/4354/sheet-data">
+<meta name="sheet-rows-url" content="https://paymegpt.com/api/public/landing-pages/4354/sheet-rows">
+<meta name="sheet-writes-enabled" content="true">
+<meta name="sheet-allow-create" content="true">
+<meta name="sheet-allow-delete" content="false">
+
+
+<script data-field-replace>
+(function(){
+  var params=new URLSearchParams(window.location.search);
+  var fields={};
+  var paramMap={
+    'first_name':'firstName','last_name':'lastName','full_name':'fullName',
+    'email':'email','phone':'phone','company':'company',
+    'city':'city','state':'state','country':'country'
+  };
+  var skipTags={'SCRIPT':1,'STYLE':1,'NOSCRIPT':1,'TEXTAREA':1,'CODE':1,'PRE':1};
+  var hasUrlFields=false;
+  for(var p in paramMap){
+    var v=params.get(p);
+    if(v){fields[paramMap[p]]=v;hasUrlFields=true;}
+  }
+  var contactId=params.get('contact_id');
+  function esc(s){
+    if(!s)return s;
+    var d=document.createElement('div');
+    d.appendChild(document.createTextNode(s));
+    return d.innerHTML;
+  }
+  function doReplace(data){
+    var r={};
+    r['{{full_name}}']=esc(((data.firstName||'')+' '+(data.lastName||'')).trim()||((data.fullName||data.name)||''));
+    r['{{first_name}}']=esc(data.firstName||(data.name?data.name.split(' ')[0]:'')||'');
+    r['{{last_name}}']=esc(data.lastName||(data.name&&data.name.indexOf(' ')>-1?data.name.substring(data.name.indexOf(' ')+1):'')||'');
+    r['{{email}}']=esc(data.email||'');
+    r['{{phone}}']=esc(data.phone||'');
+    r['{{company}}']=esc(data.company||'');
+    r['{{city}}']=esc(data.city||'');
+    r['{{state}}']=esc(data.state||'');
+    r['{{country}}']=esc(data.country||'');
+    r['{{date}}']=new Date().toLocaleDateString();
+    r['{{time}}']=new Date().toLocaleTimeString();
+    r['{{location}}']=[data.city,data.state,data.country].filter(Boolean).join(', ');
+    r['{{tracking_id}}']=esc(data.trackingId||'');
+    r['{{lastClickedProduct}}']=esc(data.lastClickedProduct||'');
+    r['{{lastProductClickDate}}']=esc(data.lastProductClickDate||'');
+    r['{{lastClickedProductPrice}}']=esc(data.lastClickedProductPrice||'');
+    r['{{lastClickedProductURL}}']=esc(data.lastClickedProductURL||'');
+    r['{{productsClickedCount}}']=esc(data.productsClickedCount||'0');
+    r['{{ip_address}}']=esc(data.ipAddress||'');
+    r['{{ip}}']=esc(data.ipAddress||'');
+    if(data.customFields){
+      for(var k in data.customFields){
+        r['{{'+k+'}}']=esc(String(data.customFields[k]||''));
+      }
+    }
+    params.forEach(function(v,k){
+      if(!paramMap[k]&&k!=='contact_id'&&k!=='page_id'&&k.indexOf('utm_')!==0){
+        r['{{'+k+'}}']=esc(v);
+      }
+    });
+    var hasValues=false;
+    for(var key in r){if(r[key]){hasValues=true;break;}}
+    if(!hasValues)return;
+    var walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{
+      acceptNode:function(n){
+        var p=n.parentNode;
+        if(p&&skipTags[p.nodeName])return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var node;
+    while(node=walker.nextNode()){
+      var txt=node.nodeValue;
+      if(txt&&txt.indexOf('{{')>-1){
+        var changed=txt;
+        for(var ph in r){
+          if(r[ph]&&changed.indexOf(ph)>-1){
+            changed=changed.split(ph).join(r[ph]);
+          }
+        }
+        if(changed!==txt)node.nodeValue=changed;
+      }
+    }
+    var attrs=['value','placeholder','content','alt','title'];
+    attrs.forEach(function(attr){
+      var els=document.querySelectorAll('['+attr+'*="{{"]');
+      for(var i=0;i<els.length;i++){
+        var tag=els[i].tagName;
+        if(skipTags[tag])continue;
+        var val=els[i].getAttribute(attr);
+        if(val){
+          var nv=val;
+          for(var ph in r){
+            if(r[ph]&&nv.indexOf(ph)>-1){
+              nv=nv.split(ph).join(r[ph]);
+            }
+          }
+          if(nv!==val)els[i].setAttribute(attr,nv);
+        }
+      }
+    });
+  }
+  function run(){
+    if(contactId){
+      var xhr=new XMLHttpRequest();
+      xhr.open('GET','https://paymegpt.com/api/landing/context/'+encodeURIComponent(contactId)+'?page_id=4354');
+      xhr.onload=function(){
+        if(xhr.status===200){
+          try{
+            var resp=JSON.parse(xhr.responseText);
+            if(resp.success&&resp.contact){
+              var merged=resp.contact;
+              for(var k in fields){merged[k]=fields[k];}
+              doReplace(merged);
+              return;
+            }
+          }catch(e){}
+        }
+        if(hasUrlFields)doReplace(fields);
+      };
+      xhr.onerror=function(){if(hasUrlFields)doReplace(fields);};
+      xhr.send();
+    }else if(hasUrlFields){
+      doReplace(fields);
+    }
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',run);}
+  else{run();}
+})();
+</script>
+<script data-payment>
+(function(){
+  var slug='YWjHxLXy';
+  var apiBase='https://paymegpt.com';
+  var successSubtext='';var successBtnLabel='Continue';var successBtnColor='#16a34a';var successRedirect='';
+  function findEmail(){
+    var ids=['email','emailAddress','buyer-email','buyerEmail','user-email','userEmail','checkout-email','customer-email','contact-email'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.includes('@'))return el.value.trim();}
+    var inputs=document.querySelectorAll('input[type="email"],input[name*="email"],input[placeholder*="email"],input[placeholder*="Email"]');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.includes('@'))return inputs[j].value.trim();}
+    return '';
+  }
+  function findName(){
+    var ids=['name','fullName','full-name','buyer-name','buyerName','customer-name','userName','user-name'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value)return el.value.trim();}
+    var inputs=document.querySelectorAll('input[name*="name"]:not([name*="email"]):not([type="email"]),input[placeholder*="name"]:not([placeholder*="email"]):not([type="email"]),input[placeholder*="Name"]:not([type="email"])');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value)return inputs[j].value.trim();}
+    return '';
+  }
+  var __realProcessPayment=function(a,b,c,d,e){
+    var amountCents,email,productName,productDescription,customerName,quantity;
+    if(a&&typeof a==='object'){
+      amountCents=a.amountCents;email=a.email;productName=a.productName;
+      productDescription=a.productDescription||'';customerName=a.name||'';quantity=a.quantity||1;
+    }else{
+      amountCents=typeof a==='number'?a:0;productName=typeof b==='string'?b:'';
+      productDescription=typeof c==='string'?c:'';email='';customerName='';quantity=1;
+    }
+    if(!email)email=findEmail();
+    if(!customerName)customerName=findName();
+    if(!productName){alert('Product name is required.');return Promise.reject('no_product_name');}
+    if(!amountCents||amountCents<100){alert('Amount must be at least $1.00');return Promise.reject('invalid_amount');}
+    if(!email){alert('Please enter your email address.');return Promise.reject('no_email');}
+    var successBase=window.location.href.split('?')[0];
+    var __pLoc=(document.documentElement.lang||navigator.language||'en');
+    return fetch(apiBase+'/api/landing-pages/public/'+slug+'/payment/checkout',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({email:email,name:customerName,amountCents:amountCents,productName:productName,productDescription:productDescription,quantity:quantity,locale:__pLoc,successUrl:successBase+'?payment=success&product='+encodeURIComponent(productName)+'&session_id={CHECKOUT_SESSION_ID}',cancelUrl:successBase+'?payment=cancelled'})
+    }).then(function(r){return r.json();}).then(function(d){
+      if(d.checkoutUrl){window.location.href=d.checkoutUrl;}
+      else{alert(d.error||'Failed to process payment');throw new Error(d.error);}
+    });
+  };
+  Object.defineProperty(window,'__processPayment',{value:__realProcessPayment,writable:false,configurable:false});
+  document.addEventListener('DOMContentLoaded',function(){
+    var urlParams=new URLSearchParams(window.location.search);
+    if(urlParams.get('payment')==='success'){
+      var pName=urlParams.get('product')||'your item';
+      var overlay=document.createElement('div');overlay.id='payment-success-overlay';
+      overlay.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;';
+      function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+      var subTxt=successSubtext||('Thank you for purchasing '+pName+'.');
+      overlay.innerHTML='<div style="background:white;border-radius:16px;padding:40px;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.15);"><div style="width:64px;height:64px;border-radius:50%;background:#dcfce7;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#111827;">Payment Successful!</h2><p style="margin:0 0 24px;color:#6b7280;font-size:16px;">'+esc(subTxt)+'</p><button id="lp-pay-success-btn" style="padding:12px 32px;font-size:16px;font-weight:600;background:'+successBtnColor+';color:white;border:none;border-radius:8px;cursor:pointer;">'+esc(successBtnLabel)+'</button></div>';
+      document.body.appendChild(overlay);
+      var pBtn=document.getElementById('lp-pay-success-btn');
+      if(pBtn){pBtn.addEventListener('click',function(){if(successRedirect){window.location.href=successRedirect;}else{overlay.remove();window.history.replaceState({},'',window.location.pathname);}});}
+    }
+  });
+})();
+</script>  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="https://brewpub.getkrowd.com/" class="nav-logo">
+      <div class="nav-logo-icon">🍺</div>
+      <div class="nav-logo-text">
+        <span class="n">Adirondack Ales & Eats</span>
+        <span class="s">High Peaks Perks VIP Club</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="https://brewpub.getkrowd.com/">Home</a>
+      <a href="https://brewpub.getkrowd.com/taplist/">Tap List</a>
+      <a href="https://brewpub.getkrowd.com/events/">Events</a>
+      <a href="#signup">Join Now</a>
+    </div>
+    <a href="#signup" class="nav-cta">Join Free 🍺</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-ov"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">🏔️ Members Only · Adirondack Ales & Eats</div>
+    <h1>High Peaks Perks<br/><span class="amber">VIP Club</span></h1>
+    <p class="hero-desc">Get exclusive passes, deals, and member perks — free to join. Upgrade anytime to unlock even bigger VIP benefits every month.</p>
+    <div class="hero-btns">
+      <a href="#free-passes" class="btn-primary">View Free Passes</a>
+      <a href="#vip" class="btn-secondary">See VIP — $29/mo</a>
+    </div>
+  </div>
+</section>
+
+<!-- FREE TIER -->
+<section class="sec free-sec" id="free-passes">
+  <div class="sec-inner">
+    <div class="tier-label">✅ Free</div>
+    <div class="label">Loyalty Passes</div>
+    <h2 class="sec-title">Your Free Member Passes</h2>
+    <p class="sec-sub">Join for free and get instant access to these passes. Show them to your server or use them at checkout.</p>
+    <div class="passes-grid">
+
+      <!-- LOYALTY PASS -->
+      <div class="pass-card">
+        <div class="pass-header">
+          <h3>Loyalty Pass</h3>
+          <div class="pass-subtitle">Free Member Benefit</div>
+        </div>
+        <div class="pass-body">
+          <div class="pass-deal">Enjoy 10% Off All Food!</div>
+          <button class="pass-details-link" onclick="toggleDetails(this)">View details</button>
+          <div class="pass-details-text">Get 10% off your entire food order every visit as a free member. Valid for dine-in and carry-out. Cannot be combined with other offers.</div>
+          <div class="pass-instruction">Show This Pass To Your Server Before You Click The Button Below</div>
+        </div>
+      </div>
+
+      <!-- BOGO DRINK PASS -->
+      <div class="pass-card">
+        <div class="pass-header">
+          <h3>BOGO Drink Pass</h3>
+          <div class="pass-subtitle">Free Member Benefit</div>
+        </div>
+        <div class="pass-body">
+          <div class="pass-deal">Enjoy a BOGO Beer, Cocktail or Other Beverage!</div>
+          <button class="pass-details-link" onclick="toggleDetails(this)">View details</button>
+          <div class="pass-details-text">Buy one beer, cocktail, or other beverage and get a second of equal or lesser value free. Valid once per visit. Must be 21+ to redeem.</div>
+          <div class="pass-instruction">Show This Pass To Your Server Before You Click The Button Below</div>
+        </div>
+      </div>
+
+      <!-- FAMILY $40 PASS -->
+      <div class="pass-card">
+        <div class="pass-header">
+          <h3>Family $40 Pass</h3>
+          <div class="pass-subtitle">Free Member Benefit</div>
+        </div>
+        <div class="pass-body">
+          <div class="pass-deal">Enjoy a Large Pizza, Salad and Pretzel Bites or Bruschetta for Only $40!</div>
+          <button class="pass-details-link" onclick="toggleDetails(this)">View details</button>
+          <div class="pass-details-text">Get a large pizza, a salad, and your choice of pretzel bites or bruschetta for just $40. Perfect for family night. Valid for dine-in or carry-out.</div>
+          <a href="https://brewpub.getkrowd.com/order/" class="pass-instruction order-btn">Click the button below to place your carry-out order</a>
+        </div>
+      </div>
+
+      <!-- BIRTHDAY BONUS -->
+      <div class="pass-card">
+        <div class="pass-header">
+          <h3>Birthday Bonus</h3>
+          <div class="pass-subtitle">Free Member Benefit</div>
+        </div>
+        <div class="pass-body">
+          <div class="pass-deal">Enjoy a Free Dessert!</div>
+          <button class="pass-details-link" onclick="toggleDetails(this)">View details</button>
+          <div class="pass-details-text">On your birthday month, enjoy a complimentary dessert on us. Valid once per year during your birthday month with any purchase.</div>
+          <div class="pass-instruction">Show This Pass To Your Server Before You Click The Button Below</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- VIP TIER -->
+<section class="sec" id="vip" style="background:var(--dark)">
+  <div class="sec-inner">
+    <div class="tier-label">⭐ $29/month</div>
+    <div class="label">VIP Membership</div>
+    <h2 class="sec-title">A Special VIP Deal Every Month</h2>
+    <p class="sec-sub">Choose between three incredible monthly rewards — plus ongoing perks that add up to over $700 in value every year.</p>
+
+    <div class="vip-card">
+      <div class="vip-header">
+        <h2>VIP Member</h2>
+        <div class="vip-price-block">
+          <div class="vip-price">$29</div>
+          <div class="vip-period">/ month</div>
+        </div>
+      </div>
+      <div class="vip-body">
+        <div class="vip-tagline">Choose Between... Your Monthly VIP Deal</div>
+        <div class="vip-choice-label">Pick one each month:</div>
+        <div class="vip-choices">
+          <div class="vip-choice">
+            <div class="vip-choice-num">1</div>
+            <div>A <strong>$35 Credit</strong> toward any bill</div>
+          </div>
+          <div class="vip-choice">
+            <div class="vip-choice-num">2</div>
+            <div>A <strong>Large Specialty Pizza and Salad Combo</strong></div>
+          </div>
+          <div class="vip-choice">
+            <div class="vip-choice-num">3</div>
+            <div><strong>4 6-Packs To Go</strong> from our location • Valid for dine-in or carry-out</div>
+          </div>
+        </div>
+
+        <hr class="vip-divider"/>
+        <div class="vip-perks-label">Plus you get all of this every month:</div>
+        <div class="vip-perks">
+          <div class="vip-perk">20% Off Every Meal (Dine-In or Carry-Out)</div>
+          <div class="vip-perk">4 BOGO Free Drinks Every Month (Limit 2 Per Visit)</div>
+          <div class="vip-perk">Exclusive Discounts on Family Dinner Combos</div>
+          <div class="vip-perk">A Free Birthday Dessert Every Year</div>
+          <div class="vip-perk">20% Off All Merchandise</div>
+          <div class="vip-perk">All Offers Available Instantly</div>
+        </div>
+
+        <div class="vip-value">🏆 More Than $700 in Value Every Year — All Offers Available Instantly</div>
+
+        <a href="#signup" class="vip-btn" onclick="selectTier('vip')">Join VIP — $29/month →</a>
+        <div class="vip-note">Cancel anytime. No setup fees. Perks activate immediately after confirmation.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNUP -->
+<section class="sec form-sec" id="signup">
+  <div class="sec-inner">
+    <div class="label">Get Started</div>
+    <h2 class="sec-title">Join High Peaks Perks</h2>
+    <div class="form-wrap">
+      <div class="tier-selector">
+        <div class="ts-opt selected" id="opt-free" onclick="selectTier('free')">
+          <div class="ts-name">Free</div>
+          <div class="ts-price">$0 / forever</div>
+          <div class="ts-note">Loyalty passes included</div>
+          <div class="ts-badge">No Cost</div>
+        </div>
+        <div class="ts-opt" id="opt-vip" onclick="selectTier('vip')">
+          <div class="ts-name">VIP</div>
+          <div class="ts-price">$29 / month</div>
+          <div class="ts-note">Cancel anytime</div>
+        </div>
+      </div>
+      <form id="joinForm">
+        <input type="hidden" id="selectedTier" value="Free Member"/>
+        <div class="frow">
+          <div class="fg"><label>First Name *</label><input type="text" id="fname" required placeholder="John"/></div>
+          <div class="fg"><label>Last Name *</label><input type="text" id="lname" required placeholder="Smith"/></div>
+        </div>
+        <div class="fg"><label>Email Address *</label><input type="email" id="email" required placeholder="you@example.com"/></div>
+        <div class="fg"><label>Phone Number</label><input type="tel" id="phone" placeholder="(315) 555-0100"/></div>
+        <div class="fg"><label>Birthday Month (for Birthday Bonus)</label>
+          <select id="bday">
+            <option value="">Select month</option>
+            <option>January</option><option>February</option><option>March</option><option>April</option>
+            <option>May</option><option>June</option><option>July</option><option>August</option>
+            <option>September</option><option>October</option><option>November</option><option>December</option>
+          </select>
+        </div>
+        <button type="submit" class="submit-btn" id="submitBtn">🏔️ Join High Peaks Perks</button>
+        <p class="form-note">Free members get instant pass access. VIP members — we'll reach out to confirm and activate your account. No charge until confirmed.</p>
+      </form>
+      <div class="success-box" id="successBox">
+        <div class="si">🏔️</div>
+        <h3>Welcome to High Peaks Perks!</h3>
+        <p>You're in! Check your email shortly for your member passes and account details. Your perks are ready to use on your next visit.<br/><br/>See you at the bar! 🍺</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<div class="final">
+  <div class="final-inner">
+    <h2>Your Perks Are Waiting.<br/>Join Free Today.</h2>
+    <p>Start with free passes and upgrade to VIP anytime. Over $700 in value — all available instantly.</p>
+    <div class="final-btns">
+      <a href="#signup" class="btn-w" onclick="selectTier('free')">Join Free Now</a>
+      <a href="#signup" class="btn-ow" onclick="selectTier('vip')">Go VIP — $29/mo</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-brand">Adirondack Ales & Eats — High Peaks Perks</div>
+  <p>Member perks valid at Adirondack Ales & Eats. <a href="https://brewpub.getkrowd.com/">Back to main site →</a></p>
+  <p style="margin-top:.5rem">© 2026 Adirondack Ales & Eats. All rights reserved.</p>
+</footer>
+
+<script>
+var selTier = 'free';
+
+function selectTier(t) {
+  selTier = t;
+  document.getElementById('opt-free').classList.toggle('selected', t==='free');
+  document.getElementById('opt-vip').classList.toggle('selected', t==='vip');
+  document.getElementById('selectedTier').value = t==='free' ? 'Free Member' : 'VIP - $29/month';
+  document.getElementById('submitBtn').textContent = t==='free' ? '🏔️ Join Free — High Peaks Perks' : '⭐ Join VIP — $29/month';
+  setTimeout(function(){ document.getElementById('signup').scrollIntoView({behavior:'smooth'}); }, 80);
+}
+
+function toggleDetails(btn) {
+  var details = btn.nextElementSibling;
+  var isOpen = details.classList.contains('open');
+  details.classList.toggle('open', !isOpen);
+  btn.textContent = isOpen ? 'View details' : 'Hide details';
+}
+
+document.getElementById('joinForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  var btn = document.getElementById('submitBtn');
+  btn.textContent = 'Sending...'; btn.disabled = true;
+  var today = new Date().toLocaleDateString('en-US',{month:'numeric',day:'numeric',year:'numeric'});
+  var fname = document.getElementById('fname').value.trim();
+  var lname = document.getElementById('lname').value.trim();
+  var email = document.getElementById('email').value.trim();
+  var phone = document.getElementById('phone').value.trim();
+  var bday  = document.getElementById('bday').value;
+  var tier  = document.getElementById('selectedTier').value;
+
+  try {
+    await fetch('https://paymegpt.com/api/public/landing-pages/4354/sheet-rows', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({
+        data: {
+          'Date Joined': today,
+          'First Name': fname,
+          'Last Name': lname,
+          'Email': email,
+          'Phone': phone,
+          'Plan': tier,
+          'Birthday Month': bday,
+          'Status': tier === 'Free Member' ? 'Active' : 'Pending Confirmation',
+          'Notes': 'Signed up via High Peaks Perks page'
+        }
+      })
+    });
+  } catch(err) { console.log('Sheet write error:', err); }
+
+  document.getElementById('joinForm').style.display = 'none';
+  document.getElementById('successBox').style.display = 'block';
+});
+</script>
+  <script src="script.js"></script>
+</body>
+</html>
