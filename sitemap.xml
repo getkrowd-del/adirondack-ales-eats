@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://brewpub.getkrowd.com/beerclub/</loc>
-    <lastmod>2026-05-29T12:22:47.894Z</lastmod>
+    <loc>https://brewpub.getkrowd.com/delivery/test-rome-jank/</loc>
+    <lastmod>2026-07-09T23:23:53.916Z</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://brewpub.getkrowd.com/</loc>
-    <lastmod>2026-05-29T12:19:50.373Z</lastmod>
+    <lastmod>2026-07-09T16:46:17.151Z</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://brewpub.getkrowd.com/beerclub/</loc>
+    <lastmod>2026-07-09T16:46:07.529Z</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
