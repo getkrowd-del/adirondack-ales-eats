@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://brewpub.getkrowd.com/taplist/</loc>
+    <lastmod>2026-07-31T11:32:35.669Z</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://brewpub.getkrowd.com/beerclub/</loc>
+    <lastmod>2026-07-29T16:56:59.872Z</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://brewpub.getkrowd.com/drinks/eagle-bay-coffee-vanilla-baltic-porter/</loc>
+    <lastmod>2026-07-21T16:31:05.911Z</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://brewpub.getkrowd.com/delivery/test-rome-jank/</loc>
+    <lastmod>2026-07-21T16:30:54.379Z</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://brewpub.getkrowd.com/drinks/old-forge-coffee-nitro/</loc>
+    <lastmod>2026-07-10T00:18:21.082Z</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://brewpub.getkrowd.com/drinks/old-forge-imperial-stout/</loc>
+    <lastmod>2026-07-10T00:17:35.418Z</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>https://brewpub.getkrowd.com/drinks/eagle-bay-ipa/</loc>
     <lastmod>2026-07-10T00:13:13.347Z</lastmod>
     <changefreq>weekly</changefreq>
@@ -13,11 +43,6 @@
   <url>
     <loc>https://brewpub.getkrowd.com/drinks/eagle-bay-extra-special-bitter/</loc>
     <lastmod>2026-07-10T00:12:42.098Z</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://brewpub.getkrowd.com/drinks/eagle-bay-coffee-vanilla-baltic-porter/</loc>
-    <lastmod>2026-07-10T00:12:25.752Z</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
@@ -51,11 +76,6 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://brewpub.getkrowd.com/drinks/old-forge-imperial-stout/</loc>
-    <lastmod>2026-07-10T00:10:14.631Z</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
     <loc>https://brewpub.getkrowd.com/drinks/old-forge-imperial-red-ale/</loc>
     <lastmod>2026-07-10T00:09:57.649Z</lastmod>
     <changefreq>weekly</changefreq>
@@ -86,11 +106,6 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://brewpub.getkrowd.com/drinks/old-forge-coffee-nitro/</loc>
-    <lastmod>2026-07-10T00:08:08.983Z</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
     <loc>https://brewpub.getkrowd.com/drinks/old-forge-brown-ale/</loc>
     <lastmod>2026-07-10T00:07:47.841Z</lastmod>
     <changefreq>weekly</changefreq>
@@ -101,23 +116,8 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://brewpub.getkrowd.com/delivery/test-rome-jank/</loc>
-    <lastmod>2026-07-09T23:23:53.916Z</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
     <loc>https://brewpub.getkrowd.com/</loc>
     <lastmod>2026-07-09T16:46:17.151Z</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://brewpub.getkrowd.com/beerclub/</loc>
-    <lastmod>2026-07-09T16:46:07.529Z</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://brewpub.getkrowd.com/taplist/</loc>
-    <lastmod>2026-05-06T18:06:59.991Z</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
