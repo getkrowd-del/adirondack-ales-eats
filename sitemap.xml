@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://brewpub.getkrowd.com/</loc>
+    <lastmod>2026-07-31T11:37:36.938Z</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>https://brewpub.getkrowd.com/taplist/</loc>
-    <lastmod>2026-07-31T11:32:35.669Z</lastmod>
+    <lastmod>2026-07-31T11:34:30.528Z</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
@@ -113,11 +118,6 @@
   <url>
     <loc>https://brewpub.getkrowd.com/drinks/old-forge-barrel-aged-scotch-ale/</loc>
     <lastmod>2026-07-10T00:07:28.997Z</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://brewpub.getkrowd.com/</loc>
-    <lastmod>2026-07-09T16:46:17.151Z</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
