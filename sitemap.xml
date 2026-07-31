@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://brewpub.getkrowd.com/delivery/test-rome-jank/</loc>
+    <lastmod>2026-07-31T11:38:18.617Z</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>https://brewpub.getkrowd.com/beerclub/</loc>
     <lastmod>2026-07-31T11:38:14.145Z</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://brewpub.getkrowd.com/</loc>
-    <lastmod>2026-07-31T11:38:09.759Z</lastmod>
+    <lastmod>2026-07-31T11:38:14.120Z</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
@@ -18,11 +23,6 @@
   <url>
     <loc>https://brewpub.getkrowd.com/drinks/eagle-bay-coffee-vanilla-baltic-porter/</loc>
     <lastmod>2026-07-21T16:31:05.911Z</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://brewpub.getkrowd.com/delivery/test-rome-jank/</loc>
-    <lastmod>2026-07-21T16:30:54.379Z</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
