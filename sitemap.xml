@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://brewpub.getkrowd.com/taplist/</loc>
+    <lastmod>2026-07-31T11:43:18.633Z</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://brewpub.getkrowd.com/drinks/eagle-bay-extra-special-bitter/</loc>
+    <lastmod>2026-07-31T11:42:29.619Z</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>https://brewpub.getkrowd.com/events/</loc>
     <lastmod>2026-07-31T11:39:33.830Z</lastmod>
     <changefreq>weekly</changefreq>
@@ -81,11 +91,6 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://brewpub.getkrowd.com/drinks/eagle-bay-extra-special-bitter/</loc>
-    <lastmod>2026-07-31T11:38:35.816Z</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
     <loc>https://brewpub.getkrowd.com/drinks/eagle-bay-coffee-vanilla-baltic-porter/</loc>
     <lastmod>2026-07-31T11:38:32.295Z</lastmod>
     <changefreq>weekly</changefreq>
@@ -118,11 +123,6 @@
   <url>
     <loc>https://brewpub.getkrowd.com/</loc>
     <lastmod>2026-07-31T11:38:14.120Z</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://brewpub.getkrowd.com/taplist/</loc>
-    <lastmod>2026-07-31T11:34:30.528Z</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
